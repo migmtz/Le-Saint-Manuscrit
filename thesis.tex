@@ -1,0 +1,77 @@
+\documentclass[mainlanguage=english,french, spanish, oneside=True,
+localtocs=True, output=screen, fncychap=Bjornstrup, version=inprogress]{yathesis}
+% Set oneside=False for pages for printing blank between chapters
+% version to control what appears under
+% localtocs for summary by chapter 
+
+% preambule
+\input{macros/preambule}
+
+% yathesis configuration (choisissez votre labo !)
+\input{config/yathesis_lpsm}
+
+% macros
+\input{macros/macros}
+
+\input{macros/color}
+% la bibliographie
+\usepackage[backend=biber, style=authoryear, maxbibnames=6, maxcitenames=1, 
+uniquename=false, uniquelist=false,
+firstinits=false, doi=false,isbn=false,url=false]{biblatex}
+
+\addbibresource{bibliographie.bib}
+
+\begin{document}
+
+% informations sur la these
+\input{config/infos}
+
+% informations dépendantes du labo (choisissez votre labo !)
+\input{config/infos_lpsm}
+
+\maketitle[frametitle=none]
+
+% \makekeywords
+
+\makelaboratory
+
+\dedication{A mi madre, mi padre, mi tia, y toda mi gente amada.}
+\makededications
+
+% Épigraphes(s) :
+\frontepigraph[spanish]{La vida sería mucho más agradable si uno pudiera llevarse a dónde quiera que fuera los sabores y los olores de la casa materna.}{Laura Esquivel}
+\frontepigraph[english]{What I need is the dandelion in the spring. The bright yellow that means rebirth instead of destruction. The promise that life can go on, no matter how bad our losses. That it can be good again.}{Suzanne Collins}
+\frontepigraph[french]{Il ne faut pas s'offenser que les autres nous cachent la vérité, puisque nous nous la cachons si souvent à nous-mêmes.}{François de La Rochefoucauld}
+% Production de la page de d'épigraphe(s) :
+\makefrontepigraphs
+
+% \include{chapters/remerciements}
+
+\input{abstract}
+
+\makeabstract
+
+\tableofcontents
+
+\mainmatter
+
+\include{chapters/introductionEN}
+%\include{chapters/introductionFR}
+
+\include{chapters/chapitre2}
+\include{chapters/chapitre3}
+\include{chapters/chapitre4}
+
+\appendix
+
+\backmatter
+
+\printbibliography
+
+\makebackcover
+
+\end{document}
+%%% Local Variables:
+%%% flyspell-mode: 1
+%%% ispell-local-dictionary: "french"
+%%% End:

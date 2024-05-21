@@ -1,0 +1,70 @@
+\usepackage{booktabs} % pour des beaux tableaux
+\usepackage{graphicx} % pour \inclugraphics
+\usepackage{pgfplots} % pgfplots
+\usepackage{mathtools,amsthm,amsfonts,amssymb,bm}
+\usepackage{xcolor} % les couleurs
+%\usepackage{algorithmic,algorithm} % les algorithmes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx}
+\usepackage[hidelinks]{hyperref} % Eventually remove
+
+
+% \usepackage{stmaryrd} % \llbracket, \rrbracket
+%\usepackage[margin=3cm]{geometry}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{csquotes}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{cases}
+
+\usepackage{appendix}
+
+
+\newcommand{\colortitlechap}{\color[rgb]{0.9,0.9,0.9}} % color of the chapter title <<<
+
+%\newcommand{\colornumberchap}{\color[rgb]{0.65,0.0,0.15}} % color of the chapter number <<<<
+\newcommand{\colornumberchap}{\color[rgb]{0.843,0.396,0.502}} % color of the chapter number <<<<
+
+\newcommand{\colornumberborder}{\color[rgb]{0.0,0.0,0.0}} % color of the chapter number border <<<<
+
+%\newcommand{\colorbackchap}{\colorbox[rgb]{.749,0.020,0.235}} % color of the background rules <<<
+\newcommand{\colorbackchap}{\colorbox[rgb]{0.835,0.102,0.274}} % color of the background rules <<<
+%\renewcommand{\CNoV}{\fontfamily{ppl}\selectfont\small \itshape}
+\newcommand{\CNoP}{\fontsize{76}{80}\usefont{OT1}{pzc}{m}{n}\selectfont}
+\makeatletter
+
+\renewcommand{\DOCH}{%
+    \settowidth{\py}{\CNoV\thechapter}
+    \addtolength{\py}{-10pt}% 
+    \fboxsep=0pt%
+    \colorbackchap{\rule{0pt}{40pt}\parbox[b]{\textwidth}{\hfill}}%
+    \kern-\py\raise20pt%
+    \hbox{\colornumberborder\CNoV\thechapter}%
+    \addtolength{\py}{11pt}% 
+    \fboxsep=0pt%
+    \kern-\py\raise21pt%
+    \hbox{\colornumberchap\CNoP\thechapter}\\%
+}
+
+\renewcommand{\DOTI}[1]{%
+    \nointerlineskip\raggedright%
+    \fboxsep=\myhi%
+    \vskip-1ex%
+    \colorbackchap{\parbox[t]{\mylen}{\CTV\FmTi{\colortitlechap#1}}}\par\nobreak%
+    \vskip 40\p@%
+}
+
+\renewcommand{\DOTIS}[1]{%
+    \fboxsep=0pt%
+    \colorbackchap{\rule{0pt}{40pt}\parbox[b]{\textwidth}{\hfill}}\\%
+    \nointerlineskip\raggedright%
+    \fboxsep=\myhi%
+    \vskip-1ex%
+    \colorbackchap{\parbox[t]{\mylen}{\CTV\FmTi{\colortitlechap#1}}}\par\nobreak%
+    \vskip 40\p@%
+}
+
+\makeatother
