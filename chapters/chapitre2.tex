@@ -9,6 +9,8 @@
 
 % sec, eq, prop, alg, th, cor, def, fig, app, table
 
+% 
+
 \section{Introduction}
 
 The Hawkes model is a point process observed on the real line, which generally corresponds to the time, where any previously encountered event has a direct influence on the chances of future events occurring. This past-dependent mathematical model was introduced in \textcite{Hawkes1971} and its first application was to model earthquakes occurrences \parencite{Ogata1988, Ogata1998}. Since then, Hawkes processes have been widely used in various fields, for instance finance \parencite{Bacry2013}, social media \parencite{Rizoiu2017, Mishra2016}, epidemiology \parencite{Rizoiu2018}, sociology \parencite{Linderman2014} and neuroscience \parencite{Reynaud2014}.
@@ -225,7 +227,7 @@ In other words, estimators are:
   \hat \theta \in \operatorname{arg\,max}_{\theta \in \Theta} ~
   \left\{ \ell_{T_{N_{max}}}(\theta)
   =
-  \sum_{k=1}^{N_{max}}{\log{(\lambda_\theta(T_k^-)})} - \Lambda_\theta(T_{N_{max}}) \right\},
+  \sum_{k=1}^{N_{max}}{\log{(\lambda_\theta(T_k^-))}} - \Lambda_\theta(T_{N_{max}}) \right\},
 \]
 where
 \(N_{max}=200\) is the total number of jumps
@@ -255,22 +257,22 @@ Let us note that in this case the estimation of \(\bar \alpha\) is rather wrong 
     & \multicolumn{3}{c}{Parameters} & \multicolumn{3}{c}{Estimations} & \\
    & $\bar \lambda_0$ &  $\bar \alpha$ &  $\bar \beta$ & $\hat \lambda_0$ &  $\hat \alpha$ &  $\hat \beta$ &  p-value \\
 \hline
-       Exact&\multirow{2}{*}{0.5 } & \multirow{2}{*}{-0.001 } & \multirow{2}{*}{0.4} &       0.53 & 0.05 & 4.25 & 0.78\\
-       Approx&      &       &       & 0.54 & 0.05 & 4.23 & 0.78\\ \hline
-       Exact&\multirow{2}{*}{0.5 } & \multirow{2}{*}{-0.2 } & \multirow{2}{*}{0.4 } &       0.52 & -0.21 & 0.42  & 0.72    \\
-       Approx&      &       &       &0.52 & -0.22 & 0.44 & 0.70\\ \hline
-       Exact&\multirow{2}{*}{1.05 } & \multirow{2}{*}{-0.75 } & \multirow{2}{*}{0.8 } &       1.06 & -0.76 & 0.80 & 0.69  \\
-       Approx&      &       &       &1.14 & -0.88 & 0.82 & 0.55\\ \hline
-       Exact&\multirow{2}{*}{2.43 } & \multirow{2}{*}{-0.98 } & \multirow{2}{*}{0.4} &       2.55 & -1.01 & 0.39 & 0.73  \\
-       Approx&      &       &       & 2.83 & -1.22 & 0.42 & 0.51 \\ \hline
-       Exact&\multirow{2}{*}{2.85 } & \multirow{2}{*}{-2.5 } & \multirow{2}{*}{1.8} &       2.86 & -2.58 & 1.84 & 0.73\\
-       Approx&      &       &       &$8.44\times10^{3}$ & $-8.15\times10^{6}$ & 2.66  & 0.29\\ \hline
-       Exact&\multirow{2}{*}{1.6 } & \multirow{2}{*}{-0.75 } & \multirow{2}{*}{0.1} &       1.61 & -0.75 & 0.11 & 0.70   \\
-       Approx&      &       &       &$1.36\times10^{7} $& $-1.15\times10^{10}$  & 0.37  & $5.12\times10^{-06}$\\
+       Exact&\multirow{2}{*}{0.5 } & \multirow{2}{*}{-0.001 } & \multirow{2}{*}{0.4} &       0.52 & 0.03 & 2.13 & 0.38\\
+       Approx&      &       &       & 0.52 & 0.03 & 2.11 & 0.38\\ \hline
+       Exact&\multirow{2}{*}{0.5 } & \multirow{2}{*}{-0.2 } & \multirow{2}{*}{0.4 } &       0.51 & -0.21 & 0.45  & 0.42    \\
+       Approx&      &       &       &0.51 & -0.22 & 0.47 & 0.42\\ \hline
+       Exact&\multirow{2}{*}{1.05 } & \multirow{2}{*}{-0.75 } & \multirow{2}{*}{0.8 } &       1.06 & -0.76 & 0.83 & 0.43  \\
+       Approx&      &       &       &1.12 & -0.88 & 0.84 & 0.35\\ \hline
+       Exact&\multirow{2}{*}{2.43 } & \multirow{2}{*}{-0.98 } & \multirow{2}{*}{0.4} &       2.59 & -1.00 & 0.38 & 0.53  \\
+       Approx&      &       &       & 2.90 & -1.21 & 0.40 & 0.45 \\ \hline
+       Exact&\multirow{2}{*}{2.85 } & \multirow{2}{*}{-2.5 } & \multirow{2}{*}{1.8} &       2.81 & -2.56 & 1.87 & 0.36\\
+       Approx&      &       &       &$1.55\times10^{4}$ & $-1.63\times10^{7}$ & 3.04  & 0.07\\ \hline
+       Exact&\multirow{2}{*}{1.6 } & \multirow{2}{*}{-0.75 } & \multirow{2}{*}{0.1} &       1.62 & -0.76 & 0.11 & 0.42   \\
+       Approx&      &       &       &$2.72\times10^{7} $& $-2.31\times10^{10}$  & 0.27  & $2.14\times10^{-05}$\\
 \hline
 \end{tabular}
 \caption{
-Quantitative assessment of the numerical study: sets of true parameters (left), average estimations over 100 repetitions (middle) and average \(p\)-values for the test of Section~\ref{sec:chap1_goodness}.
+\change{Quantitative assessment of the numerical study: sets of true parameters (left), average estimations over 50 repetitions (middle) and average \(p\)-values over 50 independent realisations for the test of Section~\ref{sec:chap1_goodness}}.
 }
 \label{table:chap1_estim_pvalue}
 \end{table}

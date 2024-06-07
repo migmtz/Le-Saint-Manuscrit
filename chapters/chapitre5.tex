@@ -1,0 +1,146 @@
+\leadchapter{
+  ABSTRACT
+}
+
+\chapter[][]{A numerical exploration of spectral methods for thinned Hawkes processes}
+
+\section{Introduction}
+
+INTRODUCTION
+
+\section{Mathematical setting}\label{sec:chap5_mathsetting}
+
+\subsection{The $p$-thinning of point processes}\label{sec:chap5_hawkesprocess}
+
+In this chapter, we will focus our study on the stationary univariate Hawkes process on the real line $\RR$, noted $H$.
+The Hawkes process can be characterised by its conditional intensity function, for all $t\in\RR$:
+\[\lambda(t) = \mu + \int_{-\infty}^{t}{h(t-s)\,H(\dd s)} = \mu + \sum_{T_k \leq t}{h(t-T_k)}\,,\]
+where $\mu > 0$ is the baseline intensity, and $h\colon\RR\to \RR_{\geq 0}$ is the kernel function modelling the self-exciting behaviour of past points $(T_k)_{k\in\ZZ}$.
+
+In order for $H$ to be a point process (\ie an a.s. finite measure in any bounded set $B$), 
+a sufficient and necessary condition \parencite{Hawkes1971} is that 
+\[\|h\|_1 = \int_{\RR}{h(t)\,\dd t} < 1\,.\]
+Furthermore, let $\mathcal{B}_{\RR}^c$ denote the set of bounded Borel sets on $\RR$, and let, for any $B\in\mathcal{B}_{\RR}^c$:
+\[H(B) = \sum_{k\in\ZZ}{\II_{T_k \in B}}\,,\]
+be the number of event times in $B$. 
+
+In this chapter, we will study a thinned version of process $H$ defined as follows:
+\begin{definition}
+For any $p\in(0,1)$, we denote $H_p$ a $p$-thinning of a point process $H$, defined for any $B\in\mathcal{B}_{\RR}^c$ as:
+\[H_p(B) = \sum_{k\in\ZZ}{\II_{T_k \in B} B_k}\,,\]
+where $(Z_k)$ is an i.i.d. collection of Bernoulli random variables of parameter $p$.
+\end{definition}
+
+In practice, the event times of process $H_p$ correspond to a subset of $(T_k)_{k\in\ZZ}$ where each point
+is erased with a random probability $1-p$. 
+
+\subsection{Spectral theory for point processes}
+
+For a point process $H$, we define the first and second-order measures $M_1, M_2$, for any $A, B\in\mathcal{B}_{\RR}^c$, as:
+\[M_1(A) = \EE[H(A)]\,,\qquad M_2(A,B) = \EE[H(A)H(B)]\,.\]
+Under stationarity conditions, it follows that \parencite[Proposition 8.1.I]{DaleyV1}, for any $A, B\in\mathcal{B}_{\RR}^c$:
+\[M_1(A) = m_1 \ell_{\RR}(A)\,,\]
+where $m_1 = \EE[H([0,1])]$ is usually known as the average intensity of process $H$.
+
+The spectral analysis approach of point processes is based on the Bartlett spectrum $\Gamma$ \parencite{Bartlett1963}, 
+a measure on $\RR$ associated to the second-order moment measure $M_2$. 
+To introduce it properly, let us consider the Schwartz space $\mathcal{S}$ defined as:
+\[
+    \mathcal S = \left\{ f \in C^\infty, \forall k \in \{1, 2, \dots\}, \forall r \in \{1, 2, \dots\},
+    \sup_{x \in \RR} \left| x^r
+    f^{(k)}(x)
+    \right| < \infty \right\}\,,
+\] where $C^\infty$ denotes the set of infinitely differentiable functions $f$ from $\RR$ to $\RR$, 
+and $f^{(k)}$ denotes the $k^{th}$-order derivative of $f$.
+In particular, for any $f\in\mathcal{S}$, we define its Fourier transform $\tilde f$, for any $\omega\in\RR$, as:
+\[\tilde f (\omega) = \int_{\RR}{f(x) \mathrm{e}^{-2\pi\iu x \omega}\,\dd x}\,.\]
+
+The Bartlett spectrum of a point process $H$ is the measure $\Gamma$ such that, 
+for any $\varphi\in\mathcal{S}$ \parencite[Definition 2]{Bremaud2005}:
+\begin{equation}\label{eq:chap5_bartlett_variance}
+    \VV\left[\int_{\RR}{\varphi(x)H(\dd x)}\right] = \int_{\RR}{|\tilde\varphi(\omega)|^2\Gamma(\dd \omega)}\,.
+\end{equation}
+Existence of such a measure is esablished for any stationary point process \parencite[Proposition 8.2.I.(a)]{DaleyV1},
+and by polarisation of Equation~\eqref{eq:chap5_bartlett_variance}, we obtain for any $\varphi, \psi \in \mathcal{S}$:
+\begin{equation}\label{eq:chap5_bartlett_covariance}
+v\end{equation}
+
+Whenever $\Gamma$ is an absolutely continous measure, we denote $f:\RR\to \CC$ its Radon-Nikodym derivative, 
+known as the spectral density of process $H$.
+
+Another important quantity in the spectral theory of point processes is the periodogram $I^T\colon \RR \to \CC$:
+for a realisation $(T_k)_{k=1:N(T)}$ of a process $H$ in a time window $[0,T]$, the periodogram is defined, for all $\omega\in\RR$, as:
+\[I^T(\omega) = \frac{1}{T}\sum_{k=1}^{N(T)}\sum_{l=1}^{N(t)}{\mathrm{e}^{-2\pi \iu \omega (T_k - T_l)}}\,.\]
+
+Furthermore, for any sequence $(\omega_k)_{k=1:M}$, such that $\omega_k \neq \omega_l$, for all integers $k\neq l$,
+the random variables $(I^T(\omega_k))_{k=1:M}$ are asymptotically independent and exponentially distributed \parencite{Tuan1981} with respective parameter $(1/f(\omega_k))_{k=1:M}$.
+
+In this chapter, we will work on a parametric setting, 
+so let us assume that we dispose of a statistical model for the spectral density defined as:
+\[
+    \mathcal{P} = \left\{
+        f_\theta \colon \RR \to \CC \colon \theta \in \Theta
+    \right\}\,.
+\]
+We can then define the \textit{spectral} log-likelihood $\ell_T(\theta)$ for an observation $(T_k)_{k=1:N(T)}$ of $H$ as:
+\begin{equation}\label{eq:chap5_spectral_ll}
+    \ell_T(\theta) = -\frac{1}{T}\sum_{k=1}^{M}{\log(f_\theta (\omega_k)) + \frac{I^T(\omega_k)}{f_\theta(\omega_k)}}\,.
+\end{equation}
+
+We can then introduce the Whittle estimator $\hat \theta$ \parencite{Whittle1952} as:
+\[\hat \theta = \arg\max_{\theta \in \Theta}~ \ell_T (\theta)\,.\]
+
+\section{Parametric estimation of a thinned process}\label{sec:chap5_estimation}
+
+\subsection{The spectrum of a thinned point process}
+
+The goal of this chapter is to establish a parametric estimation method for the observation of a thinned Hawkes process.
+We will then begin by establishing the expression of a $p$-thinning of a point process. 
+We will leverage the study of spectral quantities on marked point process, 
+which can be found in \textcite{Bremaud2002, Bremaud2005}. 
+
+For this, let us introduce an alternative way of viewing the $p$-thinning of a point process through marked point process theory.
+In this section, $H$ will denote a stationary point process on $\RR$ with spectral density function $f$.
+
+We define the marked point process $\bar H$ associated to $H$, with marks $Z_k$ on a metric space $\mathcal{K}$ as the collection of points
+$(T_k, Z_k)_{k\in\ZZ} \in (\RR \times \mathcal{K})^{\ZZ}$ (see \textcite[Chapter 6.4]{DaleyV1} for a more thorough presentation of marked point processes). 
+The random marks $Z_k$ are usually used to represent underlying information on the event times of a point process $H$, 
+which is often referred to as the \textit{ground} process.
+In our work, we will restrict ourselves to the case where the random variables $(Z_k)_{k\in\ZZ}$ are independent and identically distributed.
+In this way, process $\bar H$ is well-defined \parencite[6.4.IV(a)]{DaleyV1}.
+
+We can then view a $p$-thinning of $H$ as a marked version $\bar H$ where $\mathcal{K} = [0,1]$
+and the $(Z_k)_{k\in\ZZ}$ are a collection of Bernoulli random variables of parameter $p$.
+This way we may define the thinned process $H_p$, for any $B\in\mathcal{B}^c$, as:
+\[H_p(B) = \bar H(B\times\{1\})\,.\]
+
+Under this scope, we will apply the results of \textcite{Bremaud2005}, 
+that we adapt to our notations here as:
+
+\begin{theorem}[{\textcite[Theorem 2]{Bremaud2005}}]
+    Let $H$ be a stationary point process with Bartlett spectrum measure $\Gamma$ and 
+    let $\bar H$ be a marked version of $H$ with i.i.d. marks $Z_k$ with shared distribution $Z$ on a metric space $\mathcal{K}$.
+    Let $\varphi^\star, \psi^\star$ be measurable functions from $\RR \times \mathcal{K} \to \RR$, 
+    such that:
+    \begin{itemize}
+        \item $\displaystyle
+            \int_{\RR}{\EE\left[|\varphi^\star(x, Z)|\dd(x)\right]} < +\infty\,,\qquad \int_{\RR}{\EE\left[|\psi^\star(x, Z)|\dd(x)\right]} < +\infty\,.
+        $
+        \item $\displaystyle
+            \int_{\RR}{\EE\left[\varphi^\star(x, Z)^2\dd(x)\right]} < +\infty\,,\qquad\int_{\RR}{\EE\left[\psi^\star(x, Z)^2\dd(x)\right]} < +\infty\,.
+        $
+        \item By denoting $\bar \varphi : x\to \EE\left[\varphi^\star(x, Z)\right]$ and $\bar \psi : x\to \EE\left[\psi^\star(x, Z)\right]$, then,
+              \[\bar \varphi,\bar \psi \in\mathcal{S}\,.\]
+    \end{itemize}
+
+    Then, it follows that:
+    \begin{equation}\label{eq:chap5_marked_spectrum}
+        \Cov\left(\sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)}, \sum_{k\in\ZZ}{\psi^\star(T_k, Z_k)}\right) = \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma(\dd \omega)} 
+        + \int_{\RR}{\Cov\left( \tilde \varphi(\omega, Z), \tilde \psi (\omega, Z)\,M_1(\dd \omega)\right)}\,.
+    \end{equation}
+\end{theorem}
+
+The utility of this result resides on the link that it established between the covariance of a marked point process $\bar H$
+and the Bartlett spectrum of its ground process $H$.
+
+\subsection{The $p$-thinned Hawkes process estimation}
