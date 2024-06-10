@@ -244,7 +244,7 @@
         \end{proposition}
 
         \begin{proof}
-          The proof is given in Appendix~\ref{appendix:proof_sum_spectra}.
+          The proof is given in Appendix~\ref{appendix:chap3_proof_sum_spectra}.
         \end{proof}
 
 	      We are now ready to define the noisy Hawkes model, which is the superposition of a Hawkes process and a homogeneous Poisson process.
@@ -401,7 +401,7 @@
           \end{enumerate}
         \end{proposition}
         \begin{proof}
-	        The proof is given in Appendix~\ref{appendix:identifiability_univariate}.
+	        The proof is given in Appendix~\ref{appendix:chap3_identifiability_univariate}.
         \end{proof}
         
         The previous discussion raises the question of whether this non-identifiability also extends to the distribution of the noisy Hawkes process.
@@ -545,7 +545,7 @@ Still, we will show how, by imposing some constraints on the modelling of multiv
         \end{enumerate}
       \end{proposition}
       \begin{proof}
-      	The proof is given in Appendix~\ref{appendix:bi_non_identifiable}.
+      	The proof is given in Appendix~\ref{appendix:chap3_bi_non_identifiable}.
       \end{proof}
       
       \begin{remark} \label{rem:chap3_non_identifiability_submodels}
@@ -564,7 +564,7 @@ Still, we will show how, by imposing some constraints on the modelling of multiv
         \end{enumerate}
       \end{proposition}
       \begin{proof}
-        The proofs of Situations~\ref{hyp:chap3_bi_identifiable_1} and \ref{hyp:chap3_bi_identifiable_2} are respectively in Appendices~\ref{appendix:bi_identifiable_1} and \ref{appendix:bi_identifiable_2}.
+        The proofs of Situations~\ref{hyp:chap3_bi_identifiable_1} and \ref{hyp:chap3_bi_identifiable_2} are respectively in Appendices~\ref{appendix:chap3_bi_identifiable_1} and \ref{appendix:chap3_bi_identifiable_2}.
         The other situations are obtained by symmetry of all indices.
       \end{proof}
       
@@ -830,7 +830,7 @@ More generally, we believe that the spectral analysis can provide efficient esti
 
 \begin{subappendices}
 
-    \section{Proof of Proposition~\ref{prop:chap3_sum_of_spectral_densities}}\label{appendix:proof_sum_spectra}
+    \section{Proof of Proposition~\ref{prop:chap3_sum_of_spectral_densities}}\label{appendix:chap3_proof_sum_spectra}
           
     \begin{lemma}\label{lemma:sum_second_order_moment}
       Let $X$ and $Y$ be two independent and stationary multivariate point processes with same dimension $d$.
@@ -902,7 +902,7 @@ More generally, we believe that the spectral analysis can provide efficient esti
 
 
 
-\section{Proof of Proposition~\ref{prop:chap3_fixed_univariate_identifiability}}\label{appendix:identifiability_univariate}  
+\section{Proof of Proposition~\ref{prop:chap3_fixed_univariate_identifiability}}\label{appendix:chap3_identifiability_univariate}  
 We first show that equality of two spectral densities with different parameters is equivalent to a system of equations (Equations~\eqref{eq:chap3_system_1d}).
 This result will be used then to prove both parts of Proposition~\ref{prop:chap3_fixed_univariate_identifiability}.
 
@@ -1184,7 +1184,7 @@ But $\alpha \mapsto g(\alpha)$ can be shown to be strictly increasing for $\alph
 Finally, it is easily proven from the system composed by Equations~\eqref{eq:chap3_idunif_eq1}--\eqref{eq:chap3_idunif_eq4} that the tuples $(\mu, \alpha, \beta, \lambda_0)$ and $(\mu', \alpha', \beta', \lambda_0')$ are equal.
 
 
-\section{Proof of Proposition~\ref{prop:chap3_bi_non_identifiable}}\label{appendix:bi_non_identifiable}
+\section{Proof of Proposition~\ref{prop:chap3_bi_non_identifiable}}\label{appendix:chap3_bi_non_identifiable}
 
 Let $N$ be a bivariate noisy Hawkes process parametrised by the exponential model $\mathcal{Q}_\Lambda$. We will prove that if either of the conditions in Proposition~\ref{prop:chap3_bi_non_identifiable} is fulfilled then $\mathcal{Q}_\Lambda$ is not identifiable.
 
@@ -1199,7 +1199,7 @@ For any admissible $\theta = (\mu, \alpha, \beta, \lambda_0)$, the spectral matr
 We will show that there exists an admissible $\theta' = (\mu', \alpha', \beta', \lambda_0')$ such that $\theta'\neq \theta$ and $\mathbf{f}_\theta^N = \mathbf{f}_{\theta'}^N$. Let $\tau > -\lambda_0$ and $\lambda_0' = \lambda_0 + \tau$.
 
 For every $i\in\{1,2\}$,
-on the one hand, if $\alpha_{ii}\neq 0$ then, as shown in the univariate case (Appendix~\ref{appendix:identifiability_univariate}),
+on the one hand, if $\alpha_{ii}\neq 0$ then, as shown in the univariate case (Appendix~\ref{appendix:chap3_identifiability_univariate}),
 letting $\kappa_i = \frac{\mu_i}{1-\alpha_{ii}}\beta_i^2 \alpha_{ii} (2-\alpha_{ii})$ and defining the parameters:
 \begin{equation}
 \begin{cases}
@@ -1359,7 +1359,7 @@ Thus, the model is not identifiable.
 
 
 
-\section{Proof of Proposition~\ref{prop:chap3_bi_identifiable}, Situations~\ref{hyp:chap3_bi_identifiable_1} and \ref{hyp:chap3_bi_identifiable_1_bis}}\label{appendix:bi_identifiable_1}
+\section{Proof of Proposition~\ref{prop:chap3_bi_identifiable}, Situations~\ref{hyp:chap3_bi_identifiable_1} and \ref{hyp:chap3_bi_identifiable_1_bis}}\label{appendix:chap3_bi_identifiable_1}
 
 Without loss of generality, let 
 \[\Lambda = \left\{ \begin{pmatrix} \alpha_{11} & 0 \\ \alpha_{21} & 0 \end{pmatrix}, 0 \le \alpha_{11} < 1, \alpha_{21} > 0 \right\}\,.\]
@@ -1459,7 +1459,7 @@ This proves that $\mathbf{f}_\theta^N = \mathbf{f}_{\theta'}^N \implies \theta =
 
 
 
-\section{Proof of Proposition~\ref{prop:chap3_bi_identifiable}, Situations~\ref{hyp:chap3_bi_identifiable_2} and \ref{hyp:chap3_bi_identifiable_2_bis}}\label{appendix:bi_identifiable_2}
+\section{Proof of Proposition~\ref{prop:chap3_bi_identifiable}, Situations~\ref{hyp:chap3_bi_identifiable_2} and \ref{hyp:chap3_bi_identifiable_2_bis}}\label{appendix:chap3_bi_identifiable_2}
 
 Without loss of generality, let
 \[\Lambda = \left\{ \begin{pmatrix} \alpha_{11} & 0 \\ \alpha_{21} & \alpha_{22} \end{pmatrix}, 0 < \alpha_{11} < 1, \alpha_{21} > 0 , 0 \le \alpha_{22} < 1 \right\}\,.\]
@@ -1510,7 +1510,7 @@ and since $\alpha_{21} > 0$, ${f_\theta^N}_{12}(0) \neq 0$ and Equation~\eqref{e
 Since ${f_\theta^N}_{11}$ is strictly decreasing, ${f_\theta^N}_{11}(1)-{f_\theta^N}_{11}(0) = {f_{\theta'}^N}_{11}(1)-{f_{\theta'}^N}_{11}(0) \neq 0$, and it comes $\lambda_0 = \lambda_0'$.
 
 Now, the expression of ${f_\theta^N}_{11}$ is similar to that of the univariate spectral density $f_\theta^N$ in Proposition~\ref{prop:chap3_fixed_univariate_identifiability}.
-Thus, following the proof in Appendix~\ref{appendix:identifiability_univariate}, from ${f_\theta^N}_{11} = {f_{\theta'}^N}_{11}$ and $\lambda_0 = \lambda_0'$
+Thus, following the proof in Appendix~\ref{appendix:chap3_identifiability_univariate}, from ${f_\theta^N}_{11} = {f_{\theta'}^N}_{11}$ and $\lambda_0 = \lambda_0'$
 (since $\alpha_{11} > 0$ and $\alpha_{11}'> 0$)
 it comes:
 \[

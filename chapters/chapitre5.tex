@@ -14,7 +14,9 @@ INTRODUCTION
 
 In this chapter, we will focus our study on the stationary univariate Hawkes process on the real line $\RR$, noted $H$.
 The Hawkes process can be characterised by its conditional intensity function, for all $t\in\RR$:
-\[\lambda(t) = \mu + \int_{-\infty}^{t}{h(t-s)\,H(\dd s)} = \mu + \sum_{T_k \leq t}{h(t-T_k)}\,,\]
+\begin{equation}\label{eq:chap5_hawkes_intensity}
+    \lambda(t) = \mu + \int_{-\infty}^{t}{h(t-s)\,H(\dd s)} = \mu + \sum_{T_k \leq t}{h(t-T_k)}\,,
+\end{equation}
 where $\mu > 0$ is the baseline intensity, and $h\colon\RR\to \RR_{\geq 0}$ is the kernel function modelling the self-exciting behaviour of past points $(T_k)_{k\in\ZZ}$.
 
 In order for $H$ to be a point process (\ie an a.s. finite measure in any bounded set $B$), 
@@ -25,9 +27,9 @@ Furthermore, let $\mathcal{B}_{\RR}^c$ denote the set of bounded Borel sets on $
 be the number of event times in $B$. 
 
 In this chapter, we will study a thinned version of process $H$ defined as follows:
-\begin{definition}
+\begin{definition}\label{def:chap5_thinning}
 For any $p\in(0,1)$, we denote $H_p$ a $p$-thinning of a point process $H$, defined for any $B\in\mathcal{B}_{\RR}^c$ as:
-\[H_p(B) = \sum_{k\in\ZZ}{\II_{T_k \in B} B_k}\,,\]
+\[H_p(B) = \sum_{k\in\ZZ}{\II_{T_k \in B} Z_k}\,,\]
 where $(Z_k)$ is an i.i.d. collection of Bernoulli random variables of parameter $p$.
 \end{definition}
 
@@ -63,7 +65,8 @@ for any $\varphi\in\mathcal{S}$ \parencite[Definition 2]{Bremaud2005}:
 Existence of such a measure is esablished for any stationary point process \parencite[Proposition 8.2.I.(a)]{DaleyV1},
 and by polarisation of Equation~\eqref{eq:chap5_bartlett_variance}, we obtain for any $\varphi, \psi \in \mathcal{S}$:
 \begin{equation}\label{eq:chap5_bartlett_covariance}
-v\end{equation}
+    \Cov\left(\int_{\RR}{\varphi(x)H(\dd x)}, \int_{\RR}{\psi(x)H(\dd x)}\right) = \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(-\omega)\Gamma(\dd \omega)}\,.
+\end{equation}
 
 Whenever $\Gamma$ is an absolutely continous measure, we denote $f:\RR\to \CC$ its Radon-Nikodym derivative, 
 known as the spectral density of process $H$.
@@ -117,17 +120,17 @@ This way we may define the thinned process $H_p$, for any $B\in\mathcal{B}^c$, a
 Under this scope, we will apply the results of \textcite{Bremaud2005}, 
 that we adapt to our notations here as:
 
-\begin{theorem}[{\textcite[Theorem 2]{Bremaud2005}}]
+\begin{theorem}[{\textcite[Theorem 2]{Bremaud2005}}]\label{th:chap5_spectral_marked}
     Let $H$ be a stationary point process with Bartlett spectrum measure $\Gamma$ and 
     let $\bar H$ be a marked version of $H$ with i.i.d. marks $Z_k$ with shared distribution $Z$ on a metric space $\mathcal{K}$.
     Let $\varphi^\star, \psi^\star$ be measurable functions from $\RR \times \mathcal{K} \to \RR$, 
     such that:
     \begin{itemize}
         \item $\displaystyle
-            \int_{\RR}{\EE\left[|\varphi^\star(x, Z)|\dd(x)\right]} < +\infty\,,\qquad \int_{\RR}{\EE\left[|\psi^\star(x, Z)|\dd(x)\right]} < +\infty\,.
+            \int_{\RR}{\EE\left[|\varphi^\star(x, Z)|\right]\dd(x)} < +\infty\,,\qquad \int_{\RR}{\EE\left[|\psi^\star(x, Z)|\right]\dd(x)} < +\infty\,.
         $
         \item $\displaystyle
-            \int_{\RR}{\EE\left[\varphi^\star(x, Z)^2\dd(x)\right]} < +\infty\,,\qquad\int_{\RR}{\EE\left[\psi^\star(x, Z)^2\dd(x)\right]} < +\infty\,.
+            \int_{\RR}{\EE\left[\varphi^\star(x, Z)^2\right]\dd(x)} < +\infty\,,\qquad\int_{\RR}{\EE\left[\psi^\star(x, Z)^2\right]\dd(x)} < +\infty\,.
         $
         \item By denoting $\bar \varphi : x\to \EE\left[\varphi^\star(x, Z)\right]$ and $\bar \psi : x\to \EE\left[\psi^\star(x, Z)\right]$, then,
               \[\bar \varphi,\bar \psi \in\mathcal{S}\,.\]
@@ -135,12 +138,193 @@ that we adapt to our notations here as:
 
     Then, it follows that:
     \begin{equation}\label{eq:chap5_marked_spectrum}
-        \Cov\left(\sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)}, \sum_{k\in\ZZ}{\psi^\star(T_k, Z_k)}\right) = \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma(\dd \omega)} 
-        + \int_{\RR}{\Cov\left( \tilde \varphi(\omega, Z), \tilde \psi (\omega, Z)\,M_1(\dd \omega)\right)}\,.
+        \Cov\left(\sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)}, \sum_{k\in\ZZ}{\psi^\star(T_k, Z_k)}\right) = 
+        \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma(\dd \omega)} 
+        + \int_{\RR}{\Cov\left( \tilde \varphi^\star(\omega, Z), \tilde \psi^\star (-\omega, Z)\right)M_1(\dd \omega)}\,,
     \end{equation}
+    where, for any $\omega\in\RR$, $\tilde \varphi^\star(\omega, Z)$ (resp. $\tilde \psi^\star(\omega, Z)$) denotes the Fourier transform of the function $x\to \varphi^\star(x, Z)$ (resp. $x\to \psi^\star(x, Z)$).
 \end{theorem}
 
 The utility of this result resides on the link that it established between the covariance of a marked point process $\bar H$
-and the Bartlett spectrum of its ground process $H$.
+and the Bartlett spectrum of its ground process $H$. 
+This allows to establish an explicit expression of the spectral density of the $p$-thinning of a process $H$, 
+as presented in the following proposition:
 
-\subsection{The $p$-thinned Hawkes process estimation}
+\begin{proposition}\label{prop:chap5_spectral_thinning}
+    Let $H$ be a stationary point process admitting a Bartlett spectrum $\Gamma^N$ defined as in Equation~\eqref{eq:chap5_bartlett_variance}.
+    We assume that $\Gamma$ is absolutely continuous and we note $f$ the spectral density function. 
+    Let $m_1$ be the average intensity of $H$.
+
+    For any $p\in(0,1)$, let $H_p$ be a $p$-thinning of $H$ as explicited in Definition~\ref{def:chap5_thinning}.
+
+    Then, $H_p$ admits a spectral density function, denoted $f_p$, such that for any $\omega\in\RR$:
+    \begin{equation}\label{eq:chap5_spectral_thinning}
+        f_p(\omega) = p^2 f(\omega) + p(1-p)m_1\,.
+    \end{equation}
+
+\end{proposition}
+
+\begin{proof}
+    The proof is given in Appendix~\ref{appendix:chap5_proof_spectral_thinning}
+\end{proof}
+
+    Let us remark that Equation~\eqref{eq:chap5_spectral_thinning} can be found in \textcite[Equation 8.3.5]{DaleyV1},
+    their spectral density function is $\gamma$, $m$ corresponds to the average intensity of $H$ and $\pi_2 = p$.
+    The thinning scenario presented in this chapter is obtained for the following values:
+    \[\mu_2 = 0\,, \qquad G\equiv 1\,,\]
+    the missing factor $1/(2\pi)$ corresponding to a different expression for the Fourier transform chosen by the authors.
+
+    The authors obtain their result by term identification of a bivariate point process. 
+    The proof presented in this chapter is an alternative way of establishing this result,
+    illustrating the usefulness of leveraging the spectral theory of point processes.
+
+\subsection{The $p$-thinned Hawkes process estimation and the exponential kernel}
+
+    For the rest of this chapter, 
+    $H$ will denote a stationary Hawkes process defined by the intensity $\lambda$ as in Equation~\eqref{eq:chap5_hawkes_intensity}.
+
+    As shown in \textcite{Hawkes1971}, the spectral density of a Hawkes process reads:
+    \[f(\omega) = \frac{\mu}{(1-\|h\|_1)|1-\tilde h(\omega)|^2}\,.\]
+
+    Corollary~\ref{cor:chap5_hawkes_thinning}, presents the spectral density of the $p$-thinned univariate Hawkes process:
+
+    \begin{corollary}\label{cor:chap5_hawkes_thinning}
+        Let $H$ be a stationary univariate Hawkes process with baseline intensity $\mu > 0$, and kernel function $h\colon \RR\to \RR_{>0}$,
+        as defined by Equation~\eqref{eq:chap5_hawkes_intensity}. Let $p\in(0,1)$ and $H_p$ a $p$-thinning of $H$. 
+        Then the spectral density $f_p$ of $H_p$ is:
+        \begin{equation}\label{eq:chap5_spectral_hawkes}
+            \forall \omega \in \RR\,, \quad f_p(\omega) = p^2 \frac{\mu}{(1-\|h\|_1)|1-\tilde h(\omega)|^2} + p(1-p)\frac{\mu}{1-\|h\|_1}\,.
+        \end{equation}
+    \end{corollary}
+    \begin{proof}
+        The proof is direct by applying Proposition~\ref{prop:chap5_spectral_thinning} and 
+        with the expression of the Hawkes process spectral density.
+    \end{proof}
+    We can define the statistical model:
+    \[\mathcal{P} = 
+      \left\{
+        f_\theta \colon \RR \to \CC, \theta = (\mu, \gamma, p) \in \Theta
+      \right\}\,.
+    \]
+
+    As mentioned previously, it is then possible to estimate $\theta$ by maximising the spectral log-likelihood (Equation~\eqref{eq:chap5_spectral_ll}).
+    Let us now focus on the exponential interaction function, defined as:
+    \[\forall t\in\RR\,,\quad h(t) = \alpha \beta \mathrm{e}^{-\beta t}\II_{t\geq 0}\,,\]
+    where $\alpha \in(0,1)$ and $\beta > 0$.
+
+    As the Fourier transform is explicit and reads:
+    \[\tilde h (\omega) = \frac{\alpha \beta}{\beta + 2 \pi \iu \omega}\,,\]
+    and so Equation~\eqref{eq:chap5_spectral_hawkes} reduces to:
+    \begin{equation}\label{eq:chap5_spectral_exponential}
+        \forall \omega\in\RR\,,\quad
+        f_p(\omega) = \frac{\mu p }{1-\alpha}\left(1 + p \frac{\beta^2 \alpha (2-\alpha)}{\beta^2(1-\alpha)^2 + 4 \pi^2 \omega^2}\right)\,.
+    \end{equation}
+
+    In this context, the statistical model of $f_p$ is:
+    \[\mathcal{Q} = 
+      \left\{
+        f_\theta \colon \RR \to \CC, 
+        \theta = (\mu, \alpha, \beta, p) \in \RR_{>0}\times (0,1) \times \RR_{>0}\times(0,1)
+      \right\}\,.
+    \]
+    Similar to the superposition case shown in \textcite[Proposition 3.2]{Bonnet2024}, 
+    model $\mathcal{Q}$ is not identifiable in the general setting but the identifiability can be established, as seen in Proposition~\ref{prop:chap5_identifiability_thinning}.
+
+    \begin{proposition}\label{prop:chap5_identifiability_thinning}
+        The model $\mathcal{Q}$ is identifiable if and only if one of the parameters in the 4-uplet $(\mu, \alpha, \beta, p)$ is fixed.
+
+        In particular, for any admissible parameter $\theta = (\mu, \alpha, \beta, p)$,
+        for any $\kappa\in(0, 1/p)$, let:
+        \begin{equation*}
+        \begin{cases}
+            \mu' = \frac{\mu}{\kappa(1-\alpha)} \sqrt{1+\frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}\\
+            \alpha' = 1 - \sqrt{1+\frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}\\
+            \beta' = \beta \frac{1-\alpha}{\sqrt{1+\frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
+            p' = \kappa p\,.
+          \end{cases}
+        \end{equation*}
+          Then, $\theta' = (\mu', \alpha', \beta', p')$ is an admissible parameter such that $f_{\theta} = f_{\theta'}$.
+    \end{proposition}
+
+    \begin{proof}
+        The proof is given in Appendix~\ref{appendix:chap5_proof_identifiability_thinning}
+    \end{proof}
+
+
+
+\begin{subappendices}
+    \section{Proof of Proposition~\ref{prop:chap5_spectral_thinning}}\label{appendix:chap5_proof_spectral_thinning}
+        Let $H_p$ be a $p$-thinning of a stationary point process $H$ admitting a spectral density function $f$.
+        The stationarity of $H_p$ is given by the fact that the variables $(Z_k)_{k\in\ZZ}$ are i.i.d. and so for any integer $r$, 
+        for any $B_1\ldots, B_r \in\mathcal{B}^c$, 
+        the random vector $(N_p(B_k)_{k=1:r})$ has the same distribution as $(N_p(B_k+t)_{k=1:r})$,
+        for any $t\in\RR$.
+        We will then denote $\Gamma_p$ and $f_p$ respectively the Bartlett spectrum and spectral density function of $H_p$
+
+        In order to establish Equation~\eqref{eq:chap5_spectral_thinning}, we will leverage Theorem~\ref{th:chap5_spectral_marked}.
+        We consider then the marked version $\bar H$ of $H$ where the marks $Z_k$ are i.i.d. Bernoulli distributions with common probability $p$.
+
+        Let $\varphi, \psi \in \mathcal{S}$, we define, for all $x,z\in\RR\times\{0,1\}$, the functions:
+        \[\varphi^\star(x,z) = \varphi(x)z\,,\qquad \psi^\star(x,z) = \psi(x)z\,.\]
+
+        Let us verify that these functions verify the conditions of Theorem~\ref{th:chap5_spectral_marked}. 
+        Without lose of generality, we will work uniquely with $\varphi^\star$, as the arguments are exactly the same for $\psi^\star$.
+        
+        For any $x\in\RR$, $\varphi^\star(x, Z) = \varphi(x)Z$ for Z a Bernoulli distribution of parameter $p$.
+        It follows that $\varphi^\star(x, Z)$ admits a first and second order moment, and as $\varphi\in\mathcal{S}$, 
+        $\varphi(x)Z$ is integrable and twice integrable, which shows that:
+                \[
+                \int_{\RR}{\EE\left[|\varphi^\star(x, Z)|\right]\dd(x)} < +\infty\,,\qquad 
+                \int_{\RR}{\EE\left[\varphi^\star(x, Z)^2\right]\dd(x)} < +\infty\,.
+                \]
+        Furthermore, for any $x\in\RR$, $\bar \varphi(x) = \varphi(x)\EE[Z] = p \varphi(x)$,
+        and so, as the Schwartz space is closed under scalar mutliplication, it follows that $\bar \varphi\in\mathcal{S}$.
+
+        We can then apply Equation~\eqref{eq:chap5_marked_spectrum} to our marked process $\bar H$. 
+        For this, let us notice that:
+        \[
+            \sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)} = \sum_{k\in\ZZ}{\varphi(T_k)Z_k} = \int_{\RR}{\varphi(t) H_p(\dd t)}\,,
+        \]
+        with the same expression holding for $\psi^\star$ and $\psi$. 
+        So, the left-hand side of Equation~\eqref{eq:chap5_marked_spectrum} reads:
+        \begin{align}
+            \Cov\left(\sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)}, \sum_{k\in\ZZ}{\psi^\star(T_k, Z_k)}\right) &=
+            \Cov\left(\int_{\RR}{\varphi(t) H_p(\dd t)}, \int_{\RR}{\psi(t) H_p(\dd t)}\right) \nonumber\\
+            &= \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(-\omega)\,\Gamma_p(\dd\omega)}\,,\label{eq:chap5_leftside_proof_thinning}
+        \end{align}
+        where the last equality comes from Equation~\eqref{eq:chap5_bartlett_covariance}.
+
+        For the left hand side, let us remark that $\bar \varphi(x) = p \varphi(x)$ for any $x\in\RR$ and so, for any $\omega\in\RR$,
+        \[
+            \tilde \bar \varphi(\omega) = p \tilde \varphi(\omega)\,,
+        \]
+        and,
+        \[\tilde \phi^\star(\omega, Z) = \tilde \phi(\omega)Z\,.\]
+
+        The right-hand side of Equation~\eqref{eq:chap5_marked_spectrum} becomes:
+
+        \begin{align}
+            \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma(\dd \omega)} 
+        + &\int_{\RR}{\Cov\left( \tilde \varphi^\star(\omega, Z), \tilde \psi^\star (-\omega, Z)\,M_1(\dd \omega)\right)} \nonumber\\
+        &= \int_{\RR}{p^2 \tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,\Gamma(\dd \omega)} 
+        + \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(\omega) \Cov\left(Z,Z\right)M_1(\dd \omega)} \nonumber\\
+        &= \int_{\RR}{\tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,(p^2\Gamma(\dd \omega) + p(1-p) M_1(\dd \omega))}\,.\label{eq:chap5_rightside_proof_thinning}
+        \end{align}
+
+        By combining both sides (Equations~\eqref{eq:chap5_leftside_proof_thinning} and \eqref{eq:chap5_rightside_proof_thinning}) it follows that,
+        for any $\varphi, \psi\in\mathcal{S}$:
+        \[
+            \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(-\omega)\,\Gamma_p(\dd\omega)} = \int_{\RR}{\tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,(p^2\Gamma(\dd \omega) + p(1-p) M_1(\dd \omega))}\,.
+        \]
+        
+        As this equality holds for any functions in the Schwartz space \textbf{Add reference}, then,
+        \[\Gamma_p = p^2 \Gamma + p(1-p) M_1\,,\]
+        and as $M_1 = m_1 \ell_{\RR}$,
+        \[f_p(\omega) = p^2 f(\omega) + p(1-p) m_1\,,\]
+        which achieves the proof.
+
+
+
+    \section{Proof of Proposition~\ref{prop:chap5_identifiability_thinning}}\label{appendix:chap5_proof_identifiability_thinning}
+        
+\end{subappendices}
