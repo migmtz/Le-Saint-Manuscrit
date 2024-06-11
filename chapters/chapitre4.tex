@@ -14,7 +14,7 @@
     Besides being free from knowing the source of each observed time (Hawkes or Poisson process),
     the proposed estimator is shown to perform accurately in estimating both processes.
 }
-\chapter[][]{Spectral analysis for noisy Hawkes processes inference}
+\chapter[][]{Spectral analysis for the  inference of noisy Hawkes processes}
 
 % sec, fig, eq, tab, def, prop, cor, hyp, rem, 
 
@@ -195,7 +195,7 @@
         Then, for all \((i, j) \in \{1, \dots, d\}^2\) the second order moment measure $M_{ij}^N : \mathcal B_\RR^c \times \mathcal B_\RR^c \to \RR_{\ge0}$ is defined by \parencite[Section~5.4]{DaleyV1}:
         \[
           \forall (A, B) \in \mathcal{B}_{\RR}^c \times \mathcal{B}_{\RR}^c: \quad
-    	    M_{ij}^N(A, B) = \EE[N_i(A)N_j(B)] = \int_{A\times B}{M_{ij}(\dd x, \dd y)} \,. 
+    	    M_{ij}^N(A, B) = \EE[N_i(A)N_j(B)] = \int_{A\times B}{M_{ij}^N(\dd x, \dd y)} \,. 
         \]
         
         Now, as the process $N$ is stationary,
@@ -482,7 +482,7 @@ Still, we will show how, by imposing some constraints on the modelling of multiv
         \[
           \begin{cases}
             f_{11}^H (\omega) = \frac{m_1^H \left \lvert 1 - \tilde h_{22}(\omega) \right \rvert^2 + m_2^H \left \lvert  \tilde h_{12}(\omega) \right \rvert^2}{\left \lvert \left (1-\tilde h_{11}(\omega) \right) \left (1-\tilde h_{22}(\omega) \right) - \tilde h_{12}(\omega) \tilde h_{21}(\omega) \right \rvert^2}\\
-            f_{12}^H(\omega) = \frac{m_1^H \left (1-\tilde h_{22}(-\omega) \right)\tilde h_{21}(\omega) + m_2^H \left (1-\tilde h_{11}(\omega) \right) \tilde h_{12}(-\omega)}{\left \lvert \left (1-\tilde h_{11}(\omega) \right) \left (1-\tilde h_{22}(\omega) \right) - \tilde h_{12}(\omega) \tilde h_{21}(\omega) \right \rvert^2}
+            f_{12}^H(\omega) = \frac{m_1^H \left(1-\tilde h_{22}(-\omega) \right)\tilde h_{21}(\omega) + m_2^H \left (1-\tilde h_{11}(\omega) \right) \tilde h_{12}(-\omega)}{\left \lvert \left (1-\tilde h_{11}(\omega) \right) \left (1-\tilde h_{22}(\omega) \right) - \tilde h_{12}(\omega) \tilde h_{21}(\omega) \right \rvert^2}
           \end{cases} \,,
         \]
         and

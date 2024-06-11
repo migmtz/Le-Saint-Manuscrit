@@ -7,6 +7,7 @@
 \section{Introduction}
 
 INTRODUCTION
+MOTIVATION = EN UTILISANT $p$ ON PEUT FAIRE UNE SORTE DE SUBSAMPLING OU CROSS-VALIDATION
 
 \section{Mathematical setting}\label{sec:chap5_mathsetting}
 
@@ -36,7 +37,7 @@ where $(Z_k)$ is an i.i.d. collection of Bernoulli random variables of parameter
 In practice, the event times of process $H_p$ correspond to a subset of $(T_k)_{k\in\ZZ}$ where each point
 is erased with a random probability $1-p$. 
 
-\subsection{Spectral theory for point processes}
+\subsection{Spectral theory for point processes}\label{sec:chap5_spectral_theory}
 
 For a point process $H$, we define the first and second-order measures $M_1, M_2$, for any $A, B\in\mathcal{B}_{\RR}^c$, as:
 \[M_1(A) = \EE[H(A)]\,,\qquad M_2(A,B) = \EE[H(A)H(B)]\,.\]
@@ -228,21 +229,21 @@ as presented in the following proposition:
       \right\}\,.
     \]
     Similar to the superposition case shown in \textcite[Proposition 3.2]{Bonnet2024}, 
-    model $\mathcal{Q}$ is not identifiable in the general setting but the identifiability can be established, as seen in Proposition~\ref{prop:chap5_identifiability_thinning}.
+    model $\mathcal{Q}$ is not identifiable in the general setting but the identifiability can be established, as shown in Proposition~\ref{prop:chap5_identifiability_thinning}, as long as one parameter of the model is fixed.
 
     \begin{proposition}\label{prop:chap5_identifiability_thinning}
         The model $\mathcal{Q}$ is identifiable if and only if one of the parameters in the 4-uplet $(\mu, \alpha, \beta, p)$ is fixed.
 
         In particular, for any admissible parameter $\theta = (\mu, \alpha, \beta, p)$,
         for any $\kappa\in(0, 1/p)$, let:
-        \begin{equation*}
+        \begin{equation}\label{eq:chap5_nonidentifiable_parameters}
         \begin{cases}
-            \mu' = \frac{\mu}{\kappa(1-\alpha)} \sqrt{1+\frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}\\
-            \alpha' = 1 - \sqrt{1+\frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}\\
-            \beta' = \beta \frac{1-\alpha}{\sqrt{1+\frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
+            \mu' = \frac{\mu}{\kappa(1-\alpha)\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
+            \alpha' = 1 - \frac{1}{\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
+            \beta' = \beta (1-\alpha) \sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}\\
             p' = \kappa p\,.
           \end{cases}
-        \end{equation*}
+        \end{equation}
           Then, $\theta' = (\mu', \alpha', \beta', p')$ is an admissible parameter such that $f_{\theta} = f_{\theta'}$.
     \end{proposition}
 
@@ -250,6 +251,26 @@ as presented in the following proposition:
         The proof is given in Appendix~\ref{appendix:chap5_proof_identifiability_thinning}
     \end{proof}
 
+    The non-identifiability of the full model (four unknown parameters) limits the implementation of an estimation method for $\theta\in\Theta$, but this problem is avoided as long as one of the parameters is known beforehand. 
+    In this work we will focus on the scenario where the value of $p$ is known in advance, 
+    and so the previous result ensures that, for any $p^\star\in(0,1)$, the reduced model:
+    
+    \[\mathcal{Q}_{p} = 
+        \left\{
+            f_\theta \colon \RR \to \CC, 
+            \theta = (\mu, \alpha, \beta, p) \in \RR_{>0}\times (0,1) \times \RR_{>0}\times(0,1), p=p^\star
+        \right\}\,,
+    \]
+    is identifiable.
+    We can then define an estimator of $\hat \theta = (\hat \mu, \hat \alpha, \hat \theta)$, as presented at the end of Section~\ref{sec:chap5_spectral_theory}, as:
+
+    \[
+        \hat \theta = \arg\max_{\theta \in \Theta} \ell_T (\theta)
+        = \arg\max_{\theta \in \Theta}  \left(-\frac{1}{T}\sum_{k=1}^{M}{\log(f_\theta (\omega_k)) + \frac{I^T(\omega_k)}{f_\theta(\omega_k)}}\right)\,.
+    \]
+
+\section{Numerical illustrations}
+    In this section, we will focus in 
 
 
 \begin{subappendices}
@@ -325,6 +346,129 @@ as presented in the following proposition:
 
 
 
+
+
     \section{Proof of Proposition~\ref{prop:chap5_identifiability_thinning}}\label{appendix:chap5_proof_identifiability_thinning}
+
+    Let $\theta = (\mu, \alpha, \beta, p)$ and $\theta' = (\mu', \alpha', \beta', p')$ be two admissible parameter for model $\mathcal{Q}$.
+
+    In order to prove that model $\mathcal{Q}$ is identifiable if and only if one of four parameters is fixed, 
+    we will begin by retrieving the system of Equations~\eqref{eq:chap5_nonidentifiable_parameters}
+    and verify that it defines an admissible parameter for $\mathcal{Q}$.
+    Subsequently we will verify that by fixing one parameter, we retrieve the identifiability of the model.
+    
+    We begin by assuming that $f_\theta = f_{\theta'}$.
+    By Equation~\eqref{eq:chap5_spectral_exponential}, this equality reads:
+    \[\forall \omega \in \RR,\quad 
+    \frac{\mu p }{1-\alpha}\left(1 + p \frac{\beta^2 \alpha (2-\alpha)}{\beta^2(1-\alpha)^2 + 4 \pi^2 \omega^2}\right) = 
+    \frac{\mu' p' }{1-\alpha'}\left(1 + p' \frac{{\beta'}^2 \alpha' (2-\alpha')}{{\beta'}^2(1-\alpha')^2 + 4 \pi^2 \omega^2}\right)\,.
+    \]
+
+    Let us remark that a sufficient condition for both sides to be equal, 
+    for all $\omega \in \RR$,
+    is that the following system of equations is verified:
+
+    \begin{equation}\label{eq:chap5_system_identifiability}
+        \begin{cases}
+            \frac{\mu p }{1-\alpha} = \frac{\mu' p'}{1-\alpha'}\\
+            p \beta^2 \alpha(2-\alpha) = p' {\beta'}^2 \alpha'(2-\alpha')\\
+            \beta (1-\alpha) = \beta' (1-\alpha')\,,
+        \end{cases}
+    \end{equation}
+    as this would mean that the three constants (w.r.t. $\omega$) in both sides are equal.
+    In fact this is also a necessary condition as the three equalities can be retrieved for $f(0)$, $\lim_{\omega\to+\infty}{f(\omega)}$ and $f(1)$
+    and combining the equations.
+
+    Let $\kappa\in(0, 1/p)$ and $p' = \kappa p$, which reduces the system of Equations~\eqref{eq:chap5_system_identifiability} to:
+
+    \begin{subnumcases}{}
+            \frac{\mu}{1-\alpha} = \frac{\mu' \kappa}{1-\alpha'}\label{eq:chap5_system_identifiability1}\\
+            \beta^2 \alpha(2-\alpha) = \kappa {\beta'}^2 \alpha'(2-\alpha')\label{eq:chap5_system_identifiability2}\\
+            \beta (1-\alpha) = \beta' (1-\alpha')\,,\label{eq:chap5_system_identifiability3}
+    \end{subnumcases}
+
+    As $\alpha > 1$, $\alpha'>1$, $\beta>0$ and $\beta'>0$, 
+    Equation~\eqref{eq:chap5_system_identifiability3} can be expressed as:
+    \[{\beta'}^2 = \frac{\beta^2(1-\alpha)^2}{(1-\alpha')^2}\,,\]
+    and by replacing ${\beta'}^2$ in Equation~\eqref{eq:chap5_system_identifiability2}, we obtain:
+    \begin{align}
+        &\frac{\alpha (2-\alpha)}{(1-\alpha)^2} = \kappa \frac{\alpha' (2-\alpha')}{(1-\alpha')^2}\label{eq:chap5_alpha_equality} \\
+        \iff\quad & \frac{1 - (1-\alpha)^2}{(1-\alpha)^2} = \kappa \frac{1 - (1-\alpha')^2}{(1-\alpha')^2}\nonumber \\
+        \iff\quad & 1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right) = \frac{1}{(1-\alpha')^2}\nonumber\,,
+    \end{align}
+    and as $\alpha \in(0,1)$, the left-side term is positive and so:
+    \[\alpha' = 1 - \frac{1}{\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\,.\]
+
+    We can then obtain the explicit expressions of $\mu'$ and $\beta'$ with Equations~\eqref{eq:chap5_system_identifiability1} and \eqref{eq:chap5_system_identifiability3}
+    providing the following system:
+    
+    \begin{equation}\label{eq:chap5_system_parameters}
+        \begin{cases*}
+            \mu' = \frac{\mu(1-\alpha')}{\kappa(1-\alpha)}\\
+            \alpha' = 1 - \frac{1}{\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
+            \beta' = \beta \frac{1-\alpha}{1-\alpha'}\\
+            p' = \kappa p
+        \end{cases*}
+        \quad\iff\quad
+        \begin{cases}
+            \mu' = \frac{\mu}{\kappa(1-\alpha)\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
+            \alpha' = 1 - \frac{1}{\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
+            \beta' = \beta (1-\alpha) \sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}\\
+            p' = \kappa p\,.
+        \end{cases}
+    \end{equation}
+    
+    To verify that, for any $\kappa\in(0,1/p)$, parameter $\theta' = (\mu', \alpha', \beta', p')$ is an admissible parameter,
+    we have to make sure that $\theta' \in \Theta = \RR_{>0}\times (0,1) \times \RR_{>0} \times (0,1)$.
+    Let $\theta = (\mu, \alpha, \beta, p)\in\Theta$, $\kappa\in(0,1/p)$ and $\theta'$ defined by Equations~\eqref{eq:chap5_system_parameters}.
+    For such a $\kappa$, $p'\in(0,1)$ is immediately verified.
+
+    The rest of the conditions are verified if and only if: 
+    \[\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)} > 1 \iff \frac{1}{(1-\alpha)^2} - 1 > 0\\,.\]
+    This is immediate as $\alpha\in(0,1)$ and so $\theta'\in\Theta$. 
+    From Equations~\eqref{eq:chap5_system_parameters}
+    we can see that $\theta'=\theta$ and we've proven that $f_\theta = f_{\theta'}$,
+    so model $\mathcal{Q}$ is not identifiable.
+
+    Lastly, let us show that if any of the four parameters is known then the model defined by the remaining triplet is identidiable.
+    By considering the previously established equations (see Equations~\eqref{eq:chap5_alpha_equality} and \eqref{eq:chap5_system_parameters}), 
+    we know that for $\theta = (\mu, \alpha, \beta, p)\in\Theta$ and $\theta' = (\mu', \alpha', \beta', p')\in\Theta$:
+    \begin{equation}\label{eq:chap5_system_fixed}
+        f_{\theta} = f_{\theta'} \quad\iff\quad 
+        \begin{cases*}
+            \mu' = \frac{\mu(1-\alpha')}{\kappa(1-\alpha)}\\
+            \frac{\alpha (2-\alpha)}{(1-\alpha)^2} = \kappa \frac{\alpha' (2-\alpha')}{(1-\alpha')^2}\\     
+            \beta' = \beta \frac{1-\alpha}{1-\alpha'}\\
+            p' = \kappa p
+        \end{cases*}\,.
+    \end{equation}
+    \begin{itemize}
+        \item If $\mu = \mu'$, the system of Equations~\eqref{eq:chap5_system_fixed} reduces to:
+        \begin{equation*}
+            \begin{cases*}
+                \kappa = \frac{(1-\alpha')}{(1-\alpha)}\\
+                \kappa \frac{\alpha' (2-\alpha')}{(1-\alpha')^2} = \frac{\alpha (2-\alpha)}{(1-\alpha)^2}\\     
+                \beta' = \frac{\beta}{\kappa}\\
+                p' = \kappa p
+            \end{cases*}\quad\iff\quad
+            \begin{cases*}
+                \kappa = \frac{(1-\alpha')}{(1-\alpha)}\\
+                \frac{\alpha' (2-\alpha')}{(1-\alpha')} = \frac{\alpha (2-\alpha)}{(1-\alpha)}\\     
+                \beta' = \frac{\beta}{\kappa}\\
+                p' = \kappa p
+            \end{cases*}\,.
+        \end{equation*}
+
+        As $\alpha\in(0,1)$ and $\alpha'\in(0,1)$, the second equation implies that $\alpha=\alpha'$ and so $\kappa=1$ and $\beta'=\beta$.
+
+        \item If $\alpha = \alpha'$, the second equation in \eqref{eq:chap5_system_fixed} implies directly that $\kappa=1$ and so all other equalities follow.
+        \item If $\beta = \beta'$, the third equation in \eqref{eq:chap5_system_fixed} implies that $\alpha=\alpha'$ and by the previous point all other equalities hold.
+        \item If $p = p'$, $\kappa=1$ and the rest of equalities are verified.
         
+        This shows that whenever one of the parameters is fixed, $f_\theta = f_{\theta'}$ implies $\theta = \theta'$. This achieves the proof.
+
+    \end{itemize}
+
+
+
 \end{subappendices}
