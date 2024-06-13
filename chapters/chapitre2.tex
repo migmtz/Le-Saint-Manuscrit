@@ -5,7 +5,7 @@
   in the inhibition context, our procedure provides more accurate estimations than current alternative approaches.
 }
 
-\chapter[][MLE for Hawkes Processes with self-excitation or inhibition]{Maximum Likelihood Estimation for Hawkes Processes with self-excitation or inhibition}
+\chapter[][MLE for Hawkes Processes with self-excitation or inhibition]{Maximum Likelihood Estimation for Hawkes Processes with self-excitation or inhibition}\label{chapter:univariate_inhibition}
 
 % sec, eq, prop, alg, th, cor, def, fig, app, table
 
@@ -38,13 +38,13 @@ For any $t \geq 0$, let us note $N(t) = \sum_{k\geq 1}{\II_{T_k \leq t }}$ the n
 (where \(\II_{\cdot}\) stands for the indicator function),
 and $\lambda$ its conditional intensity function \parencite{DaleyV1}:
 \begin{equation*}
-    \lambda(t) = \lim_{h\to 0}{\frac{\PP(N(t+h) - N(t) > 0)}{h}}.
+    \lambda(t) = \lim_{h\to 0}{\frac{\PP(N(t+h) - N(t) > 0)}{h}}\,.
 \end{equation*}
 
 A univariate Hawkes process is a point process defined by the conditional intensity function:
 \begin{align}
     \lambda(t) &= \left(\lambda_0 + \int_{0}^{t}{h(t-s)\,\mathrm{d}N(s)}\right)^+
-    = \left(\lambda_0 + \sum_{T_k \leq t}{h(t-T_k)}\right)^+,
+    = \left(\lambda_0 + \sum_{T_k \leq t}{h(t-T_k)}\right)^+\,,
     \label{eq:chap1_general_hawkes}
 \end{align}
 where $x^+ = \max(0,x)$ denotes the positive part of any real value $x$,
@@ -57,7 +57,7 @@ Here, $h$ is allowed to take negative values, meaning that it can model both sel
 Working with such Hawkes processes may prove to be difficult as the positive part function is non-linear.
 In particular, while computing the compensator function \parencite{DaleyV1}
 \begin{equation}
-    \Lambda(t) = \int_{0}^{t}{\lambda(t)\,\mathrm{d}t},
+    \Lambda(t) = \int_{0}^{t}{\lambda(t)\,\mathrm{d}t}\,,
     \quad \forall t \geq 0,
     \label{eq:chap1_compensator}
 \end{equation}
@@ -70,12 +70,12 @@ derive the computation of the likelihood of a monotone Hawkes process, in a fram
 \begin{definition}
 Let the \emph{underlying intensity function} of $N$ be:
 \begin{equation*}
-    \lambda^\star(t) = \lambda_0 + \int_{0}^{t}{h(t-s)\,\mathrm{d}N(s)}.
+    \lambda^\star(t) = \lambda_0 + \int_{0}^{t}{h(t-s)\,\mathrm{d}N(s)}\,.
 \end{equation*}
 
 In addition, let the \emph{restart time} $T_k^\star$ be, for any positive integer $k$:
 \begin{equation*}
-    T_k^\star = \inf{\{t\geq T_k\mid \lambda(t) > 0\}},
+    T_k^\star = \inf{\{t\geq T_k\mid \lambda(t) > 0\}}\,,
 \end{equation*}
 along with its corresponding \emph{cooldown interval} $\tau_k^* = T_k^* - T_k$.
 \label{def:chap1_underlying}
@@ -92,7 +92,7 @@ along with its corresponding \emph{cooldown interval} $\tau_k^* = T_k^* - T_k$.
 As illustrated in Figure \ref{fig:chap1_underlying_intensity}, $\lambda^\star$ corresponds to the intensity $\lambda$ as if it were allowed to take negative values.
 Moreover, as the kernel is assumed to be monotone, the restart time associated to one occurrence can be interpreted as the first moment after this occurrence from which $\lambda$ and $\lambda^\star$ become equal  (in particular, the restart time and the occurrence time coincide if the intensity function is nonnegative at this time, see Figure \ref{fig:chap1_underlying_intensity}):
 \begin{equation*}
-    T_k^\star = \inf{\{t\geq T_i\mid \forall t\in(T_k^*,T_{k+1}),\, \lambda(t) = \lambda^\star(t)\}}.
+    T_k^\star = \inf{\{t\geq T_i\mid \forall t\in(T_k^*,T_{k+1}),\, \lambda(t) = \lambda^\star(t)\}}\,.
 \end{equation*}
 
 \section{Maximum likelihood estimation and the exponential model}
@@ -101,7 +101,7 @@ Moreover, as the kernel is assumed to be monotone, the restart time associated t
 Assume a parametric model $\mathcal P = \left\{ \lambda_\theta, \theta \in \Theta \right\}$ for the conditional intensity function $\lambda$, where $\theta$ contains unknown quantities such as the baseline $\lambda_0$ and the kernel $h$.
 Then, with convention $log(t) = -\infty$ for $t\leq0$, the log-likelihood $\ell_t$ of any $\theta \in \Theta$ with respect to the observations $T_1,\ldots, T_{N(t)}$ in the time interval $[0,t]$ is \parencite[Proposition 7.2.III.]{DaleyV1}, \parencite{Ozaki1979}:
 \begin{equation}\label{eq:chap1_log_likelihood}
-    \ell_t(\theta) = \sum_{k=1}^{N(t)}{\log{(\lambda_\theta(T_k^-))}} - \Lambda_\theta(t),
+    \ell_t(\theta) = \sum_{k=1}^{N(t)}{\log{(\lambda_\theta(T_k^-))}} - \Lambda_\theta(t)\,,
 \end{equation}
 where the compensator $\Lambda_\theta$ is defined as in Equation \eqref{eq:chap1_compensator} and $\lambda_\theta(T_k^-) = \lim_{t \to T_k^-} \lambda_\theta(t)$.
 
@@ -115,7 +115,7 @@ For any $t>0$, the compensator $\Lambda$ can be expressed as:
 \Lambda(t) =
 \begin{dcases}
     \lambda_0 t &\text{\qquad if $t<T_1$}\\
-    \lambda_0 T_1 + \sum_{k=1}^{{N(t)-1}}{\int_{T_{k}^\star}^{T_{k+1}}{\lambda^\star(u)\,\mathrm{d}u}} + \int_{T_{N(t)}^\star}^{t}{\lambda^\star(u)\,\mathrm{d}u} &\text{\qquad if $t\geq T_1$},
+    \lambda_0 T_1 + \sum_{k=1}^{{N(t)-1}}{\int_{T_{k}^\star}^{T_{k+1}}{\lambda^\star(u)\,\mathrm{d}u}} + \int_{T_{N(t)}^\star}^{t}{\lambda^\star(u)\,\mathrm{d}u} &\text{\qquad if $t\geq T_1$}\,,
 \end{dcases}
 \end{equation}
 with the conventions that the sum is equal to $0$ if ${N(t)} = 1$ and the last integral is equal to $0$ if $t < T_{N(t)}^*$.
@@ -130,7 +130,7 @@ Let us notice that $\alpha$ can be either positive or negative, meaning that the
 
 Then, the underlying intensity function can be written as:
 \begin{equation}\label{eq:chap1_exponential_intensity}
-    \lambda^\star(t) = \lambda_0 + \int_{0}^{t}{\alpha \mathrm{e}^{-\beta(t-s)}\,\mathrm{d}N(s)}.
+    \lambda^\star(t) = \lambda_0 + \int_{0}^{t}{\alpha \mathrm{e}^{-\beta(t-s)}\,\mathrm{d}N(s)}\,.
 \end{equation}
 The forthcoming proposition steps forward in computing the compensator for an exponential kernel.
 
@@ -138,13 +138,13 @@ The forthcoming proposition steps forward in computing the compensator for an ex
 Let $t > 0$ and $k \in \{1, \dots, N(t)\}$.
 The restart times read:
 \[
-    T_k^\star = T_k + \beta^{-1} \log \left({\frac{\lambda_0 - \lambda^\star(T_k)}{\lambda_0}} \right) \II_{\lambda^\star(T_k) < 0},
+    T_k^\star = T_k + \beta^{-1} \log \left({\frac{\lambda_0 - \lambda^\star(T_k)}{\lambda_0}} \right) \II_{\lambda^\star(T_k) < 0}\,,
 \]
 and the compensator is expressed as in Equation~\eqref{eq:chap1_compensator_general}, with,
 for any $\tau \in [T_{k}^*, T_{k+1}]$:
 \[
     \int_{T_{k}^\star}^{\tau}{\lambda^\star(u)\,\mathrm{d}u}
-    = \lambda_0(\tau - T_{k}^\star) + \beta^{-1} (\lambda^\star(T_{k}) - \lambda_0) (\mathrm{e}^{-\beta(T_{k}^\star-T_{k})}-\mathrm{e}^{-\beta(\tau-T_{k})}).
+    = \lambda_0(\tau - T_{k}^\star) + \beta^{-1} (\lambda^\star(T_{k}) - \lambda_0) (\mathrm{e}^{-\beta(T_{k}^\star-T_{k})}-\mathrm{e}^{-\beta(\tau-T_{k})})\,.
 \]
 
 \label{prop:chap1_exp}
@@ -156,7 +156,7 @@ The proof is in \ref{app:chap1_appendix}.
 \begin{corollary}[Log-likelihood for exponential kernel]
   Let
   \begin{equation}
-    \mathcal P = \left\{ \lambda_\theta = \bar{\lambda_0} + \int_{0}^{t}{\bar \alpha \mathrm{e}^{-\bar \beta(t-s)}\,\mathrm{d}N(s)} : \theta=(\bar{\lambda_0}, \bar \alpha, \bar \beta) \in \Theta \right\},
+    \mathcal P = \left\{ \lambda_\theta = \bar{\lambda_0} + \int_{0}^{t}{\bar \alpha \mathrm{e}^{-\bar \beta(t-s)}\,\mathrm{d}N(s)} : \theta=(\bar{\lambda_0}, \bar \alpha, \bar \beta) \in \Theta \right\}\,,
     \label{eq:chap1_model}
   \end{equation}
   be a parametric exponential model for the conditional intensity function $\lambda$ with $\Theta = \RR_+^* \times \RR \times \RR_+^*$,
@@ -165,7 +165,7 @@ The proof is in \ref{app:chap1_appendix}.
   For any $\theta=(\bar{\lambda_0}, \bar \alpha, \bar \beta) \in \Theta$, by denoting
   \[
     \Lambda_{\theta, k} =
-    \bar \lambda_0(T_k - T_{\theta, k-1}^\star) + \bar \beta^{-1} (\lambda_\theta^\star(T_{k-1}) - \bar \lambda_0) (\mathrm{e}^{-\bar \beta(T_{\theta, k-1}^\star-T_{k-1})}-\mathrm{e}^{-\bar \beta(T_k-T_{k-1})}),
+    \bar \lambda_0(T_k - T_{\theta, k-1}^\star) + \bar \beta^{-1} (\lambda_\theta^\star(T_{k-1}) - \bar \lambda_0) (\mathrm{e}^{-\bar \beta(T_{\theta, k-1}^\star-T_{k-1})}-\mathrm{e}^{-\bar \beta(T_k-T_{k-1})})\,,
   \]
   the log-likelihood reads (with convention $\log(x) = -\infty$ for $x \leq 0$):
   \begin{align}
@@ -174,7 +174,7 @@ The proof is in \ref{app:chap1_appendix}.
       - \bar{\lambda_0} T_1
       + \sum_{k=2}^{N(t)} \left[ \log \left(\bar{\lambda_0} + (\lambda_\theta^\star(T_{k-1}) - \bar{\lambda_0}) \mathrm{e}^{-\bar \beta(T_{k}-T_{k-1})} \right) - \Lambda_{\theta, k} \right] \notag\\
       &- \left[ \bar{\lambda_0} (t - T_{\theta, N(t)}^\star) + \bar \beta^{-1} (\lambda_\theta^\star(T_{N(t)}) - \bar{\lambda_0}) \left(\mathrm{e}^{-\bar \beta(T_{\theta, N(t)}^\star-T_{N(t)})}-\mathrm{e}^{-\bar \beta(t-T_{N(t)})} \right) \right] \II_{t > T_{\theta, N(t)}^\star}
-      \label{eq:chap1_likeli_exp}.
+      \label{eq:chap1_likeli_exp}\,.
   \end{align}
   \label{cor:chap1_loglik}
 \end{corollary}
@@ -193,7 +193,7 @@ Combining this expression with Propositions \ref{prop:chap1_integral_cooldown} a
 Corollary~\ref{cor:chap1_loglik} exhibits that the log-likelihood for
 self-regulating Hawkes processes with an exponential kernel can be evaluated in $O(N(t))$ operations (by computing iteratively the quantities $T_{\theta, k}^\star$ and $\Lambda_{\theta, k}$ appearing in the summation of Equation~\eqref{eq:chap1_likeli_exp}),
 as already known
-for self-exciting exponential Hawkes processes \cite[Chapter 4.2]{Laub2014}.
+for self-exciting exponential Hawkes processes \textcite[Chapter 4.2]{Laub2014}.
 For other monotone kernels without the Markov property, evaluating the log-likelihood with the method proposed here requires $O(N(t)^2)$ operations, similarly to existing approaches for self-exciting Hawkes processes.
 
 \section{Goodness-of-fit}
@@ -207,7 +207,7 @@ This is possible thanks to the Time Change Theorem, a result originally stated f
   Then a.s., a sequence of event times $(U_k)_{k\ge 1}$ is a realization of $N$ if and only if $(\Lambda(U_k))_{k \ge 1}$ is a realization of a homogeneous Poisson process with unit intensity.
 \end{theorem}
 
-Let us note that we can find applications of Theorem~\ref{th:chap1_real_time_change} to self-exciting Hawkes processes in the literature \cite[Chapter 5]{Laub2014}.
+Let us note that we can find applications of Theorem~\ref{th:chap1_real_time_change} to self-exciting Hawkes processes in the literature \parencite[Chapter 5]{Laub2014}.
 Since for self-regulating Hawkes processes \(\Lambda\) is still monotone, this result can also be applied in our case.
 
 To be more precise, let us consider \(\theta \in \Theta\) and the null hypothesis: ``$(U_k)_{k\ge 1}$ is a realization of an exponential Hawkes process with parameter \(\theta\)''.
@@ -219,7 +219,7 @@ This procedure is illustrated in Table~\ref{table:chap1_estim_pvalue}, Section~\
 This section is aimed at assessing the maximum likelihood estimation method for self-regulating Hawkes processes, based on the exact computation of the compensator \(\Lambda_\theta\) in the exponential model \eqref{eq:chap1_model} (Corollary~\ref{cor:chap1_loglik}).
 This procedure is compared to the approximated maximum likelihood estimation proposed in \textcite{Lemonnier2014}, which consists in approximating $\Lambda_\theta$ by:
 \[
-  \Lambda_\theta^{LM}(t) = \int_{0}^{t}{\lambda_\theta^\star(u)\,\mathrm{d}u}.
+  \Lambda_\theta^{LM}(t) = \int_{0}^{t}{\lambda_\theta^\star(u)\,\mathrm{d}u}\,.
 \]
 This optimization procedure is performed with the L-BFGS-B algorithm from the Scipy package (with $(1,0,1)$ as a starting guess and a bounds argument such that $\lambda_0 \geq 0, \alpha \in \RR, \beta\geq 0$).
 In other words, estimators are:
@@ -227,7 +227,7 @@ In other words, estimators are:
   \hat \theta \in \operatorname{arg\,max}_{\theta \in \Theta} ~
   \left\{ \ell_{T_{N_{max}}}(\theta)
   =
-  \sum_{k=1}^{N_{max}}{\log{(\lambda_\theta(T_k^-))}} - \Lambda_\theta(T_{N_{max}}) \right\},
+  \sum_{k=1}^{N_{max}}{\log{(\lambda_\theta(T_k^-))}} - \Lambda_\theta(T_{N_{max}}) \right\}\,,
 \]
 where
 \(N_{max}=200\) is the total number of jumps
@@ -295,19 +295,19 @@ Let us begin by expressing the underlying intensity function between two event t
 First, \(\lambda^\star(t) = \lambda_0\) for \(t\in[0,T_1)\).
 Then, for any $k\in\NN$, for all $t \in [T_k,T_{k+1})$, the underlying intensity is differentiable in \(t\) and
 \begin{equation*}
-    (\lambda^\star)'(t) = -\beta(\lambda^\star(t) - \lambda_0),
+    (\lambda^\star)'(t) = -\beta(\lambda^\star(t) - \lambda_0)\,,
 \end{equation*}
 with the left condition: $\lambda_k^\star := \lambda^\star(T_k)$.
 Solving this differential equation leads to
 \begin{equation}\label{eq:chap1_markov_expression}
-    \lambda^\star(t) = \lambda_0 + (\lambda_k^\star - \lambda_0)\mathrm{e}^{-\beta(t - T_k)}.
+    \lambda^\star(t) = \lambda_0 + (\lambda_k^\star - \lambda_0)\mathrm{e}^{-\beta(t - T_k)}\,.
 \end{equation}
 
 Now, by definition of the restart time $T_k^\star = \inf{\{t\geq T_k\mid \lambda(t) > 0\}}$, we have that if $\lambda_k^\star \geq 0$, then $T_k^\star = T_k$. Otherwise, as $\lambda^\star$ is continuous on the interval $[T_k,T_{k+1})$, we obtain $T_k^\star$ by solving for $t$: \(\lambda^\star(t) = 0\).
 Thus, by Equation~\eqref{eq:chap1_markov_expression}:
 \begin{align*}
     \lambda^\star(T_k^\star) = 0
-    \iff T_k^\star = T_k + \beta^{-1}\log{\left(\frac{\lambda_0 - \lambda^\star_k}{\lambda_0}\right)}.
+    \iff T_k^\star = T_k + \beta^{-1}\log{\left(\frac{\lambda_0 - \lambda^\star_k}{\lambda_0}\right)}\,.
 \end{align*}
 Gathering both situations, we obtain the first part of Proposition~\ref{prop:chap1_exp}: \[T_k^\star = T_k + \beta^{-1}\log{\left(\frac{\lambda_0 - \lambda^\star_k}{\lambda_0}\right)} \II_{\lambda_k^\star < 0}\].
 
@@ -316,14 +316,14 @@ By Equation~\eqref{eq:chap1_markov_expression},
 \begin{align*}
     \int_{T_{k}^\star}^{\tau}{\lambda^\star(u)\,\mathrm{d}u}
     &= \int_{T_{k}^\star}^{\tau} \left( \lambda_0 + (\lambda_{k}^\star - \lambda_0)\mathrm{e}^{-\beta(u - T_{k})} \right)\,\mathrm{d}u\\
-    &= \lambda_0(\tau - T_{k}^\star) + \beta^{-1}(\lambda_{k}^\star - \lambda_0)(\mathrm{e}^{-\beta(T_{k}^\star-T_{k})}-\mathrm{e}^{-\beta(\tau-T_{k})}),
+    &= \lambda_0(\tau - T_{k}^\star) + \beta^{-1}(\lambda_{k}^\star - \lambda_0)(\mathrm{e}^{-\beta(T_{k}^\star-T_{k})}-\mathrm{e}^{-\beta(\tau-T_{k})})\,,
 \end{align*}
 which is the second part of Proposition~\ref{prop:chap1_exp}.
 
 \section{Simulation algorithm}
 \label{app:chap1_simulation}
 
-Algorithm~\ref{alg:chap1_simulation} builds upon Ogata's thinning simulation method \cite[Proposition 1]{Ogata1981} in order to handle Hawkes processes with either self-excitation or inhibition.
+Algorithm~\ref{alg:chap1_simulation} builds upon Ogata's thinning simulation method \parencite[Proposition 1]{Ogata1981} in order to handle Hawkes processes with either self-excitation or inhibition.
 
 \begin{algorithm}[!ht]
 \SetAlgoLined
@@ -332,10 +332,11 @@ Algorithm~\ref{alg:chap1_simulation} builds upon Ogata's thinning simulation met
  \While{\textnormal{Stopping criteria not fulfilled}}{
  Set $\lambda_{max} = \max(\lambda_0,\lambda_k)$\;
  Generate candidate time $t_{cand} = t_k - \frac{\log(U_1)}{\lambda_{max}}$, $U_1\sim U([0,1])$\;
- Estimate intensity $\lambda_k = \lambda(t)$ using sequence of times $\mathcal{T}$\;
+ Estimate intensity $\lambda_k = \lambda(t_{cand})$ using sequence of times $\mathcal{T}$\;
  Sample $U_2\sim U([0,1])$\;
  \If{$U_2 \leq \frac{\lambda_k}{\lambda_{max}}$}{
         Add $t$ to sequence of times $\mathcal{T}$\;
+        Update $\lambda_k = \lambda_k + \alpha$\;
      }
  Set $t_k = t_{cand}$\;
  }
