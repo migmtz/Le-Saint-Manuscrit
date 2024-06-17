@@ -2,12 +2,53 @@
   ABSTRACT
 }
 
-\chapter[][]{A numerical exploration of spectral methods for thinned Hawkes processes}\label{chapter:spectral_thinning}
+\chapter[][]{A numerical exploration of thinned Hawkes processes through spectral theory}\label{chapter:spectral_thinning}
 
 \section{Introduction}
 
-INTRODUCTION
-MOTIVATION = EN UTILISANT $p$ ON PEUT FAIRE UNE SORTE DE SUBSAMPLING OU CROSS-VALIDATION
+The Hawkes process model introduced for the first time in \textcite{Hawkes1971} is a kind of past-dependant point process used to model self-exciting interactions among event times. 
+Its applications are numerous among various fields with examples in sociology \parencite{Linderman2014},
+biology \parencite{Gupta2018, Lambert2018, Rizoiu2018},
+seismology \parencite{Ogata1988, Ogata1998}
+and finance \parencite{Bacry2013, Bacry2015, Hawkes2018}, to mention a few.
+
+As a result, there is many efforts around proposing estimation methods. Traditional methods include maximum likelihood estimators \parencite{Ogata1978, Ozaki1979}, least-square error minimisation \parencite{Reynaud2014,Bacry2020}, method of moments \parencite{DaFonseca2013}, in both parametric and non-parametric contexts.
+
+Most of these methods tend to study the model under the assumption that there is no missing data in the samples used for estimation. 
+However, if this assumption does not hold, it is common for estimators to be biaised or even for theoretical properties to not longer be valid.
+Some works in the literature consider different missing or imperfect data contexts such as binned observations in \textcite{Cheysson2022}, jittering (or random displacement) as exemplified in \textcite{Antoniadis2006,Bonnet2022}, superposition as in \textcite{Bonnet2024}. 
+
+In particular, jittering and superposition are two of the three most common operations on point processes, along with thinning.
+Thinning is more often used in simulation scenarios for point processes, 
+with the main example being Ogata's thinning procedure as introduced in \parencite{Ogata1981} or to accelerate estimations as a method of undersampling \parencite{Li2019}.
+Nonetheless, the use of thinning to model missing data is scarcer in the literature, 
+which could be useful in order to account for sporadic detection errors.
+
+A main work focusing on noised data for both point processes and proposing numerical applications to Hawkes processes can be found in \textcite{Lund2000}. 
+Authors propose a conditional log-likelihood model for point process that have been noised through the three classic operations in the field: jittering, superposition and thinning. 
+Their method consists on establishing an expression of such a log-likelihood when the base point process (or an estimation of it) is available.
+They obtain an approximation of a maximiser through some simplifications and an iterative optimisation on a small space of parameters.
+The main obstacle that arises in this context is that it is essential to have some information on the ground process in order to estimate the underlying effects of noise.
+
+In this chapter, we take inspiration from the spectral estimation methods as presented in \textcite{Cheysson2022, Bonnet2024}.
+Spectral theory for point processes was properly introduced for the first time in \textcite{Bartlett1963},
+focused around the Bartlett spectrum. 
+Works concerning the spectral study and estimation of point processes appeared in the literature with numerous theoretical approaches in temporal and spatial contexts \textcite{Daley1971, Tuan1981, Mugglestone2001, Rajala2023}.
+
+In our work, we explicit the form of the Bartlett spectrum for a point process thinned with independent and identically distributed probabilities. In particular, we follow a similar scheme as the one presented for the superposition of point processes in \textcite{Bonnet2024}, with a particular interest in the univariate Hawkes process with exponential kernel.
+
+We illustrate the performance of our estimators for different levels of thinning and show the importance of accounting for eventual missing data in the context of point processes.
+
+Additionnaly, we carry out a numerical study in a different context:
+a main issue when working with point observations, specially issued from real data, is the low amount of repetitions and information available.
+Common methods to circumvent this problem include considering penalised contrasts for optimisation methods along with subsampling or cross-validation frameworks. 
+This is however a complicated issue in point processes, as common methods like splitting data can be difficult for low counts of points, and may wash-out interaction among points (as suggested in \textcite{Reynaud2014}).
+An example of the difficulties and uses of cross-validation for point patterns can be found in \textcite{Cronie2023}.
+In this chapter, we leverage the thinning operation in order to create \textit{subsamples} of a single Hawkes process
+and show that, through a penalised version of the spectral log-likelihood, 
+it is possible to improve the obtained estimators.
+
+PRESENTER CHAPITRES UNE FOIS STABILISÉ
 
 \section{Mathematical setting}\label{sec:chap5_mathsetting}
 
@@ -29,13 +70,15 @@ be the number of event times in $B$.
 
 In this chapter, we will study a thinned version of process $H$ defined as follows:
 \begin{definition}\label{def:chap5_thinning}
-For any $p\in(0,1)$, we denote $H_p$ a $p$-thinning of a point process $H$, defined for any $B\in\mathcal{B}_{\RR}^c$ as:
+For any $p\in(0,1]$, we denote $H_p$ a $p$-thinning of a point process $H$, defined for any $B\in\mathcal{B}_{\RR}^c$ as:
 \[H_p(B) = \sum_{k\in\ZZ}{\II_{T_k \in B} Z_k}\,,\]
 where $(Z_k)$ is an i.i.d. collection of Bernoulli random variables of parameter $p$.
 \end{definition}
 
 In practice, the event times of process $H_p$ correspond to a subset of $(T_k)_{k\in\ZZ}$ where each point
 is erased with a random probability $1-p$. 
+Setting $p = 1$ keeps all original points from process $H$ which is not a proper thinning per se,
+but we include this value in order to lighten notations in the incoming sections. 
 
 \subsection{Spectral theory for point processes}\label{sec:chap5_spectral_theory}
 
@@ -191,7 +234,7 @@ as presented in the following proposition:
 
     \begin{corollary}\label{cor:chap5_hawkes_thinning}
         Let $H$ be a stationary univariate Hawkes process with baseline intensity $\mu > 0$, and kernel function $h\colon \RR\to \RR_{>0}$,
-        as defined by Equation~\eqref{eq:chap5_hawkes_intensity}. Let $p\in(0,1)$ and $H_p$ a $p$-thinning of $H$. 
+        as defined by Equation~\eqref{eq:chap5_hawkes_intensity}. Let $p\in(0,1]$ and $H_p$ a $p$-thinning of $H$. 
         Then the spectral density $f_p$ of $H_p$ is:
         \begin{equation}\label{eq:chap5_spectral_hawkes}
             \forall \omega \in \RR\,, \quad f_p(\omega) = p^2 \frac{\mu}{(1-\|h\|_1)|1-\tilde h(\omega)|^2} + p(1-p)\frac{\mu}{1-\|h\|_1}\,.
@@ -225,7 +268,7 @@ as presented in the following proposition:
     \[\mathcal{Q} = 
       \left\{
         f_\theta \colon \RR \to \CC, 
-        \theta = (\mu, \alpha, \beta, p) \in \RR_{>0}\times (0,1) \times \RR_{>0}\times(0,1)
+        \theta = (\mu, \alpha, \beta, p) \in \RR_{>0}\times (0,1) \times \RR_{>0}\times(0,1]
       \right\}\,.
     \]
     Similar to the superposition case shown in \textcite[Proposition 3.2]{Bonnet2024}, 
@@ -235,7 +278,7 @@ as presented in the following proposition:
         The model $\mathcal{Q}$ is identifiable if and only if one of the parameters in the 4-uplet $(\mu, \alpha, \beta, p)$ is fixed.
 
         In particular, for any admissible parameter $\theta = (\mu, \alpha, \beta, p)$,
-        for any $\kappa\in(0, 1/p)$, let:
+        for any $\kappa\in(0, 1/p]$, let:
         \begin{equation}\label{eq:chap5_nonidentifiable_parameters}
         \begin{cases}
             \mu' = \frac{\mu}{\kappa(1-\alpha)\sqrt{1 + \frac{1}{\kappa}\left(\frac{1}{(1-\alpha)^2} - 1\right)}}\\
@@ -253,12 +296,12 @@ as presented in the following proposition:
 
     The non-identifiability of the full model (four unknown parameters) limits the implementation of an estimation method for $\theta\in\Theta$, but this problem is avoided as long as one of the parameters is known beforehand. 
     In this work we will focus on the scenario where the value of $p$ is known in advance, 
-    and so the previous result ensures that, for any $p^\star\in(0,1)$, the reduced model:
+    and so the previous result ensures that, for any $p^\star\in(0,1]$, the reduced model:
     
     \[\mathcal{Q}_{p} = 
         \left\{
             f_\theta \colon \RR \to \CC, 
-            \theta = (\mu, \alpha, \beta, p) \in \RR_{>0}\times (0,1) \times \RR_{>0}\times(0,1), p=p^\star
+            \theta = (\mu, \alpha, \beta, p) \in \RR_{>0}\times (0,1) \times \RR_{>0}\times(0,1], p=p^\star
         \right\}\,,
     \]
     is identifiable.
@@ -270,7 +313,59 @@ as presented in the following proposition:
     \]
 
 \section{Numerical illustrations}
-    In this section, we will focus in 
+    In this section, we will study estimation of $p$-thinned Hawkes processes through spectral estimation.
+    All estimations are obtained by maximising Equation~\eqref{eq:chap5_spectral_ll} under the mathematical model $\mathcal{Q}_p$,
+    and unless said otherwise, $p$ will be fixed to the true value $p^\star$ used for thinning.
+
+    Simulation is done by leveraging the cluster and branching representation of self-exciting Hawkes processes \parencite{Hawkes1974},
+    which is explicited in \textcite[Algorithm 2]{Moller2005}.
+    In order to approximate the stationarity condition of the Hawkes process,
+    for any simulation window $[0,T]$ considered in our study, 
+    we will initially simulate the process in $[-100, T]$ to avoid edge effects.
+
+    To evaluate the performance of our estimator $\hat\theta$ against any set of parameters $\theta$,
+    we will consider its relative $\ell_2$ error defined as:
+    \[\frac{\|\hat \theta - \theta\|_2}{\|\theta\|_2}\,.\]
+
+    \subsection{Performance with respect to $p$}
+
+    In this section, we will study the performance of estimator $\hat\theta$ for different levels of $p$.
+    We simulate 100 different Hawkes processes $(N^1,\ldots, N^{100})$ with exponential kernel with parameters:
+    \[\mu = 1.25\,,\quad \alpha = 0.5\,,\quad \beta = 1.5\,,\]
+    and the following grid of values for the thinning:
+    \[p\in\{0.1, 0.2, \ldots, 0.9\}\,.\]
+    We perform then a $p$-thinning of each simulation obtaining the thinned sample $(N_p^1, \ldots, N_p^{100})$.
+    For each level $p$, 
+    we will simulate each $N^i$ on a window $[0,T_p]$ with $T_p$ chosen so the average number of points after thinning is constant equal to $5000$.
+    By remarking that:
+    \[\EE[N_p([0, T_p])] = p\EE[N([0,T_p])] = \frac{ p \mu }{1-\alpha} T_p\,,\]
+    then we set the simulation windows to $T_p = (1-\alpha) / (p \mu)$.
+    This ensures that for each scenario, all estimations take into account the same amount of information on average.
+
+    We will consider two different estimators in order to show the advantage of taking thinning into account.
+    The first estimator $\hat \theta_p$ is obtained for each $N_p^i$ by estimating in the correct model $\mathcal{Q}_p$ 
+    and we will compare it to the estimator $\hat \theta_1$ obtained by maximising Equation~\eqref{eq:chap5_spectral_ll}
+    for $p=1$.
+    Estimator $\hat \theta_1$ corresponds to making the assume that observations $(N_p^1, \ldots, N_p^{100})$
+    are a Hawkes process that has not been thinned.
+
+    Figure~\ref{fig:chap5_l2_error_same_information} represents the boxplots of relative square errors for both $\hat \theta_p$ and $\hat \theta_1$ in logarithmic scale.
+    As expected, $\hat \theta_p$ performs significantly better than $\hat \theta_1$, 
+    in particular for higher levels of thinning (lower values of $p$).
+    In particular, we can see that estimations are particularly improved when estimating $\mu$ and $\alpha$,
+    which are the two parameters controlling the average number of points, that we recall here reads:
+    \[m_1 T = \frac{\mu T}{1-\alpha}\,.\]
+    Let us that the performance of $\hat \theta$ is fairly consistent accross all considered values of $p$.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{images/chapter5/l2_error_same_information.pdf} 
+        \caption{
+        }
+        \label{fig:chap5_l2_error_same_information}
+      \end{figure}
+
+
 
 
 \begin{subappendices}
@@ -315,9 +410,9 @@ as presented in the following proposition:
         \end{align}
         where the last equality comes from Equation~\eqref{eq:chap5_bartlett_covariance}.
 
-        For the left hand side, let us remark that $\bar \varphi(x) = p \varphi(x)$ for any $x\in\RR$ and so, for any $\omega\in\RR$,
+        For the left-hand side, let us remark that $\bar \varphi(x) = p \varphi(x)$ for any $x\in\RR$ and so, for any $\omega\in\RR$,
         \[
-            \tilde \bar \varphi(\omega) = p \tilde \varphi(\omega)\,,
+            \tilde {\bar \varphi}(\omega) = p \tilde \varphi(\omega)\,,
         \]
         and,
         \[\tilde \phi^\star(\omega, Z) = \tilde \phi(\omega)Z\,.\]
