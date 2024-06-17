@@ -6,16 +6,16 @@
 
 \section{Introduction}
 
-The Hawkes process model introduced for the first time in \textcite{Hawkes1971} is a kind of past-dependant point process used to model self-exciting interactions among event times. 
-Its applications are numerous among various fields with examples in sociology \parencite{Linderman2014},
+The Hawkes process model introduced for the first time in \textcite{Hawkes1971} is a kind of past-dependent point process used to model self-exciting interactions among event times. 
+Its applications are numerous among various fields with examples including sociology \parencite{Linderman2014},
 biology \parencite{Gupta2018, Lambert2018, Rizoiu2018},
 seismology \parencite{Ogata1988, Ogata1998}
 and finance \parencite{Bacry2013, Bacry2015, Hawkes2018}, to mention a few.
 
-As a result, there is many efforts around proposing estimation methods. Traditional methods include maximum likelihood estimators \parencite{Ogata1978, Ozaki1979}, least-square error minimisation \parencite{Reynaud2014,Bacry2020}, method of moments \parencite{DaFonseca2013}, in both parametric and non-parametric contexts.
+As a result, there are many efforts around proposing estimation methods. Traditional methods include maximum likelihood estimators \parencite{Ogata1978, Ozaki1979}, least-squares error minimisation \parencite{Reynaud2014,Bacry2020}, method of moments \parencite{DaFonseca2013}, in both parametric and non-parametric contexts.
 
 Most of these methods tend to study the model under the assumption that there is no missing data in the samples used for estimation. 
-However, if this assumption does not hold, it is common for estimators to be biaised or even for theoretical properties to not longer be valid.
+However, if this assumption does not hold, it is common for estimators to be biased or even for theoretical properties to no longer be valid.
 Some works in the literature consider different missing or imperfect data contexts such as binned observations in \textcite{Cheysson2022}, jittering (or random displacement) as exemplified in \textcite{Antoniadis2006,Bonnet2022}, superposition as in \textcite{Bonnet2024}. 
 
 In particular, jittering and superposition are two of the three most common operations on point processes, along with thinning.
@@ -26,7 +26,7 @@ which could be useful in order to account for sporadic detection errors.
 
 A main work focusing on noised data for both point processes and proposing numerical applications to Hawkes processes can be found in \textcite{Lund2000}. 
 Authors propose a conditional log-likelihood model for point process that have been noised through the three classic operations in the field: jittering, superposition and thinning. 
-Their method consists on establishing an expression of such a log-likelihood when the base point process (or an estimation of it) is available.
+Their method consists in establishing an expression of such a log-likelihood when the base point process (or an estimation of it) is available.
 They obtain an approximation of a maximiser through some simplifications and an iterative optimisation on a small space of parameters.
 The main obstacle that arises in this context is that it is essential to have some information on the ground process in order to estimate the underlying effects of noise.
 
@@ -39,12 +39,13 @@ In our work, we explicit the form of the Bartlett spectrum for a point process t
 
 We illustrate the performance of our estimators for different levels of thinning and show the importance of accounting for eventual missing data in the context of point processes.
 
-Additionnaly, we carry out a numerical study in a different context:
-a main issue when working with point observations, specially issued from real data, is the low amount of repetitions and information available.
+% Faut que j'adapte selon ce que je montre
+Additionally, we carry out a numerical study in a different context:
+a main issue when working with point observations, in particular when issued from real data, is the low amount of repetitions and information available.
 Common methods to circumvent this problem include considering penalised contrasts for optimisation methods along with subsampling or cross-validation frameworks. 
-This is however a complicated issue in point processes, as common methods like splitting data can be difficult for low counts of points, and may wash-out interaction among points (as suggested in \textcite{Reynaud2014}).
+This is however a complicated issue in point processes, as common methods like splitting data can be difficult for low counts of points, and may wash out interaction among points (as suggested in \textcite{Reynaud2014}).
 An example of the difficulties and uses of cross-validation for point patterns can be found in \textcite{Cronie2023}.
-In this chapter, we leverage the thinning operation in order to create \textit{subsamples} of a single Hawkes process
+In this chapter, we leverage the thinning operation to create \textit{subsamples} of a single Hawkes process
 and show that, through a penalised version of the spectral log-likelihood, 
 it is possible to improve the obtained estimators.
 
