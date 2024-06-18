@@ -6,21 +6,21 @@
 
 \section{Introduction}
 
-The Hawkes process model introduced for the first time in \textcite{Hawkes1971} is a kind of past-dependent point process used to model self-exciting interactions among event times. 
+The Hawkes process model introduced for the first time in \textcite{Hawkes1971} is a past-dependent point process used to characterise self-exciting interactions among event times. 
 Its applications are numerous among various fields with examples including sociology \parencite{Linderman2014},
 biology \parencite{Gupta2018, Lambert2018, Rizoiu2018},
 seismology \parencite{Ogata1988, Ogata1998}
 and finance \parencite{Bacry2013, Bacry2015, Hawkes2018}, to mention a few.
 
-As a result, there are many efforts around proposing estimation methods. Traditional methods include maximum likelihood estimators \parencite{Ogata1978, Ozaki1979}, least-squares error minimisation \parencite{Reynaud2014,Bacry2020}, method of moments \parencite{DaFonseca2013}, in both parametric and non-parametric contexts.
+As a result, there are many efforts focused around proposing estimation methods. These include estimators obtained through likelihood maximisation \parencite{Ogata1978, Ozaki1979}, least-squares error minimisation \parencite{Reynaud2014,Bacry2020} and method of moments \parencite{DaFonseca2013}, in both parametric and non-parametric settings.
 
 Most of these methods tend to study the model under the assumption that there is no missing data in the samples used for estimation. 
 However, if this assumption does not hold, it is common for estimators to be biased or even for theoretical properties to no longer be valid.
 Some works in the literature consider different missing or imperfect data contexts such as binned observations in \textcite{Cheysson2022}, jittering (or random displacement) as exemplified in \textcite{Antoniadis2006,Bonnet2022}, superposition as in \textcite{Bonnet2024}. 
 
-In particular, jittering and superposition are two of the three most common operations on point processes, along with thinning.
+Jittering and superposition are two of the three most common operations on point processes, along with thinning.
 Thinning is more often used in simulation scenarios for point processes, 
-with the main example being Ogata's thinning procedure as introduced in \parencite{Ogata1981} or to accelerate estimations as a method of undersampling \parencite{Li2019}.
+with the main example being Ogata's thinning procedure as introduced in \textcite{Ogata1981} or to accelerate estimations as a method of undersampling \parencite{Li2019}.
 Nonetheless, the use of thinning to model missing data is scarcer in the literature, 
 which could be useful in order to account for sporadic detection errors.
 
@@ -33,23 +33,51 @@ The main obstacle that arises in this context is that it is essential to have so
 In this chapter, we take inspiration from the spectral estimation methods as presented in \textcite{Cheysson2022, Bonnet2024}.
 Spectral theory for point processes was properly introduced for the first time in \textcite{Bartlett1963},
 focused around the Bartlett spectrum. 
-Works concerning the spectral study and estimation of point processes appeared in the literature with numerous theoretical approaches in temporal and spatial contexts \textcite{Daley1971, Tuan1981, Mugglestone2001, Rajala2023}.
+Works concerning the spectral study and estimation of point processes subsequently appeared in the literature with numerous theoretical approaches in temporal and spatial contexts \parencite{Daley1971, Tuan1981, Mugglestone2001, Rajala2023}. Practical applications are scarcer, with an application to multiple clustering models, including Hawkes processes, in \textcite{Adamopoulos1976}, and in \textcite{Karavasilis2007} for stationary bivariate processes.
 
 In our work, we explicit the form of the Bartlett spectrum for a point process thinned with independent and identically distributed probabilities. In particular, we follow a similar scheme as the one presented for the superposition of point processes in \textcite{Bonnet2024}, with a particular interest in the univariate Hawkes process with exponential kernel.
 
 We illustrate the performance of our estimators for different levels of thinning and show the importance of accounting for eventual missing data in the context of point processes.
 
-% Faut que j'adapte selon ce que je montre
-Additionally, we carry out a numerical study in a different context:
-a main issue when working with point observations, in particular when issued from real data, is the low amount of repetitions and information available.
-Common methods to circumvent this problem include considering penalised contrasts for optimisation methods along with subsampling or cross-validation frameworks. 
-This is however a complicated issue in point processes, as common methods like splitting data can be difficult for low counts of points, and may wash out interaction among points (as suggested in \textcite{Reynaud2014}).
-An example of the difficulties and uses of cross-validation for point patterns can be found in \textcite{Cronie2023}.
-In this chapter, we leverage the thinning operation to create \textit{subsamples} of a single Hawkes process
-and show that, through a penalised version of the spectral log-likelihood, 
-it is possible to improve the obtained estimators.
+A second contribution of our work focuses on the thinning operation as a tool to provide a subsampling scheme for point processes.
+This approach has been explored mainly in spatial contexts \textcite{Moller2003, Moradi2019, Cronie2023} showing the advantages of considering thinning for point processes, either by improving estimations, or by proposing cross-validation procedures in spatio-temporal contexts, as proposed in \textcite{Coeurjolly2024}.
+Our effort in this chapter consists in illustrating its use for spectral estimators when combined with a penalised version of the log-likelihood.
+We show that, in a one-sized sample context with a small observation window, 
+our estimator provides the best estimator with very satisfying results.
 
-PRESENTER CHAPITRES UNE FOIS STABILISÉ
+After a general presentation of the mathematical setting in Section~\ref{sec:chap5_mathsetting} for both thinning and spectral theory of point processes, 
+we introduce the results concerning the spectral density function for thinned point processes in Section~\ref{sec:chap5_thinned_spectrum}.
+We leverage this result in the case of a Hawkes process with exponential kernel in Section~\ref{sec:chap5_thinned_hawkes} along with an identifiability condition.
+Finally, we illustrate the performance of our estimating in the context of missing data in Section~\ref{sec:chap5_missing_numerical}, and for enhancing estimation through $\ell_2$ penalisation with subsampling in Section~\ref{sec:chap5_subsampling_numerical}
+
+
+    %In this setting, the idea is to use the thinning operation of point processes as a method of subsampling in order to improve the quality of our estimations. As a matter of fact, leveraging subsampling procedures for point processes is a complicated question when considering one-sized samples.
+
+    %The use of subsampling procedures in statistical estimation frameworks is a common approach to either downsize samples to accelerate estimation times, 
+    %improve estimation efficiency or in cross-validation paradigms.
+    
+    % This becomes clear when considering the subsampling with replacement procedure,
+    % which immediately renders many traditional estimation methods unfeasible due to the eventual multiplicity of points.
+    % Indeed, many inference methods make the assumption that the point process $H$ is simple, in other words:
+    % \[N({t}) \in \{0,1\}\quad \text{a.s.,}\]
+    % and so other subsampling methods must be considered.
+
+    % We consider then what is commonly known as Bernoulli subsampling, 
+    % which in our contexts corresponds exactly to the $p$-thinning of process $H$.
+    % By fixing $p\in(0,1)$, we perform a $p$-thinning of the observation $H$ in order to obtained a subsample $\mathcal{S}_1$ of the event times $(T_k)_k$ which correspond to a thinned Hawkes process $H_p$.
+    % We can then obtain an estimation $\hat \theta_{1,p}$ of $(\mu, \alpha, \beta)$ by maximising the spectral log-likelihood (Equation~\eqref{eq:chap5_spectral_ll}) on the statistical model $\mathcal{Q}_p$.
+    % By performing this procedure a given number of times $S$, we may obtain an average estimator:
+    % \[\bar \theta_p = \frac{1}{S}\sum_{s=1}^{S}{\hat \theta_{s,p}}\,.\]
+
+% Faut que j'adapte selon ce que je montre
+% Additionally, we carry out a numerical study in a different context:
+% a main issue when working with point observations, in particular when issued from real data, is the low amount of repetitions and information available.
+% Common methods to circumvent this problem include considering penalised contrasts for optimisation methods along with subsampling or cross-validation frameworks. 
+% This is however a complicated issue in point processes, as common methods like splitting data can be difficult for low counts of points, and may weaken interactions between points (as suggested in \textcite{Reynaud2014}).
+% An example of the difficulties and uses of cross-validation for point patterns can be found in \textcite{Cronie2023}.
+% In this chapter, we leverage the thinning operation to create \textit{subsamples} of a single Hawkes process
+% and show that, through a penalised version of the spectral log-likelihood, 
+% it is possible to improve the obtained estimators.
 
 \section{Mathematical setting}\label{sec:chap5_mathsetting}
 
@@ -140,24 +168,23 @@ We can then introduce the Whittle estimator $\hat \theta$ \parencite{Whittle1952
 
 \section{Parametric estimation of a thinned process}\label{sec:chap5_estimation}
 
-\subsection{The spectrum of a thinned point process}
+    \subsection{The spectrum of a thinned point process}\label{sec:chap5_thinned_spectrum}
 
 The goal of this chapter is to establish a parametric estimation method for the observation of a thinned Hawkes process.
-We will then begin by establishing the expression of a $p$-thinning of a point process. 
 We will leverage the study of spectral quantities on marked point process, 
 which can be found in \textcite{Bremaud2002, Bremaud2005}. 
 
-For this, let us introduce an alternative way of viewing the $p$-thinning of a point process through marked point process theory.
-In this section, $H$ will denote a stationary point process on $\RR$ with spectral density function $f$.
+For this, let us introduce an alternative way of viewing the $p$-thinning of a point process through marked point process theory (as also done in \textcite{Cronie2023}).
+In this section, $H$ will denote a stationary point process on $\RR$ with Bartlett spectrum $\Gamma^H$ and spectral density function $f^H$.
 
 We define the marked point process $\bar H$ associated to $H$, with marks $Z_k$ on a metric space $\mathcal{K}$ as the collection of points
 $(T_k, Z_k)_{k\in\ZZ} \in (\RR \times \mathcal{K})^{\ZZ}$ (see \textcite[Chapter 6.4]{DaleyV1} for a more thorough presentation of marked point processes). 
 The random marks $Z_k$ are usually used to represent underlying information on the event times of a point process $H$, 
 which is often referred to as the \textit{ground} process.
 In our work, we will restrict ourselves to the case where the random variables $(Z_k)_{k\in\ZZ}$ are independent and identically distributed.
-In this way, process $\bar H$ is well-defined \parencite[6.4.IV(a)]{DaleyV1}.
+In this setting, process $\bar H$ is well-defined \parencite[6.4.IV(a)]{DaleyV1}.
 
-We can then view a $p$-thinning of $H$ as a marked version $\bar H$ where $\mathcal{K} = [0,1]$
+We can then view a $p$-thinning of $H$ as a marked version $\bar H$ where $\mathcal{K} = \{0,1\}$
 and the $(Z_k)_{k\in\ZZ}$ are a collection of Bernoulli random variables of parameter $p$.
 This way we may define the thinned process $H_p$, for any $B\in\mathcal{B}^c$, as:
 \[H_p(B) = \bar H(B\times\{1\})\,.\]
@@ -182,11 +209,11 @@ that we adapt to our notations here as:
     \end{itemize}
 
     Then, it follows that:
-    \begin{equation}\label{eq:chap5_marked_spectrum}
-        \Cov\left(\sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)}, \sum_{k\in\ZZ}{\psi^\star(T_k, Z_k)}\right) = 
-        \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma(\dd \omega)} 
-        + \int_{\RR}{\Cov\left( \tilde \varphi^\star(\omega, Z), \tilde \psi^\star (-\omega, Z)\right)M_1(\dd \omega)}\,,
-    \end{equation}
+    \begin{align}\label{eq:chap5_marked_spectrum}
+        \Cov\left(\sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)}, \sum_{k\in\ZZ}{\psi^\star(T_k, Z_k)}\right) =& 
+        \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma^H(\dd \omega)} \\
+        &+ \int_{\RR}{\Cov\left( \tilde \varphi^\star(\omega, Z), \tilde \psi^\star (-\omega, Z)\right)M_1(\dd \omega)}\nonumber\,,
+    \end{align}
     where, for any $\omega\in\RR$, $\tilde \varphi^\star(\omega, Z)$ (resp. $\tilde \psi^\star(\omega, Z)$) denotes the Fourier transform of the function $x\to \varphi^\star(x, Z)$ (resp. $x\to \psi^\star(x, Z)$).
 \end{theorem}
 
@@ -196,15 +223,15 @@ This allows to establish an explicit expression of the spectral density of the $
 as presented in the following proposition:
 
 \begin{proposition}\label{prop:chap5_spectral_thinning}
-    Let $H$ be a stationary point process admitting a Bartlett spectrum $\Gamma^N$ defined as in Equation~\eqref{eq:chap5_bartlett_variance}.
-    We assume that $\Gamma$ is absolutely continuous and we note $f$ the spectral density function. 
+    Let $H$ be a stationary point process admitting a Bartlett spectrum $\Gamma^H$ defined as in Equation~\eqref{eq:chap5_bartlett_variance}.
+    We assume that $\Gamma^H$ is absolutely continuous and we note $f^H$ the spectral density function. 
     Let $m_1$ be the average intensity of $H$.
 
     For any $p\in(0,1)$, let $H_p$ be a $p$-thinning of $H$ as explicited in Definition~\ref{def:chap5_thinning}.
 
-    Then, $H_p$ admits a spectral density function, denoted $f_p$, such that for any $\omega\in\RR$:
+    Then, $H_p$ admits a spectral density function, denoted $f^{H_p}$, such that for any $\omega\in\RR$:
     \begin{equation}\label{eq:chap5_spectral_thinning}
-        f_p(\omega) = p^2 f(\omega) + p(1-p)m_1\,.
+        f^{H_p}(\omega) = p^2 f^H(\omega) + p(1-p)m_1\,.
     \end{equation}
 
 \end{proposition}
@@ -214,31 +241,32 @@ as presented in the following proposition:
 \end{proof}
 
     Let us remark that Equation~\eqref{eq:chap5_spectral_thinning} can be found in \textcite[Equation 8.3.5]{DaleyV1},
-    their spectral density function is $\gamma$, $m$ corresponds to the average intensity of $H$ and $\pi_2 = p$.
+    their spectral density function is noted $\gamma$, $m$ corresponds to the average intensity of $H$ and $\pi_2 = p$.
     The thinning scenario presented in this chapter is obtained for the following values:
     \[\mu_2 = 0\,, \qquad G\equiv 1\,,\]
-    the missing factor $1/(2\pi)$ corresponding to a different expression for the Fourier transform chosen by the authors.
+    with the missing factor $1/(2\pi)$ corresponding to a different expression for the Fourier transform chosen by the authors.
 
-    The authors obtain their result by term identification of a bivariate point process. 
+    They obtain their result by term identification of a bivariate point process. 
     The proof presented in this chapter is an alternative way of establishing this result,
     illustrating the usefulness of leveraging the spectral theory of point processes.
 
-\subsection{The $p$-thinned Hawkes process estimation and the exponential kernel}
+
+    \subsection{The $p$-thinned Hawkes process estimation and the exponential kernel}\label{sec:chap5_thinned_hawkes}
 
     For the rest of this chapter, 
     $H$ will denote a stationary Hawkes process defined by the intensity $\lambda$ as in Equation~\eqref{eq:chap5_hawkes_intensity}.
 
     As shown in \textcite{Hawkes1971}, the spectral density of a Hawkes process reads:
-    \[f(\omega) = \frac{\mu}{(1-\|h\|_1)|1-\tilde h(\omega)|^2}\,.\]
+    \[f^H(\omega) = \frac{\mu}{(1-\|h\|_1)|1-\tilde h(\omega)|^2}\,.\]
 
     Corollary~\ref{cor:chap5_hawkes_thinning}, presents the spectral density of the $p$-thinned univariate Hawkes process:
 
     \begin{corollary}\label{cor:chap5_hawkes_thinning}
         Let $H$ be a stationary univariate Hawkes process with baseline intensity $\mu > 0$, and kernel function $h\colon \RR\to \RR_{>0}$,
         as defined by Equation~\eqref{eq:chap5_hawkes_intensity}. Let $p\in(0,1]$ and $H_p$ a $p$-thinning of $H$. 
-        Then the spectral density $f_p$ of $H_p$ is:
+        Then the spectral density $f^{H_p}$ of $H_p$ is:
         \begin{equation}\label{eq:chap5_spectral_hawkes}
-            \forall \omega \in \RR\,, \quad f_p(\omega) = p^2 \frac{\mu}{(1-\|h\|_1)|1-\tilde h(\omega)|^2} + p(1-p)\frac{\mu}{1-\|h\|_1}\,.
+            \forall \omega \in \RR\,, \quad f^{H_p}(\omega) = p^2 \frac{\mu}{(1-\|h\|_1)|1-\tilde h(\omega)|^2} + p(1-p)\frac{\mu}{1-\|h\|_1}\,.
         \end{equation}
     \end{corollary}
     \begin{proof}
@@ -251,21 +279,22 @@ as presented in the following proposition:
         f_\theta \colon \RR \to \CC, \theta = (\mu, \gamma, p) \in \Theta
       \right\}\,.
     \]
+    From now on, we will drop the superscript on the spectral density function as specifying $\theta$ removes any ambiguity concerning the value of $p$ and whether the point process is thinned or not.
 
     As mentioned previously, it is then possible to estimate $\theta$ by maximising the spectral log-likelihood (Equation~\eqref{eq:chap5_spectral_ll}).
     Let us now focus on the exponential interaction function, defined as:
     \[\forall t\in\RR\,,\quad h(t) = \alpha \beta \mathrm{e}^{-\beta t}\II_{t\geq 0}\,,\]
     where $\alpha \in(0,1)$ and $\beta > 0$.
 
-    As the Fourier transform is explicit and reads:
+    The Fourier transform of $h$ is explicit and reads:
     \[\tilde h (\omega) = \frac{\alpha \beta}{\beta + 2 \pi \iu \omega}\,,\]
     and so Equation~\eqref{eq:chap5_spectral_hawkes} reduces to:
     \begin{equation}\label{eq:chap5_spectral_exponential}
         \forall \omega\in\RR\,,\quad
-        f_p(\omega) = \frac{\mu p }{1-\alpha}\left(1 + p \frac{\beta^2 \alpha (2-\alpha)}{\beta^2(1-\alpha)^2 + 4 \pi^2 \omega^2}\right)\,.
+        f_{\theta}(\omega) = \frac{\mu p }{1-\alpha}\left(1 + p \frac{\beta^2 \alpha (2-\alpha)}{\beta^2(1-\alpha)^2 + 4 \pi^2 \omega^2}\right)\,.
     \end{equation}
 
-    In this context, the statistical model of $f_p$ is:
+    In this context, the statistical model of $f_\theta$ is:
     \[\mathcal{Q} = 
       \left\{
         f_\theta \colon \RR \to \CC, 
@@ -273,7 +302,7 @@ as presented in the following proposition:
       \right\}\,.
     \]
     Similar to the superposition case shown in \textcite[Proposition 3.2]{Bonnet2024}, 
-    model $\mathcal{Q}$ is not identifiable in the general setting but the identifiability can be established, as shown in Proposition~\ref{prop:chap5_identifiability_thinning}, as long as one parameter of the model is fixed.
+    model $\mathcal{Q}$ is not identifiable in the general setting but identifiability can be retrieved, as shown in Proposition~\ref{prop:chap5_identifiability_thinning}, as long as one parameter of the model is fixed.
 
     \begin{proposition}\label{prop:chap5_identifiability_thinning}
         The model $\mathcal{Q}$ is identifiable if and only if one of the parameters in the 4-uplet $(\mu, \alpha, \beta, p)$ is fixed.
@@ -324,59 +353,171 @@ as presented in the following proposition:
     for any simulation window $[0,T]$ considered in our study, 
     we will initially simulate the process in $[-100, T]$ to avoid edge effects.
 
+    Our numerical procedure is implemented on \textrm{Python} and optimisation of all considered functions in this section will be done via the \textrm{minimize} method with the L-BFGS-B solver \parencite{Byrd1995}.
+
     To evaluate the performance of our estimator $\hat\theta$ against any set of parameters $\theta$,
     we will consider its relative $\ell_2$ error defined as:
     \[\frac{\|\hat \theta - \theta\|_2}{\|\theta\|_2}\,.\]
 
-    \subsection{Performance with respect to $p$}
+    \subsection{Spectral estimator for missing data}\label{sec:chap5_missing_numerical}
 
     In this section, we will study the performance of estimator $\hat\theta$ for different levels of $p$.
-    We simulate 100 different Hawkes processes $(N^1,\ldots, N^{100})$ with exponential kernel with parameters:
+    We simulate 100 different Hawkes processes $(H^1,\ldots, H^{100})$ with exponential kernel with parameters:
     \[\mu = 1.25\,,\quad \alpha = 0.5\,,\quad \beta = 1.5\,,\]
     and the following grid of values for the thinning:
     \[p\in\{0.1, 0.2, \ldots, 0.9\}\,.\]
-    We perform then a $p$-thinning of each simulation obtaining the thinned sample $(N_p^1, \ldots, N_p^{100})$.
+    We perform then a $p$-thinning of each simulation obtaining the thinned sample $(H_p^1, \ldots, H_p^{100})$.
     For each level $p$, 
-    we will simulate each $N^i$ on a window $[0,T_p]$ with $T_p$ chosen so the average number of points after thinning is constant equal to $5000$.
+    we will consider an observation window $[0,T_p]$ with $T_p$ chosen so the average number of points after thinning is constant equal to $5000$.
     By remarking that:
-    \[\EE[N_p([0, T_p])] = p\EE[N([0,T_p])] = \frac{ p \mu }{1-\alpha} T_p\,,\]
-    then we set the simulation windows to $T_p = (1-\alpha) / (p \mu)$.
+    \[\EE[H_p([0, T_p])] = p\EE[H([0,T_p])] = \frac{ p \mu }{1-\alpha} T_p\,,\]
+    it follows that $T_p = 5000 (1-\alpha) / (p \mu)$.
     This ensures that for each scenario, all estimations take into account the same amount of information on average.
 
     We will consider two different estimators in order to show the advantage of taking thinning into account.
-    The first estimator $\hat \theta_p$ is obtained for each $N_p^i$ by estimating in the correct model $\mathcal{Q}_p$ 
+    The first estimator $\hat \theta_p$ is obtained for each $H_p^i$ by estimating in the correct model $\mathcal{Q}_p$ 
     and we will compare it to the estimator $\hat \theta_1$ obtained by maximising Equation~\eqref{eq:chap5_spectral_ll}
     for $p=1$.
-    Estimator $\hat \theta_1$ corresponds to making the assume that observations $(N_p^1, \ldots, N_p^{100})$
-    are a Hawkes process that has not been thinned.
+    Estimator $\hat \theta_1$ corresponds to making the assumption that observations $(H_p^1, \ldots, H_p^{100})$
+    are an univariate Hawkes process that has not been thinned.
 
     Figure~\ref{fig:chap5_l2_error_same_information} represents the boxplots of relative square errors for both $\hat \theta_p$ and $\hat \theta_1$ in logarithmic scale.
     As expected, $\hat \theta_p$ performs significantly better than $\hat \theta_1$, 
     in particular for higher levels of thinning (lower values of $p$).
     In particular, we can see that estimations are particularly improved when estimating $\mu$ and $\alpha$,
-    which are the two parameters controlling the average number of points, that we recall here reads:
-    \[m_1 T = \frac{\mu T}{1-\alpha}\,.\]
-    Let us that the performance of $\hat \theta$ is fairly consistent accross all considered values of $p$.
+    which are the two parameters controlling the average number of points of $H$, that we recall here:
+    \[m_1 T_p = \frac{\mu T_p}{1-\alpha}\,.\]
+    Let us remark that the performance of $\hat \theta$ is fairly consistent accross all considered values of $p$.
+    This is particularly encouraging as the more points are erased, 
+    interaction between points are attenuated and so the optimisation task is more difficult.
 
     \begin{figure}[!ht]
         \centering
         \includegraphics[width=1.0\textwidth]{images/chapter5/l2_error_same_information.pdf} 
-        \caption{
+        \caption{Boxplots of $\ell_2$ relative error on log-scale with respect to level of thinning $p$. Estimations for each parameter for estimation on the correct thinned model (red boxes) and on the model without accounting for thinning (blue boxes).
         }
         \label{fig:chap5_l2_error_same_information}
-      \end{figure}
+    \end{figure}
 
+    \subsection{$p$-thinning as a subsampling method}\label{sec:chap5_subsampling_numerical}
+    
+    In this section, we assume that we dispose of a single observation $H$ of a Hawkes process for the same parameters:
+    \[\mu = 1.25\,,\quad \alpha = 0.5\,,\quad \beta = 1.5\,,\]
+    and we consider a observation window of $[0, 50]$.
+    The lack of multiple repetitions and the small window size tend to negatively affect estimation procedures for point processes.
+
+    A common practice to improve estimations in such contexts is to considered a penalised version of the to-be-optimised function, in our case, the spectral log-likelihood (Equation~\eqref{eq:chap5_spectral_ll}). 
+    We define then the $\ell_2$-penalised spectral log-likelihood, for any penalisation parameter $L\geq0$, as:
+    \begin{equation}\label{eq:chap5_penalised_ll}
+        \ell_{T}(\theta) - L \|\theta\|_2 \,.
+    \end{equation}
+    A penalised estimator can then by obtained by maximising this quantity.
+    In this penalised setting, we will illustrate how combining the $\ell_2$ penalisation with a subsampling procedure by thinning provides better results than other approaches.
+
+    As our work in this chapter concerns mainly the study of spectral approaches, we will solely take into consideration estimators obtained through such means.
+    We will compare then four estimators:
+    
+    \begin{itemize}
+        \item $\hat \theta$: the estimator obtained by maximising the non-penalised spectral log-likelihood (Equation~\eqref{eq:chap5_spectral_ll}) on the single observation $H$.
+        \item $\hat \theta^L$: the estimator obtained by maxising the penalised spectral log-likelihood (Equation~\eqref{eq:chap5_penalised_ll}) on the single observation $H$.
+        \item $\hat \theta^L_{partition}$: we partition the observation window $[0,T]$ in $I$ equally sized intervals: \[\left[\frac{iT}{I}, \frac{(i+1)T}{I}\right]\,,\] for $i=1:I-1$. For each window, we obtain a penalised estimator by maximising Equation~\eqref{eq:chap5_penalised_ll}, and finally we obtain $\hat \theta^L_{partition}$ by averaging all estimations. This is similar to subsampling by means of covering regions \parencite{Possolo1991, Politis1999, Guan2007}.
+        \item $\hat \theta^L_{thinning}$: we perform $S$ different thinning procedures for a fixed $p\in(0,1)$ providing the $p$-thinned observations $H_1, \ldots, H_S$ of $H$. For each $H_s$, we obtain a penalised estimation by maximising Equation~\eqref{eq:chap5_penalised_ll} on the statistical model $\mathcal{Q}_p$ and we obtain $\hat \theta^L_{thinning}$ by averaging all estimations.
+    \end{itemize}
+
+    $\hat \theta^L_{partition}$ corresponds to a common practice in point processes theory used to split an observation into multiple samples, which is particularly useful for large values of $T$.
+
+    Our proposed estimator $\hat \theta^L_{thinning}$ can be seen as an estimator obtained through a subsampling procedure, similar to the Bernoulli subsampling scheme (see for example \textcite[Chapter 3.2]{Sarndal2003}). 
+    
+    We will be focusing on studying the efficiency of all four methods and so we will be considering the following grids for the hyper-parameters $I, p$ and $L$:
+    \[I\in\{2,3,4,5\}\,,\quad p\in\{0.1, \ldots, 0.9\}\,,\quad L\in\{10^{-6}, 10^{-5}, \ldots, 10^2\}\,.\]
+    Concerning the subsampling parameter of $\hat \theta^L_{thinning}$, we fix it at $S=3$ but let us remark that all presented results are consistent for other values of $S$.
+    Proposing a model selection procedure to choose the optimal hyper-parameters $I, p, L$ is out of the scope of this work, 
+    so we solely present the best estimators obtained through each method in the sense of the relative $\ell_2$ error with respect to the true parameters of the model.
+
+    Figure~\ref{fig:chap5_l2_error_subsampling} represents the $\ell_2$ relative error for each estimator over 1000 different simulations. 
+    We ordered all curves so that the error of our proposed estimator $\hat \theta^L_{thinning}$ is shown in ascending order.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=1.0\textwidth]{images/chapter5/l2_error_subsampling.pdf} 
+        \caption{$\ell_2$ relative error of all four estimators without penalisation (blue), with penalisation (orange), with penalisation and subsampling by partition (green) and our proposed method with penalisation and subsampling by thinning (red).
+        1000 independent samples are shown and errors are sorted so to display the error of $\hat \theta^L_{thinning}$ in ascending order. 
+        }
+        \label{fig:chap5_l2_error_subsampling}
+    \end{figure}
+
+    We can initially notice that all other estimations (dashed lines) have in general higher $\ell_2$ errors than our proposed method.
+    This can be confirmed in Table~\ref{tab:chap5_subsampling_table} displaying the proportion of times that each estimator outperformed the others.
+
+    \begin{table}[!ht]
+        \begin{center}  
+            \centering
+            \begin{tabular}{c|cccc|c}
+                \multirow{2}{*}{Estimator} & \multicolumn{4}{c|}{MSRE} & \multirow{2}{*}{$\%$ best}\\
+                & $\hat \mu$ & $\hat \alpha$ & $\hat \beta$ & $\hat \theta$ \\
+                \midrule
+                $\hat \theta$ & 0.18 & 0.13 & $5.14 \times 10^{2}$ & $2.85\times 10^{2}$ & 1\%\\
+                $\hat \theta^L$ & 0.12 & 0.09 & 0.13 & 0.12 & 6.7\%\\
+                $\hat \theta^L_{partition}$ & 0.08 & 0.07 & 0.04 & 0.05 & 22.3\%\\
+                $\hat \theta^L_{thinning}$ & 0.03 & 0.04 & 0.02 & 0.02 & 70\% \\
+            \end{tabular}
+            \caption{Mean Square Relative Error of each estimator for each parameter $(\mu, \alpha, \beta)$ along with the MSRE of $\theta$.
+            Last column shows the proportion of times that each estimator achieves the lower relative $\ell_2$ error accross all 1000 simulations.}
+            \label{tab:chap5_subsampling_table}
+        \end{center}
+    \end{table}
+
+    The non-penalised method provides by far the weakest estimator with a notably high MSRE when estimating $\beta$, which is consistently known as the hardest parameter to estimate in other parametric inference settings (see \textcite{Lemonnier2014} discussion on non-concavity for log-likelihood).
+
+    The three penalised methods greatly improve the estimations, in particular for $\beta$, significantly reducing MSRE all around.
+    We notice that the lowest MSRE are obtained by our thinning method, with it being in most scenarios the best method all around. 
+    This is a testimony of the advantages of the subsampling and penalisation procedure that we propose in this work.
+
+
+    % \begin{table}[h!]
+    %     \begin{center}  
+    %         \centering
+    %         \begin{tabular}{c|ccc|cccc|c}
+    %             \multirow{2}{*}{Estimator} & \multicolumn{3}{c|}{Average estimations} & \multicolumn{4}{c|}{RMSE} & \multirow{2}{*}{$\%$ best}\\
+    %             & $\hat \mu$ & $\hat \alpha$ & $\hat \beta$ & $\hat \mu$ & $\hat \alpha$ & $\hat \beta$ & $\hat \theta$ \\
+    %             \midrule
+    %             $\hat \theta$ & 1.17 & 0.51 & 6.57 & 0.28 & 0.03 & $1.15 \times 10^{3}$\\
+    %             $\hat \theta^L$ & 1.15 & 0.53 & 1.25 & 0.19 & 0.02 & 0.29\\
+    %             $\hat \theta^L_{partition}$ & 1.04 & 0.56 & 1.49 & 0.12 & 0.02 & 0.08\\
+    %             $\hat \theta^L_{thinning}$ & 1.16 & 0.52 & 1.46 & 0.05 & 0.01 & 0.04\\
+    %         \end{tabular}
+    %         \caption{.}
+    %         \label{tab:chap5_subsampling_table}
+    %     \end{center}
+    % \end{table}
+
+
+\section{Discussion}
+    In this chapter, we leverage the spectral theory of point processes to present a parametric estimation procedure for thinned versions of univariate Hawkes processes.
+    A first motivation for studying this model concerns the study of imperfect data and we showcase the efficiency of the spectral analysis to tackle such problems.
+    This approach does not come without some issues, as we show that the underlying spectral density model is not identifiable without additional information on the parameter to be estimated.
+    However, we highlight the efficiency of our estimation method once that identifiability is recovered, which is a step towards improving estimation in situations with eventual missing event times.
+    Our second contribution is to make use of thinning as a tool to perform subsampling in scenarios with small sample sizes and low observation windows. 
+    By introducing a penalisation version of the spectral log-likelihood and combining this with subsampling, we demonstrate that we are able to significantly improve estimations. 
+    This is encouraging for real world situations, such as in health or biology, where acquiring sizeable quantities of data is difficult.
+
+    The main extension of our work would be to adapt our methods to higher dimensional data in order to consider multiple inter-connected phenomena, for instance in epidemiology, social interaction or neurobiology.
+    In particular, our idea of introducing a subsampling approach for penalised optimisation methods is highly motivated by the high interest in Lasso approaches for multivate point processes.
+    This kind of regularisation is used in order to determine a sparse matrix of interaction for high-dimensional networks where only few connections between individuals exist.
+    As these approaches tend to require a high amount of information or samples in order to perform well, adapting our subsampling scheme would allow to make more them more accessible.
+    A last avenue of exploration would be to propose a model selection procedure adapted to spectral approaches in order to choose the hyper-parameters of the penalised and subsampling methods in practical contexts where information on the real parameters is unavailable.
+    %A last avenue of exploration would be to develop the spectral theory for more general Hawkes processes that are used in practice, either with more complicated kernel functions or for non-linear versions allowing for inhibiting effects.
 
 
 
 \begin{subappendices}
     \section{Proof of Proposition~\ref{prop:chap5_spectral_thinning}}\label{appendix:chap5_proof_spectral_thinning}
-        Let $H_p$ be a $p$-thinning of a stationary point process $H$ admitting a spectral density function $f$.
+        Let $H_p$ be a $p$-thinning of a stationary point process $H$ admitting a Bartlett spectrum $\Gamma^H$ and a spectral density function $f^H$.
         The stationarity of $H_p$ is given by the fact that the variables $(Z_k)_{k\in\ZZ}$ are i.i.d. and so for any integer $r$, 
         for any $B_1\ldots, B_r \in\mathcal{B}^c$, 
         the random vector $(N_p(B_k)_{k=1:r})$ has the same distribution as $(N_p(B_k+t)_{k=1:r})$,
         for any $t\in\RR$.
-        We will then denote $\Gamma_p$ and $f_p$ respectively the Bartlett spectrum and spectral density function of $H_p$
+        We will then denote $\Gamma^{H_p}$ and $f^{H_p}$ respectively the Bartlett spectrum and spectral density function of $H_p$
 
         In order to establish Equation~\eqref{eq:chap5_spectral_thinning}, we will leverage Theorem~\ref{th:chap5_spectral_marked}.
         We consider then the marked version $\bar H$ of $H$ where the marks $Z_k$ are i.i.d. Bernoulli distributions with common probability $p$.
@@ -391,8 +532,8 @@ as presented in the following proposition:
         It follows that $\varphi^\star(x, Z)$ admits a first and second order moment, and as $\varphi\in\mathcal{S}$, 
         $\varphi(x)Z$ is integrable and twice integrable, which shows that:
                 \[
-                \int_{\RR}{\EE\left[|\varphi^\star(x, Z)|\right]\dd(x)} < +\infty\,,\qquad 
-                \int_{\RR}{\EE\left[\varphi^\star(x, Z)^2\right]\dd(x)} < +\infty\,.
+                \int_{\RR}{\EE\left[|\varphi^\star(x, Z)|\right]\dd x} < +\infty\,,\qquad 
+                \int_{\RR}{\EE\left[\varphi^\star(x, Z)^2\right]\dd x} < +\infty\,.
                 \]
         Furthermore, for any $x\in\RR$, $\bar \varphi(x) = \varphi(x)\EE[Z] = p \varphi(x)$,
         and so, as the Schwartz space is closed under scalar mutliplication, it follows that $\bar \varphi\in\mathcal{S}$.
@@ -407,7 +548,7 @@ as presented in the following proposition:
         \begin{align}
             \Cov\left(\sum_{k\in\ZZ}{\varphi^\star(T_k, Z_k)}, \sum_{k\in\ZZ}{\psi^\star(T_k, Z_k)}\right) &=
             \Cov\left(\int_{\RR}{\varphi(t) H_p(\dd t)}, \int_{\RR}{\psi(t) H_p(\dd t)}\right) \nonumber\\
-            &= \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(-\omega)\,\Gamma_p(\dd\omega)}\,,\label{eq:chap5_leftside_proof_thinning}
+            &= \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(-\omega)\,\Gamma^{H_p}(\dd\omega)}\,,\label{eq:chap5_leftside_proof_thinning}
         \end{align}
         where the last equality comes from Equation~\eqref{eq:chap5_bartlett_covariance}.
 
@@ -421,26 +562,24 @@ as presented in the following proposition:
         The right-hand side of Equation~\eqref{eq:chap5_marked_spectrum} becomes:
 
         \begin{align}
-            \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma(\dd \omega)} 
+            \int_{\RR}{\tilde {\bar\varphi} (\omega) \tilde{\bar \psi} (-\omega)\,\Gamma^H(\dd \omega)} 
         + &\int_{\RR}{\Cov\left( \tilde \varphi^\star(\omega, Z), \tilde \psi^\star (-\omega, Z)\,M_1(\dd \omega)\right)} \nonumber\\
-        &= \int_{\RR}{p^2 \tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,\Gamma(\dd \omega)} 
+        &= \int_{\RR}{p^2 \tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,\Gamma^H(\dd \omega)} 
         + \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(\omega) \Cov\left(Z,Z\right)M_1(\dd \omega)} \nonumber\\
-        &= \int_{\RR}{\tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,(p^2\Gamma(\dd \omega) + p(1-p) M_1(\dd \omega))}\,.\label{eq:chap5_rightside_proof_thinning}
+        &= \int_{\RR}{\tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,(p^2\Gamma^H(\dd \omega) + p(1-p) M_1(\dd \omega))}\,.\label{eq:chap5_rightside_proof_thinning}
         \end{align}
 
         By combining both sides (Equations~\eqref{eq:chap5_leftside_proof_thinning} and \eqref{eq:chap5_rightside_proof_thinning}) it follows that,
         for any $\varphi, \psi\in\mathcal{S}$:
         \[
-            \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(-\omega)\,\Gamma_p(\dd\omega)} = \int_{\RR}{\tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,(p^2\Gamma(\dd \omega) + p(1-p) M_1(\dd \omega))}\,.
+            \int_{\RR}{\tilde \varphi(\omega)\tilde \psi(-\omega)\,\Gamma^{H_p}(\dd\omega)} = \int_{\RR}{\tilde {\varphi} (\omega) \tilde{\psi} (-\omega)\,(p^2\Gamma^H(\dd \omega) + p(1-p) M_1(\dd \omega))}\,.
         \]
         
-        As this equality holds for any functions in the Schwartz space \textbf{Add reference}, then,
+        As this equality holds for any functions in the Schwartz space, by duality of the Fourier transform \parencite{Pinsky2008}, then,
         \[\Gamma_p = p^2 \Gamma + p(1-p) M_1\,,\]
         and as $M_1 = m_1 \ell_{\RR}$,
         \[f_p(\omega) = p^2 f(\omega) + p(1-p) m_1\,,\]
         which achieves the proof.
-
-
 
 
 
