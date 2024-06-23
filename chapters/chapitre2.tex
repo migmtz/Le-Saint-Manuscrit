@@ -1,5 +1,5 @@
 \leadchapter{
-  In this paper, we present a maximum likelihood method for estimating the parameters of a univariate Hawkes process with self-excitation or inhibition. 
+  In this chapter, we present a maximum likelihood method for estimating the parameters of a univariate Hawkes process with self-excitation or inhibition. 
   Our work generalizes techniques and results that were restricted to the self-exciting scenario.
   The proposed estimator is implemented for the classical exponential kernel and we show that, 
   in the inhibition context, our procedure provides more accurate estimations than current alternative approaches.
@@ -24,14 +24,14 @@ statistical estimation of the kernel function has been hardly addressed.
 A first approach consists in computing an approximation of the likelihood as if the intensity function could take negative values, and optimizing it to get a maximum likelihood estimator \parencite{Lemonnier2014}.
 Alternatively, the type of interaction (excitation or inhibition) can be considered as a hidden variable, giving rise to a very practical estimation method \parencite{Mei2017}.
 
-In this paper, we propose a maximum likelihood procedure that can handle both excitation and inhibition scenarios for a univariate Hawkes process. Our approach is based on an explicit computation of the likelihood for any type of monotone kernel functions, which is facilitated by the introduction of the natural concept of restart points. The latter are the times when the intensity function, that can be null on some intervals, become strictly positive again. We show that these restart points have a closed-form expression when the kernel is exponential, which allows us to rewrite and maximize the likelihood without approximations that are proposed for instance in \textcite{Lemonnier2014}.  Our estimator is implemented in Python (the code is freely available online\footnote{\url{https://github.com/migmtz/hawkes-inhibition-expon}}). We also propose a numerical study which shows the good performance of our exact estimation procedure compared to approximated approaches, especially when the intensity function is frequently equal to zero.
+In this chapter, we propose a maximum likelihood procedure that can handle both excitation and inhibition scenarios for a univariate Hawkes process. Our approach is based on an explicit computation of the likelihood for any type of monotone kernel functions, which is facilitated by the introduction of the natural concept of restart points. The latter are the times when the intensity function, that can be null on some intervals, become strictly positive again. We show that these restart points have a closed-form expression when the kernel is exponential, which allows us to rewrite and maximize the likelihood without approximations that are proposed for instance in \textcite{Lemonnier2014}.  Our estimator is implemented in Python (the code is freely available online\footnote{\url{https://github.com/migmtz/hawkes-inhibition-expon}}). We also propose a numerical study which shows the good performance of our exact estimation procedure compared to approximated approaches, especially when the intensity function is frequently equal to zero.
 
-To outline the paper, besides a quick introduction to self-regulating Hawkes processes (also referred to as self-correcting Hawkes processes or Hawkes processes with inhibition), Section~\ref{sec:chap1_general} introduces the concepts of underlying intensity function and restart points.
-General results concerning the compensator and the exact maximum likelihood estimation procedure are described in Section~\ref{sec:chap1_mle}.
-At last, after a brief discussion about goodness-of-fit in Section~\ref{sec:chap1_goodness},
-Section~\ref{sec:chap1_num_res} concludes with a numerical study of the estimation error.
+To outline the chapter, besides a quick introduction to self-regulating Hawkes processes (also referred to as self-correcting Hawkes processes or Hawkes processes with inhibition), Section~\ref{sec:chap2_general} introduces the concepts of underlying intensity function and restart points.
+General results concerning the compensator and the exact maximum likelihood estimation procedure are described in Section~\ref{sec:chap2_mle}.
+At last, after a brief discussion about goodness-of-fit in Section~\ref{sec:chap2_goodness},
+Section~\ref{sec:chap2_num_res} concludes with a numerical study of the estimation error.
 
-\section{The Hawkes process}\label{sec:chap1_general}
+\section{The Hawkes process}\label{sec:chap2_general}
 
 Let $N$ be a point process on $\RR_+^*$, here \(\RR_+^* = \left\{ x>0 : x \in \RR \right\}\), and $(T_k)_{k\geq 1}$ its associated event times (with convention $T_0 = 0$).
 For any $t \geq 0$, let us note $N(t) = \sum_{k\geq 1}{\II_{T_k \leq t }}$ the number of events in $[0,t]$
@@ -45,7 +45,7 @@ A univariate Hawkes process is a point process defined by the conditional intens
 \begin{align}
     \lambda(t) &= \left(\lambda_0 + \int_{0}^{t}{h(t-s)\,\mathrm{d}N(s)}\right)^+
     = \left(\lambda_0 + \sum_{T_k \leq t}{h(t-T_k)}\right)^+\,,
-    \label{eq:chap1_general_hawkes}
+    \label{eq:chap2_general_hawkes}
 \end{align}
 where $x^+ = \max(0,x)$ denotes the positive part of any real value $x$,
 $\lambda_0\in\RR_+^*$ is the baseline intensity and
@@ -59,7 +59,7 @@ In particular, while computing the compensator function \parencite{DaleyV1}
 \begin{equation}
     \Lambda(t) = \int_{0}^{t}{\lambda(t)\,\mathrm{d}t}\,,
     \quad \forall t \geq 0,
-    \label{eq:chap1_compensator}
+    \label{eq:chap2_compensator}
 \end{equation}
 is very easy in the self-exciting case (by linearity of the intensity), it becomes more challenging for the self-regulating Hawkes process.
 As it is the keystone to derive the likelihood function (and then to obtain a parametric estimation method), our first contribution is to provide an exact expression of the compensator.
@@ -78,7 +78,7 @@ In addition, let the \emph{restart time} $T_k^\star$ be, for any positive intege
     T_k^\star = \inf{\{t\geq T_k\mid \lambda(t) > 0\}}\,,
 \end{equation*}
 along with its corresponding \emph{cooldown interval} $\tau_k^* = T_k^* - T_k$.
-\label{def:chap1_underlying}
+\label{def:chap2_underlying}
 \end{definition}
 
 \begin{figure}[!ht]
@@ -86,32 +86,32 @@ along with its corresponding \emph{cooldown interval} $\tau_k^* = T_k^* - T_k$.
   \includegraphics[width=0.7\textwidth]{images/chapter2/cooldownTimesMarkedSerif2.pdf}  % Previously 0.7
   \caption{Example of the intensity (red curve) and underlying intensity (blue curve) for a self-regulating Hawkes process, with the associated restart times. We only see the negative values of the blue curve since they precisely correspond to the values for which the two intensity functions are not equal.
   }
-  \label{fig:chap1_underlying_intensity}
+  \label{fig:chap2_underlying_intensity}
 \end{figure}
 
-As illustrated in Figure \ref{fig:chap1_underlying_intensity}, $\lambda^\star$ corresponds to the intensity $\lambda$ as if it were allowed to take negative values.
-Moreover, as the kernel is assumed to be monotone, the restart time associated to one occurrence can be interpreted as the first moment after this occurrence from which $\lambda$ and $\lambda^\star$ become equal  (in particular, the restart time and the occurrence time coincide if the intensity function is nonnegative at this time, see Figure \ref{fig:chap1_underlying_intensity}):
+As illustrated in Figure \ref{fig:chap2_underlying_intensity}, $\lambda^\star$ corresponds to the intensity $\lambda$ as if it were allowed to take negative values.
+Moreover, as the kernel is assumed to be monotone, the restart time associated to one occurrence can be interpreted as the first moment after this occurrence from which $\lambda$ and $\lambda^\star$ become equal  (in particular, the restart time and the occurrence time coincide if the intensity function is nonnegative at this time, see Figure \ref{fig:chap2_underlying_intensity}):
 \begin{equation*}
     T_k^\star = \inf{\{t\geq T_i\mid \forall t\in(T_k^*,T_{k+1}),\, \lambda(t) = \lambda^\star(t)\}}\,.
 \end{equation*}
 
 \section{Maximum likelihood estimation and the exponential model}
-\label{sec:chap1_mle}
+\label{sec:chap2_mle}
 
 Assume a parametric model $\mathcal P = \left\{ \lambda_\theta, \theta \in \Theta \right\}$ for the conditional intensity function $\lambda$, where $\theta$ contains unknown quantities such as the baseline $\lambda_0$ and the kernel $h$.
 Then, with convention $log(t) = -\infty$ for $t\leq0$, the log-likelihood $\ell_t$ of any $\theta \in \Theta$ with respect to the observations $T_1,\ldots, T_{N(t)}$ in the time interval $[0,t]$ is \parencite[Proposition 7.2.III.]{DaleyV1}, \parencite{Ozaki1979}:
-\begin{equation}\label{eq:chap1_log_likelihood}
+\begin{equation}\label{eq:chap2_log_likelihood}
     \ell_t(\theta) = \sum_{k=1}^{N(t)}{\log{(\lambda_\theta(T_k^-))}} - \Lambda_\theta(t)\,,
 \end{equation}
-where the compensator $\Lambda_\theta$ is defined as in Equation \eqref{eq:chap1_compensator} and $\lambda_\theta(T_k^-) = \lim_{t \to T_k^-} \lambda_\theta(t)$.
+where the compensator $\Lambda_\theta$ is defined as in Equation \eqref{eq:chap2_compensator} and $\lambda_\theta(T_k^-) = \lim_{t \to T_k^-} \lambda_\theta(t)$.
 
-Equation~\eqref{eq:chap1_log_likelihood} reveals the importance of being able to compute the compensator $\Lambda$ (equivalently $\Lambda_\theta$) in order to provide a practical implementation of the maximum likelihood estimator of $\lambda$.
-Thus, a first contribution of this paper lies in Proposition~\ref{prop:chap1_integral_cooldown}, which establishes a decomposition of the compensator $\Lambda$ using the underlying intensity function $\lambda^\star$ and the restart times $T_{1}^\star,\ldots, T_{N(t)}^\star$.
+Equation~\eqref{eq:chap2_log_likelihood} reveals the importance of being able to compute the compensator $\Lambda$ (equivalently $\Lambda_\theta$) in order to provide a practical implementation of the maximum likelihood estimator of $\lambda$.
+Thus, a first contribution of this work lies in Proposition~\ref{prop:chap2_integral_cooldown}, which establishes a decomposition of the compensator $\Lambda$ using the underlying intensity function $\lambda^\star$ and the restart times $T_{1}^\star,\ldots, T_{N(t)}^\star$.
 
-\begin{proposition}\label{prop:chap1_integral_cooldown}
+\begin{proposition}\label{prop:chap2_integral_cooldown}
 For any $t>0$, the compensator $\Lambda$ can be expressed as:
 
-\begin{equation}\label{eq:chap1_compensator_general}
+\begin{equation}\label{eq:chap2_compensator_general}
 \Lambda(t) =
 \begin{dcases}
     \lambda_0 t &\text{\qquad if $t<T_1$}\\
@@ -125,11 +125,11 @@ This comes directly from splitting the integral of $\Lambda(t) = \int_{0}^{t}{\l
 
 \end{proof}
 
-In order to give an explicit computation of the quantity $\int_{T_{k}^\star}^{T_{k+1}}{\lambda^\star(u)\,\mathrm{d}u}$ (equivalently $\int_{T_{N(t)}^\star}^{t}{\lambda^\star(u)\,\mathrm{d}u}$) which appears in Proposition~\ref{prop:chap1_integral_cooldown}, we focus on the classical scenario where we consider an exponential kernel $h(t) = \alpha \mathrm{e}^{-\beta t}$, for some $\alpha\in\RR$ and $\beta\in\RR_+^*$.
+In order to give an explicit computation of the quantity $\int_{T_{k}^\star}^{T_{k+1}}{\lambda^\star(u)\,\mathrm{d}u}$ (equivalently $\int_{T_{N(t)}^\star}^{t}{\lambda^\star(u)\,\mathrm{d}u}$) which appears in Proposition~\ref{prop:chap2_integral_cooldown}, we focus on the classical scenario where we consider an exponential kernel $h(t) = \alpha \mathrm{e}^{-\beta t}$, for some $\alpha\in\RR$ and $\beta\in\RR_+^*$.
 Let us notice that $\alpha$ can be either positive or negative, meaning that the process may be either self-exciting or self-regulating.
 
 Then, the underlying intensity function can be written as:
-\begin{equation}\label{eq:chap1_exponential_intensity}
+\begin{equation}\label{eq:chap2_exponential_intensity}
     \lambda^\star(t) = \lambda_0 + \int_{0}^{t}{\alpha \mathrm{e}^{-\beta(t-s)}\,\mathrm{d}N(s)}\,.
 \end{equation}
 The forthcoming proposition steps forward in computing the compensator for an exponential kernel.
@@ -140,27 +140,27 @@ The restart times read:
 \[
     T_k^\star = T_k + \beta^{-1} \log \left({\frac{\lambda_0 - \lambda^\star(T_k)}{\lambda_0}} \right) \II_{\lambda^\star(T_k) < 0}\,,
 \]
-and the compensator is expressed as in Equation~\eqref{eq:chap1_compensator_general}, with,
+and the compensator is expressed as in Equation~\eqref{eq:chap2_compensator_general}, with,
 for any $\tau \in [T_{k}^*, T_{k+1}]$:
 \[
     \int_{T_{k}^\star}^{\tau}{\lambda^\star(u)\,\mathrm{d}u}
     = \lambda_0(\tau - T_{k}^\star) + \beta^{-1} (\lambda^\star(T_{k}) - \lambda_0) (\mathrm{e}^{-\beta(T_{k}^\star-T_{k})}-\mathrm{e}^{-\beta(\tau-T_{k})})\,.
 \]
 
-\label{prop:chap1_exp}
+\label{prop:chap2_exp}
 \end{proposition}
 \begin{proof}
-The proof is in \ref{app:chap1_appendix}.
+The proof is in \ref{app:chap2_appendix}.
 \end{proof}
 
 \begin{corollary}[Log-likelihood for exponential kernel]
   Let
   \begin{equation}
     \mathcal P = \left\{ \lambda_\theta = \bar{\lambda_0} + \int_{0}^{t}{\bar \alpha \mathrm{e}^{-\bar \beta(t-s)}\,\mathrm{d}N(s)} : \theta=(\bar{\lambda_0}, \bar \alpha, \bar \beta) \in \Theta \right\}\,,
-    \label{eq:chap1_model}
+    \label{eq:chap2_model}
   \end{equation}
   be a parametric exponential model for the conditional intensity function $\lambda$ with $\Theta = \RR_+^* \times \RR \times \RR_+^*$,
-  along with the candidate compensator $\Lambda_\theta$, the underlying intensity function $\lambda_\theta^\star$ and the restart times $T_{\theta, 1}^\star,\ldots, T_{\theta, N(t)}^\star$ associated to $\lambda_\theta$ (see Equation~\eqref{eq:chap1_compensator} and Definition~\ref{def:chap1_underlying}). % and defined according to
+  along with the candidate compensator $\Lambda_\theta$, the underlying intensity function $\lambda_\theta^\star$ and the restart times $T_{\theta, 1}^\star,\ldots, T_{\theta, N(t)}^\star$ associated to $\lambda_\theta$ (see Equation~\eqref{eq:chap2_compensator} and Definition~\ref{def:chap2_underlying}). % and defined according to
 
   For any $\theta=(\bar{\lambda_0}, \bar \alpha, \bar \beta) \in \Theta$, by denoting
   \[
@@ -174,12 +174,12 @@ The proof is in \ref{app:chap1_appendix}.
       - \bar{\lambda_0} T_1
       + \sum_{k=2}^{N(t)} \left[ \log \left(\bar{\lambda_0} + (\lambda_\theta^\star(T_{k-1}) - \bar{\lambda_0}) \mathrm{e}^{-\bar \beta(T_{k}-T_{k-1})} \right) - \Lambda_{\theta, k} \right] \notag\\
       &- \left[ \bar{\lambda_0} (t - T_{\theta, N(t)}^\star) + \bar \beta^{-1} (\lambda_\theta^\star(T_{N(t)}) - \bar{\lambda_0}) \left(\mathrm{e}^{-\bar \beta(T_{\theta, N(t)}^\star-T_{N(t)})}-\mathrm{e}^{-\bar \beta(t-T_{N(t)})} \right) \right] \II_{t > T_{\theta, N(t)}^\star}
-      \label{eq:chap1_likeli_exp}\,.
+      \label{eq:chap2_likeli_exp}\,.
   \end{align}
-  \label{cor:chap1_loglik}
+  \label{cor:chap2_loglik}
 \end{corollary}
 \begin{proof}
-  By Equation~\eqref{eq:chap1_markov_expression} in the proof of Proposition~\ref{prop:chap1_exp},
+  By Equation~\eqref{eq:chap2_markov_expression} in the proof of Proposition~\ref{prop:chap2_exp},
   \begin{equation*}
   \lambda_\theta^\star(T_k^-) =
   \begin{dcases}
@@ -187,36 +187,36 @@ The proof is in \ref{app:chap1_appendix}.
       \bar \lambda_0 + (\lambda_\theta^\star(T_{k-1}) - \bar \lambda_0) \mathrm{e}^{-\bar \beta(T_{k}-T_{k-1})} &\text{\qquad if $k\geq2$.}
   \end{dcases}
 \end{equation*}
-Combining this expression with Propositions \ref{prop:chap1_integral_cooldown} and \ref{prop:chap1_exp} leads to the result.
+Combining this expression with Propositions \ref{prop:chap2_integral_cooldown} and \ref{prop:chap2_exp} leads to the result.
 \end{proof}
 
-Corollary~\ref{cor:chap1_loglik} exhibits that the log-likelihood for
-self-regulating Hawkes processes with an exponential kernel can be evaluated in $O(N(t))$ operations (by computing iteratively the quantities $T_{\theta, k}^\star$ and $\Lambda_{\theta, k}$ appearing in the summation of Equation~\eqref{eq:chap1_likeli_exp}),
+Corollary~\ref{cor:chap2_loglik} exhibits that the log-likelihood for
+self-regulating Hawkes processes with an exponential kernel can be evaluated in $O(N(t))$ operations (by computing iteratively the quantities $T_{\theta, k}^\star$ and $\Lambda_{\theta, k}$ appearing in the summation of Equation~\eqref{eq:chap2_likeli_exp}),
 as already known
 for self-exciting exponential Hawkes processes \textcite[Chapter 4.2]{Laub2014}.
 For other monotone kernels without the Markov property, evaluating the log-likelihood with the method proposed here requires $O(N(t)^2)$ operations, similarly to existing approaches for self-exciting Hawkes processes.
 
 \section{Goodness-of-fit}
-\label{sec:chap1_goodness}
+\label{sec:chap2_goodness}
 
 Even though computing the compensator $\Lambda$ (equivalently $\Lambda_\theta$) was clearly motivated by maximum likelihood estimation, it turns out that it is of great benefit to assess goodness-of-fit, and in particular to check the validity of a maximum likelihood estimation.
 This is possible thanks to the Time Change Theorem, a result originally stated for inhomogeneous Poisson processes.
 
-\begin{theorem}[{\cite[Theorem 7.4.IV]{DaleyV1}}]\label{th:chap1_real_time_change}
+\begin{theorem}[{\cite[Theorem 7.4.IV]{DaleyV1}}]\label{th:chap2_real_time_change}
   Assume that $\Lambda$ is continuous, monotone and $\Lambda(t)\xrightarrow[t\rightarrow \infty]{} \infty$ a.s.
   Then a.s., a sequence of event times $(U_k)_{k\ge 1}$ is a realization of $N$ if and only if $(\Lambda(U_k))_{k \ge 1}$ is a realization of a homogeneous Poisson process with unit intensity.
 \end{theorem}
 
-Let us note that we can find applications of Theorem~\ref{th:chap1_real_time_change} to self-exciting Hawkes processes in the literature \parencite[Chapter 5]{Laub2014}.
+Let us note that we can find applications of Theorem~\ref{th:chap2_real_time_change} to self-exciting Hawkes processes in the literature \parencite[Chapter 5]{Laub2014}.
 Since for self-regulating Hawkes processes \(\Lambda\) is still monotone, this result can also be applied in our case.
 
 To be more precise, let us consider \(\theta \in \Theta\) and the null hypothesis: ``$(U_k)_{k\ge 1}$ is a realization of an exponential Hawkes process with parameter \(\theta\)''.
 This hypothesis can be tested by applying a Kolmogorov-Smirnov test between the empirical distribution of $\left( \Lambda_\theta(U_{k+1}) - \Lambda_\theta(U_k) \right)_{k \ge 1}$ and an exponential distribution with parameter \(1\).
-This procedure is illustrated in Table~\ref{table:chap1_estim_pvalue}, Section~\ref{sec:chap1_num_res}.
+This procedure is illustrated in Table~\ref{table:chap2_estim_pvalue}, Section~\ref{sec:chap2_num_res}.
 
-\section{Numerical Results}\label{sec:chap1_num_res}
+\section{Numerical Results}\label{sec:chap2_num_res}
 
-This section is aimed at assessing the maximum likelihood estimation method for self-regulating Hawkes processes, based on the exact computation of the compensator \(\Lambda_\theta\) in the exponential model \eqref{eq:chap1_model} (Corollary~\ref{cor:chap1_loglik}).
+This section is aimed at assessing the maximum likelihood estimation method for self-regulating Hawkes processes, based on the exact computation of the compensator \(\Lambda_\theta\) in the exponential model \eqref{eq:chap2_model} (Corollary~\ref{cor:chap2_loglik}).
 This procedure is compared to the approximated maximum likelihood estimation proposed in \textcite{Lemonnier2014}, which consists in approximating $\Lambda_\theta$ by:
 \[
   \Lambda_\theta^{LM}(t) = \int_{0}^{t}{\lambda_\theta^\star(u)\,\mathrm{d}u}\,.
@@ -233,8 +233,8 @@ where
 \(N_{max}=200\) is the total number of jumps
 and \(\Lambda_\theta\) can be replaced by \(\Lambda_\theta^{LM}\) to obtain the approximated likelihood proposed in \textcite{Lemonnier2014}.
 
-The comparison between the exact and the approximated estimation procedure is based on simulated data sets coming from self-correcting Hawkes processes of the form \eqref{eq:chap1_model} with 6 different values of \(\theta = (\bar \lambda_0, \bar \alpha, \bar \beta) \in \Theta\) (see Table~\ref{table:chap1_estim_pvalue}) which have been chosen in order to explore different scenarios, in particular depending on whether the intensity function is frequently null or not.
-Observations are sets of time jumps generated with a sampling algorithm (see the algorithm in \ref{app:chap1_simulation} and Python implementation online), which is a particular case of Ogata's thinning simulation method \parencite{Ogata1981} that can handle Hawkes processes with either self-excitation or inhibition.
+The comparison between the exact and the approximated estimation procedure is based on simulated data sets coming from self-correcting Hawkes processes of the form \eqref{eq:chap2_model} with 6 different values of \(\theta = (\bar \lambda_0, \bar \alpha, \bar \beta) \in \Theta\) (see Table~\ref{table:chap2_estim_pvalue}) which have been chosen in order to explore different scenarios, in particular depending on whether the intensity function is frequently null or not.
+Observations are sets of time jumps generated with a sampling algorithm (see the algorithm in \ref{app:chap2_simulation} and Python implementation online), which is a particular case of Ogata's thinning simulation method \parencite{Ogata1981} that can handle Hawkes processes with either self-excitation or inhibition.
 
 \begin{figure}[!ht]
   \centering
@@ -242,11 +242,11 @@ Observations are sets of time jumps generated with a sampling algorithm (see the
   \caption{Top panel: relative absolute errors of estimations \(\hat \theta = (\hat \lambda_0, \hat \alpha, \hat \beta)\).
   Bottom panel: example of simulated intensities for each set of values $ \theta = ( \bar \lambda_0,  \bar \alpha,  \bar \beta)$  with the corresponding average percentage of time when the intensities are equal to zero.
   }
-  \label{fig:chap1_boxplot_intensity}
+  \label{fig:chap2_boxplot_intensity}
 \end{figure}
 
-Figure~\ref{fig:chap1_boxplot_intensity} represents the relative absolute errors of estimations \(\hat \theta = (\hat \lambda_0, \hat \alpha, \hat \beta)\) for each of the 6 simulated models.
-We observe that the exact approach provides more accurate estimations than the approximated procedure (as illustrated in the boxplots of Figure~\ref{fig:chap1_boxplot_intensity} and by the \(p\)-values of the goodness-of-fit tests in Table~\ref{table:chap1_estim_pvalue}). As expected, the more time the conditional intensity equals 0 (from left to right in Figure~\ref{fig:chap1_boxplot_intensity}), the greater the differences between the two procedures.
+Figure~\ref{fig:chap2_boxplot_intensity} represents the relative absolute errors of estimations \(\hat \theta = (\hat \lambda_0, \hat \alpha, \hat \beta)\) for each of the 6 simulated models.
+We observe that the exact approach provides more accurate estimations than the approximated procedure (as illustrated in the boxplots of Figure~\ref{fig:chap2_boxplot_intensity} and by the \(p\)-values of the goodness-of-fit tests in Table~\ref{table:chap2_estim_pvalue}). As expected, the more time the conditional intensity equals 0 (from left to right in Figure~\ref{fig:chap2_boxplot_intensity}), the greater the differences between the two procedures.
 Furthermore, the leftmost boxplot confirms that when the underlying intensity is nonnegative both methods are mostly identical.
 Let us note that in this case the estimation of \(\bar \alpha\) is rather wrong (the estimation of \(\bar \beta\) is impacted consequently) probably because its value is close to \(0\) compared to the magnitude of \(\bar \lambda_0\).
 
@@ -272,14 +272,14 @@ Let us note that in this case the estimation of \(\bar \alpha\) is rather wrong 
 \hline
 \end{tabular}
 \caption{
-\change{Quantitative assessment of the numerical study: sets of true parameters (left), average estimations over 50 repetitions (middle) and average \(p\)-values over 50 independent realisations for the test of Section~\ref{sec:chap1_goodness}}.
+\change{Quantitative assessment of the numerical study: sets of true parameters (left), average estimations over 50 repetitions (middle) and average \(p\)-values over 50 independent realisations for the test of Section~\ref{sec:chap2_goodness}}.
 }
-\label{table:chap1_estim_pvalue}
+\label{table:chap2_estim_pvalue}
 \end{table}
 
 \section{Discussion}
 
-In this paper we proposed a maximum likelihood approach for Hawkes processes that can handle both self-exciting and self-regulating scenarios, the first case being already covered in the literature and the latter being our main contribution. For this purpose, we define the concepts of underlying intensity function and restart times when working with monotone kernel functions. In particular we obtain exact expressions of the compensator for the exponential Hawkes process which is the key step of the estimation procedure.
+In this chapter we proposed a maximum likelihood approach for Hawkes processes that can handle both self-exciting and self-regulating scenarios, the first case being already covered in the literature and the latter being our main contribution. For this purpose, we define the concepts of underlying intensity function and restart times when working with monotone kernel functions. In particular we obtain exact expressions of the compensator for the exponential Hawkes process which is the key step of the estimation procedure.
 We present numerical results on synthetic data that show the efficiency of our procedure, with a substantial improvement compared to approximated approaches when the intensity function is frequently null.
 
 From a theoretical point of view, future work will consist in adapting analytical results to study the convergence of our estimator in the self-regulating case. Regarding modeling, it would be of great interest to consider kernel functions outside the classical exponential scenario.
@@ -288,8 +288,8 @@ This last point is essential in order to target real-world datasets since in man
 
 \begin{subappendices}
 %\renewcommand\thesection{\thechapter.\Alph{section}}
-\section{Proof of Proposition~\ref{prop:chap1_exp}}
-\label{app:chap1_appendix}
+\section{Proof of Proposition~\ref{prop:chap2_exp}}
+\label{app:chap2_appendix}
 
 Let us begin by expressing the underlying intensity function between two event times.
 First, \(\lambda^\star(t) = \lambda_0\) for \(t\in[0,T_1)\).
@@ -299,31 +299,31 @@ Then, for any $k\in\NN$, for all $t \in [T_k,T_{k+1})$, the underlying intensity
 \end{equation*}
 with the left condition: $\lambda_k^\star := \lambda^\star(T_k)$.
 Solving this differential equation leads to
-\begin{equation}\label{eq:chap1_markov_expression}
+\begin{equation}\label{eq:chap2_markov_expression}
     \lambda^\star(t) = \lambda_0 + (\lambda_k^\star - \lambda_0)\mathrm{e}^{-\beta(t - T_k)}\,.
 \end{equation}
 
 Now, by definition of the restart time $T_k^\star = \inf{\{t\geq T_k\mid \lambda(t) > 0\}}$, we have that if $\lambda_k^\star \geq 0$, then $T_k^\star = T_k$. Otherwise, as $\lambda^\star$ is continuous on the interval $[T_k,T_{k+1})$, we obtain $T_k^\star$ by solving for $t$: \(\lambda^\star(t) = 0\).
-Thus, by Equation~\eqref{eq:chap1_markov_expression}:
+Thus, by Equation~\eqref{eq:chap2_markov_expression}:
 \begin{align*}
     \lambda^\star(T_k^\star) = 0
     \iff T_k^\star = T_k + \beta^{-1}\log{\left(\frac{\lambda_0 - \lambda^\star_k}{\lambda_0}\right)}\,.
 \end{align*}
-Gathering both situations, we obtain the first part of Proposition~\ref{prop:chap1_exp}: \[T_k^\star = T_k + \beta^{-1}\log{\left(\frac{\lambda_0 - \lambda^\star_k}{\lambda_0}\right)} \II_{\lambda_k^\star < 0}\].
+Gathering both situations, we obtain the first part of Proposition~\ref{prop:chap2_exp}: \[T_k^\star = T_k + \beta^{-1}\log{\left(\frac{\lambda_0 - \lambda^\star_k}{\lambda_0}\right)} \II_{\lambda_k^\star < 0}\].
 
 Let now $k\in\{1,\ldots,N(t)\}$ and $\tau\in[T_{k}^\star,T_{k+1}]$.
-By Equation~\eqref{eq:chap1_markov_expression},
+By Equation~\eqref{eq:chap2_markov_expression},
 \begin{align*}
     \int_{T_{k}^\star}^{\tau}{\lambda^\star(u)\,\mathrm{d}u}
     &= \int_{T_{k}^\star}^{\tau} \left( \lambda_0 + (\lambda_{k}^\star - \lambda_0)\mathrm{e}^{-\beta(u - T_{k})} \right)\,\mathrm{d}u\\
     &= \lambda_0(\tau - T_{k}^\star) + \beta^{-1}(\lambda_{k}^\star - \lambda_0)(\mathrm{e}^{-\beta(T_{k}^\star-T_{k})}-\mathrm{e}^{-\beta(\tau-T_{k})})\,,
 \end{align*}
-which is the second part of Proposition~\ref{prop:chap1_exp}.
+which is the second part of Proposition~\ref{prop:chap2_exp}.
 
 \section{Simulation algorithm}
-\label{app:chap1_simulation}
+\label{app:chap2_simulation}
 
-Algorithm~\ref{alg:chap1_simulation} builds upon Ogata's thinning simulation method \parencite[Proposition 1]{Ogata1981} in order to handle Hawkes processes with either self-excitation or inhibition.
+Algorithm~\ref{alg:chap2_simulation} builds upon Ogata's thinning simulation method \parencite[Proposition 1]{Ogata1981} in order to handle Hawkes processes with either self-excitation or inhibition.
 
 \begin{algorithm}[!ht]
 \SetAlgoLined
@@ -342,7 +342,7 @@ Algorithm~\ref{alg:chap1_simulation} builds upon Ogata's thinning simulation met
  }
  \Return the sequence of jumps $\mathcal{T}$.
  \caption{Thinning algorithm for monotone Hawkes process.}
- \label{alg:chap1_simulation}
+ \label{alg:chap2_simulation}
 \end{algorithm}
 
 \end{subappendices}

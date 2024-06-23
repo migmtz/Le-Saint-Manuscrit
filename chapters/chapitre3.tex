@@ -1,7 +1,7 @@
 \leadchapter{
     The multivariate Hawkes process is a past-dependent point process used to model the relationship of event occurrences between different phenomena.
     Although the Hawkes process was originally introduced to describe excitation interactions, which means that one event increases the chances of another occurring, there has been a growing interest in modelling the opposite effect, known as inhibition.
-    In this paper, we focus on how to infer the parameters of a multidimensional exponential Hawkes process with both excitation and inhibition effects. Our first result is to prove the identifiability of this model under a few sufficient assumptions. Then we propose a maximum likelihood approach to estimate the interaction functions, which is, to the best of our knowledge, the first exact inference procedure in the frequentist framework.
+    In this chapter, we focus on how to infer the parameters of a multidimensional exponential Hawkes process with both excitation and inhibition effects. Our first result is to prove the identifiability of this model under a few sufficient assumptions. Then we propose a maximum likelihood approach to estimate the interaction functions, which is, to the best of our knowledge, the first exact inference procedure in the frequentist framework.
     Our method includes a variable selection step in order to recover the support of interactions and therefore to infer the connectivity graph.
     A benefit of our method is to provide an explicit computation of the log-likelihood, which enables in addition to perform a goodness-of-fit test for assessing the quality of estimations.
     We compare our method to standard approaches, which were developed in the linear framework and are not specifically designed for handling inhibiting effects.
@@ -32,7 +32,7 @@ In \textcite{Duval2021}, a multiplicative model considers two sets of neuronal p
 Another model is presented in \textcite{Olinde2020} and called self-limiting Hawkes process.
 It includes the inhibition as a multiplicative term in front of a the traditional self-exciting intensity function. 
 
-In this paper, we present a maximum likelihood estimation method for multivariate Hawkes processes with exponential kernel functions, that works for both exciting and inhibiting interactions, as modelled by \textcite{Bremaud1996, Chen2017}.
+In this chapter, we present a maximum likelihood estimation method for multivariate Hawkes processes with exponential kernel functions, that works for both exciting and inhibiting interactions, as modelled by \textcite{Bremaud1996, Chen2017}.
 This work builds upon the methodology for the univariate case, presented in \textcite{bonnet2021}, by focusing in the intervals where the intensity function is positive.
 We show that, under a weak assumption on the kernel functions, these intervals can be determined exactly.
 We can then write for each dimension the integral of the intensity function, known in the literature as the compensator, which in turn provides an explicit expression of the log-likelihood.
@@ -43,28 +43,28 @@ As a by-product of our method, the closed-form expression of the compensator als
 We carry out a numerical study on simulated data and on a neuronal activity dataset \parencite{Petersen2016,Radosevic2019}.
 The performance of our approach is compared to estimations obtained via approximations from \textcite{Bacry2020} and \textcite{Lemonnier2014}, and we show that our method not only achieves better estimations but is capable of identifying correctly the interaction network of the process.
 
-To outline this paper, Section~\ref{sec:chap2_presentation} presents the multivariate Hawkes process framework and reviews the literature regarding inference of non-linear Hawkes processes.
-In Section~\ref{sec:chap2_exponential}, we detail our procedure, including the maximum likelihood estimation, variable selection and goodness-of-fit test to assess the quality of the estimations. We also address the question of identifiability of the model, that we prove under a few sufficient conditions. 
-The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_numerical} and applied to a neuronal activity dataset in Section~\ref{sec:chap2_neuron}. In Section \ref{sec:chap2_discussion} we discuss our contributions and its current limitations along with interesting perspectives for future work.
+To outline this chapter, Section~\ref{sec:chap3_presentation} presents the multivariate Hawkes process framework and reviews the literature regarding inference of non-linear Hawkes processes.
+In Section~\ref{sec:chap3_exponential}, we detail our procedure, including the maximum likelihood estimation, variable selection and goodness-of-fit test to assess the quality of the estimations. We also address the question of identifiability of the model, that we prove under a few sufficient conditions. 
+The whole procedure is illustrated on simulated data in Section~\ref{sec:chap3_numerical} and applied to a neuronal activity dataset in Section~\ref{sec:chap3_neuron}. In Section \ref{sec:chap3_discussion} we discuss our contributions and its current limitations along with interesting perspectives for future work.
 
-\section{The multivariate Hawkes process}\label{sec:chap2_presentation}
+\section{The multivariate Hawkes process}\label{sec:chap3_presentation}
     \subsection{Definition}
     A multivariate Hawkes process $N = (N^1, N^2, \ldots, N^d)$ of dimension $d$ is defined by $d$ point processes on $\RR_+^*$, denoted $N^i\colon \mathcal B(\RR_+^*) \to \NN$, where $\mathcal{B}(\RR_+^*)$ is the Borel algebra on the set of positive numbers.
 
     Each process $N^i$ can be characterised by its associated event times $\left(T_k^i\right)_k$ and its conditional intensity function, defined for all \(t \ge 0\) by
     \begin{align}
-    \lambda^i(t) &= \adaptedpar{\mu_i + \sum_{j=1}^{d}{\int_{0}^{t}{h_{ij}(t-s)\,\mathrm{d}N^j(s)}}}^+\nonumber\\ &= \adaptedpar{\mu_i + \sum_{j=1}^{d}\sum_{T_k^j \leq t}{h_{ij}(t-T^j_k)}}^+\label{eq:chap2_dimensional_c_intensity}\,,
+    \lambda^i(t) &= \adaptedpar{\mu_i + \sum_{j=1}^{d}{\int_{0}^{t}{h_{ij}(t-s)\,\mathrm{d}N^j(s)}}}^+\nonumber\\ &= \adaptedpar{\mu_i + \sum_{j=1}^{d}\sum_{T_k^j \leq t}{h_{ij}(t-T^j_k)}}^+\label{eq:chap3_dimensional_c_intensity}\,,
     \end{align}
     where
     $x^+ = \max{(0,x)}$.
     Here, the quantity $\mu_i\in\RR_+^*$ is called the baseline intensity and each interaction or kernel function $h_{ij}\colon \RR_+^* \to \RR$ represents the influence of the process $N^j$ on the process $N^i$ and $T^j_k$ corresponds to the $k$-th event time of process $N^j$.
 
     \begin{remark}
-      The positive-part function in Equation~\eqref{eq:chap2_dimensional_c_intensity} is needed to ensure the non-negativity of \(\lambda^i\) in the presence of strong inhibiting effects, that is when some interaction functions \(h_{ij}\) are sufficiently negative compared to positive contributions.
+      The positive-part function in Equation~\eqref{eq:chap3_dimensional_c_intensity} is needed to ensure the non-negativity of \(\lambda^i\) in the presence of strong inhibiting effects, that is when some interaction functions \(h_{ij}\) are sufficiently negative compared to positive contributions.
       Concretely, the positive part does not affect the intensity function if inhibiting effects are in minority compared to the positive contributions (exciting effects or baseline intensities).
     \end{remark}
     \begin{remark}
-        Equation~\eqref{eq:chap2_dimensional_c_intensity} may question the reader for two reasons.
+        Equation~\eqref{eq:chap3_dimensional_c_intensity} may question the reader for two reasons.
         First, it is the cadlag definition of a the conditional intensity of a Hawkes process.
         It's our choice to prefer it to the caglad version but all the results presented here can be written in this setting.
         Second, it is considered that the history is empty for \(t < 0\).
@@ -76,7 +76,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
 
     The process $N$ can be seen as a point process on $\RR_+^*$, where for any $B\in\mathcal{B}(\RR^*_+)$, $N(B) = \sum_{i=1}^{d}{N^i(B)}$.
     Similarly to a univariate process, \(N\) can be characterised by its conditional intensity \(\lambda\) (also called total intensity):
-    \begin{equation}\label{eq:chap2_total_intensity}
+    \begin{equation}\label{eq:chap3_total_intensity}
         \lambda(t) = \sum_{i=1}^{d}{\lambda^i(t)}\,,
     \end{equation}
     and by its compensator
@@ -91,7 +91,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     A more detailed introduction of multivariate point processes via the concept of marked point processes can be found in \cite[Chapter 6.4]{DaleyV1}
     \end{remark}
 
-    As the aim of this paper is to describe a practical methodology for estimating the conditional intensities \(\lambda_1\), \dots, \(\lambda_d\) via maximising the log-likelihood, the latter quantity has to be made explicit.
+    As the aim of this chapter is to describe a practical methodology for estimating the conditional intensities \(\lambda_1\), \dots, \(\lambda_d\) via maximising the log-likelihood, the latter quantity has to be made explicit.
     Let \(t \ge 0\) and assume that event times
     $\left\{ T_k^i : 1 \le k \le N_i(t), 1 \le i \le d \right\}$
     are observed in the interval \((0, t]\).
@@ -100,7 +100,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
       \ell_t(\theta) = \sum_{i=1}^{d}{\ell_t^i(\theta_i)}\,,\nonumber 
     \end{equation*}
     with
-    \begin{equation}\label{eq:chap2_general_log_likelihood}
+    \begin{equation}\label{eq:chap3_general_log_likelihood}
       \ell_t^{i}(\theta_i) = \sum_{k=1}^{N^i(t)}{\log{\lambda^i_{\theta_i}(T_k^{i-})}} - \Lambda_{\theta_i}^i(t)\,,
     \end{equation}
     where $\lambda^i_{\theta_i}(T_k^{i-}) = \lim_{t\to T_k^{i-}}{\lambda_{\theta_i}^i(t)}$ and with convention $\log{(x)} = -\infty$ for $x\leq 0$.
@@ -109,7 +109,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     The forthcoming sections clear this point up.
 
 
-  \subsection{Related work}\label{sec:chap2_literature}
+  \subsection{Related work}\label{sec:chap3_literature}
     Estimation methods for Hawkes processes have focused mainly on self-exciting interactions (by assuming $h_{ij} \geq 0$). In \textcite{Ozaki1979}, the author presents the maximum likelihood estimation method for univariate processes with exponential kernel \(h(t) = \alpha \mathrm{e}^{-\beta t}\) (\(\alpha>0\), \(\beta>0\)), the same method being established in \textcite{Mishra2016} for the power law kernel function \(h(t) = \frac{\alpha\beta} {(1 + \beta t)^{1 + \gamma}}\) (\(\alpha>0\), \(\beta>0\), \(\gamma > 0\)). In \textcite{Chen2018} the maximum likelihood method is presented for the multivariate version with exponential kernel, while \textcite{Bacry2020} proposed an inference method based on optimising a least-squares criterion. Other methods in the parametric setting include spectral analysis \parencite{Adamopoulos1976}, EM algorithm \parencite{Veen2008} and method of moments \parencite{DaFonseca2013}.
 
     Estimators of the interaction functions \(h_{ij}\) are also presented in a nonparametric setting. For instance, \textcite{Yang2017} proposed to estimate \(h_{ij}\) in a reproducing kernel Hilbert space.
@@ -119,7 +119,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     Although inhibiting effects in Hawkes processes were first mentioned in \textcite{Bremaud1996}, they have only met a growing interest in the last decade.
     Concerning inference, most of the known methods are not designed for handling the inhibiting case: nevertheless some are able in practice to estimate negative interactions by minimising a least-squares criterion, but without guaranteeing that the estimated intensity functions remain non-negative \parencite{Reynaud2014, Bacry2020}.
     A similar approach is proposed in \textcite{Lemonnier2014} for maximum likelihood estimation, where the compensator \(\Lambda^i\) is approximated by integrating
-    the conditional intensity $\lambda^i$ without the positive part function (see Equation~\eqref{eq:chap2_dimensional_c_intensity}).
+    the conditional intensity $\lambda^i$ without the positive part function (see Equation~\eqref{eq:chap3_dimensional_c_intensity}).
     Obviously, these methods should perform well when the intensities remain mostly positive, but it is unclear how they will adapt to scenarios when the intensities are frequently equal to zero due to inhibiting terms.
     A similar remark is mentioned in \textcite{Bacry2016} concerning their estimation method, that can provide negative estimations of the interactions only if there is a negligible chance of the intensities to be null.
     
@@ -133,14 +133,14 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     It has to be noted that a formalism similar to \textcite{bonnet2021} for multivariate Hawkes processes is mentioned in \textcite{Deutsch2022},
     but used neither for maximum likelihood estimation, nor for goodness-of-fit tests.
 
-    This paper goes a step forward in estimation of multivariate Hawkes processes with inhibition, by providing the first exact maximum likelihood method for exponential interactions $h_{ij}(t) = \alpha_{ij}\mathrm{e}^{-\beta_{ij}t}$, combined with a variable selection procedure.
+    This work goes a step forward in estimation of multivariate Hawkes processes with inhibition, by providing the first exact maximum likelihood method for exponential interactions $h_{ij}(t) = \alpha_{ij}\mathrm{e}^{-\beta_{ij}t}$, combined with a variable selection procedure.
     As it will be explained in the next section, the proposed approach also enables to perform standard goodness-of-fit tests.
 
-    \section{Estimation and goodness-of-fit}\label{sec:chap2_exponential}
+    \section{Estimation and goodness-of-fit}\label{sec:chap3_exponential}
 
     \subsection{Introductive example}
-    Before motivating and explaining the estimation procedure proposed in this paper, we present an example of multivariate Hawkes process.
-    Figure~\ref{fig:chap2_2_dimension_example} depicts in red conditional intensities \(\lambda^1\) and \(\lambda^2\) for a realisation of a \(2\)-dimensional Hawkes process (see the forthcoming section for the definition of underlying intensities). The existence of such a process (along with its stationarity) is ensured by controlling the spectral radius $\rho(S^+) < 1$ of the matrix $S^+ = (\|h_{ij}^+\|_1)_{ij}$ \parencite{Deutsch2022}. Similar results with slightly different conditions can be found in \textcite{Bremaud1996} and \textcite{Sulem2021}.
+    Before motivating and explaining the estimation procedure proposed in this chapter, we present an example of multivariate Hawkes process.
+    Figure~\ref{fig:chap3_2_dimension_example} depicts in red conditional intensities \(\lambda^1\) and \(\lambda^2\) for a realisation of a \(2\)-dimensional Hawkes process (see the forthcoming section for the definition of underlying intensities). The existence of such a process (along with its stationarity) is ensured by controlling the spectral radius $\rho(S^+) < 1$ of the matrix $S^+ = (\|h_{ij}^+\|_1)_{ij}$ \parencite{Deutsch2022}. Similar results with slightly different conditions can be found in \textcite{Bremaud1996} and \textcite{Sulem2021}.
     The simulation has been carried out with baselines \(\mu_1 = 0.5\) and \(\mu_2 = 1.0\),
     and with exponential kernels \(h_{ij}(t) = \alpha_{ij} \mathrm{e}^{-\beta_{ij}t}\) parameterised by:
     \[
@@ -170,15 +170,15 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     \centering
     \includegraphics[width=.75\linewidth]{images/chapter3/timesMarkedMulti.pdf}
     \caption{Simulation of a \(2\)-dimensional Hawkes process. Each cross corresponds to an event time, and each $T\park$ is shown in its corresponding process.}
-    \label{fig:chap2_2_dimension_example}
+    \label{fig:chap3_2_dimension_example}
     \end{figure*}
 
-    The goal of this paper is to establish a parametric estimation method, via maximum likelihood estimation, that is able to handle both excitation and inhibition frameworks in the multivariate case.
-    For this purpose, it is necessary to compute explicitly the log-likelihood \(\ell_t(\theta)\) (see Equation~\eqref{eq:chap2_general_log_likelihood}) and in particular to evaluate the compensator \(\Lambda_\theta^i\), expressed as an integral of \(\lambda_\theta^i\).
+    The goal of this work is to establish a parametric estimation method, via maximum likelihood estimation, that is able to handle both excitation and inhibition frameworks in the multivariate case.
+    For this purpose, it is necessary to compute explicitly the log-likelihood \(\ell_t(\theta)\) (see Equation~\eqref{eq:chap3_general_log_likelihood}) and in particular to evaluate the compensator \(\Lambda_\theta^i\), expressed as an integral of \(\lambda_\theta^i\).
     For the latter, the main challenge is to determine when conditional intensities \(\lambda^i\) are non-zero, that is on which intervals they are tailored by the exponential interaction functions and not by the positive-part operator.
 
     In \textcite{bonnet2021}, the authors solved this challenge for univariate processes by remarking that the conditional intensity is monotone between two event times.
-    Figure~\ref{fig:chap2_2_dimension_example} illustrates that this is not necessarily true for multivariate processes (here, between \(T_{(2)}\) and \(T_{(3)}\)).
+    Figure~\ref{fig:chap3_2_dimension_example} illustrates that this is not necessarily true for multivariate processes (here, between \(T_{(2)}\) and \(T_{(3)}\)).
     This constitutes the major difficulty we have to cope with.
 
   \subsection{Underlying intensity and restart times in the multivariate setting}
@@ -189,20 +189,20 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     For each $i\in\{1,\ldots, d\}$, the underlying intensity function $\lambda^{i\star}$ is defined as in \textcite{bonnet2021} for the univariate case:
     \[\lambda^{i\star}(t) = \mu_i + \sum_{j=1}^{d}{\int_{0}^{t}{h_{ij}(t-s)\,\mathrm{d}N^j(s)}}\,.\]
     This quantity coincides with the conditional intensity \(\lambda^i\) when it is non-zero, and is non-positive otherwise.
-    In particular, we can observe that \(\lambda^i (t) = \left( \lambda^{i\star}(t) \right)^+\) (see Figure~\ref{fig:chap2_2_dimension_example}).
+    In particular, we can observe that \(\lambda^i (t) = \left( \lambda^{i\star}(t) \right)^+\) (see Figure~\ref{fig:chap3_2_dimension_example}).
 
     As explained in the previous section, the main difficulty of the multivariate exponential setting is the non-monotony of conditional intensities \(\lambda^i\) between two event times.
     Determining intervals where \(\lambda^i\) is non-zero (that is when \(\lambda^{i\star}\) is positive) would require to numerically find the roots of a high-degree polynomial, which is expensive and inexact.
-    To alleviate this problem, we introduce Assumption~\ref{assu:chap2_beta}.
+    To alleviate this problem, we introduce Assumption~\ref{assu:chap3_beta}.
 
-    \begin{assumption}\label{assu:chap2_beta}
+    \begin{assumption}\label{assu:chap3_beta}
     For each $i\in\{1,\ldots, d\}$, there exists $\beta_i\in\RR_+^*$ such that $\beta_{ij} = \beta_i$ for all $j\in\{1,\ldots, d\}$.
     \end{assumption}
 
     \begin{remark} This model with constant recovery rates $\beta_i$ has been studied before in the works of \textcite{Ogata1981} in the self-exciting version of a 2-dimensional Hawkes process. Intuitively, this assumption considers the situation where the rate of ``dissipation'' of any internal or external effect is dependent only on the receiving phenomenon. For instance, for neuronal interactions, each activation from neuron $j$ will have an impact on a connected neuron $i$ dependent on both neurons $(\alpha_{ij})_{ij}$ but the ``recovery'' time can be assumed to depend only on the connected neuron $i$ \((\beta_{i})_i\).
     \end{remark}
 
-    As we will see in Lemma~\ref{lemma:chap2_restart_times}, this assumption enables to recover the monotony of the conditional intensities between two times.
+    As we will see in Lemma~\ref{lemma:chap3_restart_times}, this assumption enables to recover the monotony of the conditional intensities between two times.
     It remains now to determine when the underlying intensity \(\lambda^{i\star}\) is negative.
     To do so, we define the restart times in the multivariate framework, to be,
     for any \(k\) and \(i\):
@@ -212,21 +212,21 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     \centering
     \includegraphics[width=0.8\linewidth]{images/chapter3/restarTimesMarkedMulti.pdf}
     \caption{Illustration of restart times $(T\park^{\star})_{1\leq k \leq 4}$ for each subprocess of a 2-dimensional process associated with event times $(T\park[k])_{1\leq k \leq 4}$.}
-    \label{fig:chap2_restarttimes}
+    \label{fig:chap3_restarttimes}
     \end{figure*}}
     
-     As exemplified in Figure~\ref{fig:chap2_restarttimes}, the restart time $T\park^{i\star}$ (associated to the sub-process $i$) corresponds to the first instant between $T\park$ and $T\park[k+1]$ from which $\lambda^{i\star}(t)$ becomes non-negative (or $T\park[k+1]$ if this instant does not exist).
+     As exemplified in Figure~\ref{fig:chap3_restarttimes}, the restart time $T\park^{i\star}$ (associated to the sub-process $i$) corresponds to the first instant between $T\park$ and $T\park[k+1]$ from which $\lambda^{i\star}(t)$ becomes non-negative (or $T\park[k+1]$ if this instant does not exist).
     Intuitively, it means that $\lambda^{i}(t) = \lambda^{i\star}(t)$ on $(T\park^{i\star}, T\park[k+1])$ and $\lambda^{i}(t) = 0$ elsewhere on  $(T\park$, $T\park[k+1])$.
-    This is formalised in Lemma~\ref{lemma:chap2_restart_times}.
+    This is formalised in Lemma~\ref{lemma:chap3_restart_times}.
     In particular, it appears that the restart time $T\park^{i\star}$ can be expressed as a function of $$T\park + \beta_i^{-1}\log{\adaptedpar{\frac{\mu_i - \lambda^{i\star}(T\park)}{\mu_i}}}\,,$$
-      which is the single root to the equation $\mu_i + (\lambda^{i\star}(T\park) - \mu_i)\mathrm{e}^{-\beta_i(t-T\park)} = 0$ on the interval $[T\park, +\infty)$ when $\lambda^{i\star}(T\park) < 0$ (see top panel of Figure~\ref{fig:chap2_restarttimes}).
-      Then, Proposition~\ref{prop:chap2_compensator} gives an explicit formulation of the compensator of each subprocessi \(N^i\), which is needed to compute the log-likelihood (see Equation~\eqref{eq:chap2_general_log_likelihood}).
-      The proofs of these two results are presented respectively in Appendix~\ref{app:chap2_proof_lemma} and Appendix~\ref{app:chap2_proof_prop_compensator}.
+      which is the single root to the equation $\mu_i + (\lambda^{i\star}(T\park) - \mu_i)\mathrm{e}^{-\beta_i(t-T\park)} = 0$ on the interval $[T\park, +\infty)$ when $\lambda^{i\star}(T\park) < 0$ (see top panel of Figure~\ref{fig:chap3_restarttimes}).
+      Then, Proposition~\ref{prop:chap3_compensator} gives an explicit formulation of the compensator of each subprocessi \(N^i\), which is needed to compute the log-likelihood (see Equation~\eqref{eq:chap3_general_log_likelihood}).
+      The proofs of these two results are presented respectively in Appendix~\ref{app:chap3_proof_lemma} and Appendix~\ref{app:chap3_proof_prop_compensator}.
 
-    \begin{lemma}\label{lemma:chap2_restart_times}
-    If Assumption~\ref{assu:chap2_beta} is granted, then for each $i\in\{1,\ldots, d\}$ and any $k\geq1$: 
+    \begin{lemma}\label{lemma:chap3_restart_times}
+    If Assumption~\ref{assu:chap3_beta} is granted, then for each $i\in\{1,\ldots, d\}$ and any $k\geq1$: 
 
-    \begin{equation}\label{eq:chap2_restart_times_exponential}
+    \begin{equation}\label{eq:chap3_restart_times_exponential}
         T\park^{i\star} = \min{\adaptedpar{t^\star_k, T\park[k+1]}}\,.
     \end{equation}
     where
@@ -243,9 +243,9 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     \]
     \end{lemma}
 
-    \begin{proposition}\label{prop:chap2_compensator}[Compensator for multivariate exponential kernels]
-    Let us suppose that Assumption~\ref{assu:chap2_beta} is granted. For each $i\in\{1,\ldots, d\}$ the compensator $\Lambda^i$ of the process $N^i$ reads, $\forall t\geq 0$:
-    \begin{equation}\label{eq:chap2_compensator_exponential}
+    \begin{proposition}\label{prop:chap3_compensator}[Compensator for multivariate exponential kernels]
+    Let us suppose that Assumption~\ref{assu:chap3_beta} is granted. For each $i\in\{1,\ldots, d\}$ the compensator $\Lambda^i$ of the process $N^i$ reads, $\forall t\geq 0$:
+    \begin{equation}\label{eq:chap3_compensator_exponential}
       \Lambda^i(t) =
       \begin{cases}
         \mu_i t & \text{if } t < T\park[1] \\
@@ -260,8 +260,8 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     \end{equation*}
     \end{proposition}
     
-  \subsection{Identifiability and likelihood computation}\label{sec:chap2_likelihood}
-    As already mentioned in Section~\ref{sec:chap2_presentation}, let \(t \ge 0\) and assume that event times
+  \subsection{Identifiability and likelihood computation}\label{sec:chap3_likelihood}
+    As already mentioned in Section~\ref{sec:chap3_presentation}, let \(t \ge 0\) and assume that event times
     $\left\{ T_k^i : 1 \le k \le N_i(t),\right.$ $\left. 1 \le i \le d \right\}$ are observed in the interval \((0, t]\).
     We consider the parametric exponential model for a multivariate Hawkes process of dimension $d$, defined by
     \[
@@ -277,9 +277,9 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     and the restart times
     $(T^{i\star}_{\theta_i, (k)})_{k}$.
     Now, given a realisation $\left(T\park \right)_{k>0}$ of a multivariate exponential Hawkes process,
-    Theorem~\ref{th:chap2_identifiability} establishes the correspondence between the conditional intensities and the parameters.
+    Theorem~\ref{th:chap3_identifiability} establishes the correspondence between the conditional intensities and the parameters.
         
-\begin{theorem}[Identifiability]\label{th:chap2_identifiability}
+\begin{theorem}[Identifiability]\label{th:chap3_identifiability}
     Let $N=(N^1, \ldots, N^d)$ be a multivariate Hawkes process defined by a set of intensity functions $(\lambda^1_{\theta_1}, \dots, \lambda^d_{\theta_d}) \in \mathcal P$, for some $\theta = (\theta_1, \dots, \theta_d) \in \Theta^d$.
     Let also $\left(T\park \right)_{k>0}$ be a realisation of $N$ and $\mathcal{F}_t$ be the corresponding filtration.
     
@@ -287,8 +287,8 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     there exist an event time \(\tau\) from process \(N^j\),
     and an event time \(\tau_+ > \tau\) from process \(N^i\), such that:
     \begin{enumerate}
-        \item \label{hyp:chap2_ii} $\lambda_{\theta_i}^i(\tau^-) > 0$;
-        \item \label{hyp:chap2_iii} there are only events of process $N^j$ in the interval $[\tau, \tau_+)$.
+        \item \label{hyp:chap3_ii} $\lambda_{\theta_i}^i(\tau^-) > 0$;
+        \item \label{hyp:chap3_iii} there are only events of process $N^j$ in the interval $[\tau, \tau_+)$.
     \end{enumerate} 
     
     Then, for any $\theta' \in \Theta^d$,
@@ -302,13 +302,13 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap2_n
     \]
 \end{theorem}
 
-The proof is presented in Appendix \ref{app:chap2_proof}. To the best of our knowledge, the only identifiability result for non-linear multivariate Hawkes processes is given by \textcite{Sulem2021} but only if interaction functions $h_{ij}$ have a bounded support. Their proof strongly relies on this assumption since they extend to the multivariate case the renewal properties proved by \textcite{Costa2020} for non-linear univariate Hawkes processes with a bounded kernel.
-Their proof also requires some assumptions to ensure that one process is not totally inhibited, which is also a consequence of the assumptions that we propose, as discussed in Section~\ref{sec:chap2_identifiability}. 
+The proof is presented in Appendix \ref{app:chap3_proof}. To the best of our knowledge, the only identifiability result for non-linear multivariate Hawkes processes is given by \textcite{Sulem2021} but only if interaction functions $h_{ij}$ have a bounded support. Their proof strongly relies on this assumption since they extend to the multivariate case the renewal properties proved by \textcite{Costa2020} for non-linear univariate Hawkes processes with a bounded kernel.
+Their proof also requires some assumptions to ensure that one process is not totally inhibited, which is also a consequence of the assumptions that we propose, as discussed in Section~\ref{sec:chap3_identifiability}. 
 
-    As expected, Proposition~\ref{prop:chap2_compensator} makes it possible to compute explicitly the log-likelihood expressed in Equation~\eqref{eq:chap2_general_log_likelihood} for multivariate exponential Hawkes processes.
-    This is formalised in Corollary~\ref{cor:chap2_mle} (and proved in Appendix~\ref{app:chap2_proof_cor_mle}).
+    As expected, Proposition~\ref{prop:chap3_compensator} makes it possible to compute explicitly the log-likelihood expressed in Equation~\eqref{eq:chap3_general_log_likelihood} for multivariate exponential Hawkes processes.
+    This is formalised in Corollary~\ref{cor:chap3_mle} (and proved in Appendix~\ref{app:chap3_proof_cor_mle}).
 
-    \begin{corollary}\label{cor:chap2_mle}
+    \begin{corollary}\label{cor:chap3_mle}
         Let \(i \in \{1, \dots, d\}\) and \(k\geq 2\) an integer.
         Let us denote
         \[
@@ -319,22 +319,22 @@ Their proof also requires some assumptions to ensure that one process is not tot
         
         Then, for all \(\theta \in \Theta\),
         the log-likelihood of process \(N^i\) reads:
-        \begin{align}\label{eq:chap2_log_likelihood}
+        \begin{align}\label{eq:chap3_log_likelihood}
             \ell^i_t(\theta_i) = &\log{\mu_i} + \sum_{k=2}^{N^i(t)}{\log{\adaptedpar{\mu_i + (\lambda^{i\star}_{\theta_i}(S_k^i) - \mu_i)\mathrm{e}^{-\beta_i(T_k^i - S_k^i)}}}} - \Lambda^i_{\theta_i}(t)\,,
-        \end{align} where $\Lambda^i_{\theta_i}$ is given by Equation~\eqref{eq:chap2_compensator_exponential} and with convention $\log{(x)} = -\infty$ for $x\leq 0$.
+        \end{align} where $\Lambda^i_{\theta_i}$ is given by Equation~\eqref{eq:chap3_compensator_exponential} and with convention $\log{(x)} = -\infty$ for $x\leq 0$.
 
     \end{corollary}
 
-    Algorithm~\ref{alg:chap2_likelihood} in Appendix~\ref{app:chap2_log-lik} presents the iterative computation of the likelihood using Equation~\eqref{eq:chap2_log_likelihood}. In particular, the complexity of the computation is $O(N(t)\times d)$.
+    Algorithm~\ref{alg:chap3_likelihood} in Appendix~\ref{app:chap3_log-lik} presents the iterative computation of the likelihood using Equation~\eqref{eq:chap3_log_likelihood}. In particular, the complexity of the computation is $O(N(t)\times d)$.
     It is then possible to establish the Maximum Likelihood Estimator, which we will refer to as (MLE). These estimators will be denoted by a tilde: $(\tilde\mu_i)_i$, $(\tilde\alpha_{ij})_{ij}$, $(\tilde\beta_i)_i$ and $(\tilde h_{ij})_{ij}$.
 
-\subsection{On identifiability conditions}\label{sec:chap2_identifiability}
+\subsection{On identifiability conditions}\label{sec:chap3_identifiability}
 
-        In the previous section we presented a result on the identifiability of multivariate Hawkes process with inhibition via Theorem~\ref{th:chap2_identifiability}.
+        In the previous section we presented a result on the identifiability of multivariate Hawkes process with inhibition via Theorem~\ref{th:chap3_identifiability}.
         Let us mention that identifiability of parameters \(\mu_i\) and \(\beta_i\) do not require any assumption.
-	  The challenge of the proof lies in identifying parameters \(\alpha_{ij}\), which is achieved thanks to Conditions~\ref{hyp:chap2_ii} and \ref{hyp:chap2_iii} of Theorem~\ref{th:chap2_identifiability}.
-	  Condition~\ref{hyp:chap2_ii} allows to control strong inhibition scenarios by ensuring that each subprocess' intensity is positive sufficiently often, and not only at its own event times,
-	  while Condition~\ref{hyp:chap2_iii} enables to disentangle the contributions of each subprocess.
+	  The challenge of the proof lies in identifying parameters \(\alpha_{ij}\), which is achieved thanks to Conditions~\ref{hyp:chap3_ii} and \ref{hyp:chap3_iii} of Theorem~\ref{th:chap3_identifiability}.
+	  Condition~\ref{hyp:chap3_ii} allows to control strong inhibition scenarios by ensuring that each subprocess' intensity is positive sufficiently often, and not only at its own event times,
+	  while Condition~\ref{hyp:chap3_iii} enables to disentangle the contributions of each subprocess.
 	  We believe that these assumptions are only sufficient and could be weakened at the cost of a more intricate analysis.
 
     In this section we will discuss this set of conditions by providing two examples of parameters $\alpha_{ij}$ that allow to apply this result along with one counter-example.
@@ -342,10 +342,10 @@ Their proof also requires some assumptions to ensure that one process is not tot
 \subsubsection{Examples for which the conditions are fulfilled}
     Let us begin with an example of a two-dimensional process.
     In this situation, as soon as both processes have an infinite amount of events,
-    Conditions~\ref{hyp:chap2_ii} and \ref{hyp:chap2_iii} boil down to finding indexes \(k\ge1\) and \(k'\ge1\) such that \(\lambda^1({T_k^2}^-)>0\) and \(\lambda^2({T_{k'}^1}^-)>0\).
+    Conditions~\ref{hyp:chap3_ii} and \ref{hyp:chap3_iii} boil down to finding indexes \(k\ge1\) and \(k'\ge1\) such that \(\lambda^1({T_k^2}^-)>0\) and \(\lambda^2({T_{k'}^1}^-)>0\).
     Indeed, it is then enough to consider \((\tau, \tau_+) = (T_k^2, T_{N(T_k^2)+1}^1)\) for \((i, j)=(1, 2)\) and \((\tau, \tau_+) = (T_{k'}^1, T_{N(T_{k'}^1)+1}^2)\) for \((i, j)=(2, 1)\).
 
-    \begin{example}\label{ex:chap2_2dim_identifiability}
+    \begin{example}\label{ex:chap3_2dim_identifiability}
         Let us assume that $N$ is a two-dimensional Hawkes process with the following matrix for parameters $\alpha_{ij}$:
         \[\begin{pmatrix}
                       \alpha_{11} & \alpha_{12}\\
@@ -370,16 +370,16 @@ Their proof also requires some assumptions to ensure that one process is not tot
        
     \end{example}
 
-    This gives a set of Hawkes processes with inhibition that verify the assumptions of Theorem~\ref{th:chap2_identifiability}. For higher dimensions, the multiplicity of all possible connections between processes complicates the study of general cases from a theoretical point of view. Example~\ref{ex:chap2_ddim_example} illustrates a case where the conditions are fulfilled by considering identically distributed processes.
+    This gives a set of Hawkes processes with inhibition that verify the assumptions of Theorem~\ref{th:chap3_identifiability}. For higher dimensions, the multiplicity of all possible connections between processes complicates the study of general cases from a theoretical point of view. Example~\ref{ex:chap3_ddim_example} illustrates a case where the conditions are fulfilled by considering identically distributed processes.
 
-    \begin{example}\label{ex:chap2_ddim_example}
+    \begin{example}\label{ex:chap3_ddim_example}
         Let us consider a $d$-dimensional Hawkes process,
         as well as $\mu, \alpha_+, \alpha_-, \beta$ such that for any $i$ and for any $j\neq i$:
         \begin{align*}
     	\mu_i = \mu > 0\,,     \quad    \alpha_{ii} = \alpha_- \leq 0\,,\\ 
 	    \beta_i = \beta > 0\,, \quad \alpha_{ij} = \alpha_+ \geq 0\,.
         \end{align*}
-        As each process has the same parameters for $\mu_i$ and $\beta_i$ along with the exact same interactions, all processes are identically distributed and so in order to verify Conditions~\ref{hyp:chap2_ii} and \ref{hyp:chap2_iii} it is enough to verify them for $i=1$ and $j=2$.
+        As each process has the same parameters for $\mu_i$ and $\beta_i$ along with the exact same interactions, all processes are identically distributed and so in order to verify Conditions~\ref{hyp:chap3_ii} and \ref{hyp:chap3_iii} it is enough to verify them for $i=1$ and $j=2$.
 
         Fulfilling both conditions amounts to verifying that, with non-zero probability, we can find $k\ge1$ such that:
         \begin{enumerate}
@@ -397,10 +397,10 @@ Their proof also requires some assumptions to ensure that one process is not tot
 
     \end{example}
 
-    In the next section we present Example~\ref{ex:chap2_2dim_counterexample} of a specific set of parameters for which both conditions are not necessarily met.
+    In the next section we present Example~\ref{ex:chap3_2dim_counterexample} of a specific set of parameters for which both conditions are not necessarily met.
 
 \subsubsection{Example where the conditions are not fulfilled}
-	\begin{example}\label{ex:chap2_2dim_counterexample}
+	\begin{example}\label{ex:chap3_2dim_counterexample}
     Let us consider the Hawkes process defined by the following parameters:
 		\[
             	     \begin{pmatrix}
@@ -435,11 +435,11 @@ Their proof also requires some assumptions to ensure that one process is not tot
             As $\lambda^1$ is lower-bounded by $10^5$, the next candidate of process $N^1$ is roughly distributed as an exponential random variable with parameter $10^5$ so the next event time is with high probability of process $N^1$.
             If this is the case, process $N^2$ is further inhibited,
             and with probability going exponentially quickly to \(1\), all next event times will come from process \(N^1\),
-            preventing us from granting Conditions~\ref{hyp:chap2_ii} and \ref{hyp:chap2_iii}.
+            preventing us from granting Conditions~\ref{hyp:chap3_ii} and \ref{hyp:chap3_iii}.
 
 	\end{example}
 
- \subsection{Recovering the graph of interactions}\label{sec:chap2_support}
+ \subsection{Recovering the graph of interactions}\label{sec:chap3_support}
    The aim of this section is to describe methodologies able to estimate non-null interactions between subprocesses, which boils down to detecting parameters such that \(\alpha_{ij} \neq 0\).
    Recovering interactions has an interest, first, in providing a graphical interpretation of the Hawkes model, as it describes which subprocesses are actually connected within the whole process.
    Moreover, the graph of interactions can also be used as a reduction dimension tool,
@@ -459,14 +459,14 @@ Their proof also requires some assumptions to ensure that one process is not tot
    Then all estimations $\tilde\alpha_{(k)}$ such that \[s_k < \varepsilon S\,,\] are set to zero, for a threshold $\varepsilon \in (0,1)$.
   Subsequently, all non-null estimations $\tilde\alpha_{ij}$ are then re-estimated by maximising the log-likelihood.
    
-   The choice of an optimal threshold level $\varepsilon$ requires a way of comparing estimations, which is achieved thanks to the goodness-of-fit procedure described in Section \ref{sec:chap2_goodness},
-   and which is illustrated in Section \ref{sec:chap2_description_methods}.
+   The choice of an optimal threshold level $\varepsilon$ requires a way of comparing estimations, which is achieved thanks to the goodness-of-fit procedure described in Section \ref{sec:chap3_goodness},
+   and which is illustrated in Section \ref{sec:chap3_description_methods}.
    
-   \subsubsection{Confidence interval}\label{sec:chap2_confidence_interval}
+   \subsubsection{Confidence interval}\label{sec:chap3_confidence_interval}
    
    The second method is applicable when a sample $(N_1, \ldots, N_n)$ of $n$ realisations of a multivariate Hawkes process is available. For every $i,j$, we average all estimations $\tilde\alpha_{ij}$ over the realisations $N_1, \ldots, N_n$ to obtain $\bar\alpha_{ij}$ and then we determine a confidence interval around each estimation at a given confidence level $1-\eta$. Then each estimation for which the confidence interval contains $0$ is set to zero. Subsequently, all non-null estimations $\tilde\alpha_{ij}$ are re-estimated.
    
-   In this paper we consider two different confidence intervals. 
+   In this work we consider two different confidence intervals. 
    \begin{itemize}
    \item (CfE) corresponds to the empirical interval
    \[
@@ -496,9 +496,9 @@ Their proof also requires some assumptions to ensure that one process is not tot
    \]
    We can then compute the corresponding $p$-value for each test and set to zero all parameters for which the null hypothesis is not rejected. As we test $d^2$ different hypotheses, it is essential to incorporate multiple testing procedures. For this purpose, we choose the Benjamini-Hochberg method, consisting in adapting the rejection threshold of each $p$-value. This method enables to control the false discovery rate (FDR). If we denote $V$ the number of rejected true null hypothesis and $R$ the number of rejected true alternative hypotheses, the FDR is defined as \[FDR = \EE\left[\frac{V}{R+V}\right]\,.\] In other words, we control the expected number of true null hypotheses (i.e. parameter $\alpha_{ij}$ is equal to zero) rejected by our testing method. The B-H procedure considers the ordered $p$-values $(p_{(k)})_{k\in\{1, \ldots, d^2\}}$ and compares each one to the adapted rejection threshold $(1-\eta) \frac{k}{d^2}$. Then, we determine the largest $K\in\{1, \ldots, d^2\}$ such that $p_{(K)} < (1-\eta) \frac{K}{d^2}$ and we reject all hypothesis such that $p_{(k)} \leq p_{(K)}$
 
-  \subsection{Goodness-of-fit}\label{sec:chap2_goodness}
+  \subsection{Goodness-of-fit}\label{sec:chap3_goodness}
     As a benefit of our approach, it is possible to perform a goodness-of-fit test for assessing the quality of estimations. This is particularly useful when choosing between several estimations (such as those introduced before), in particular to choose an optimal level of thresholding for the (MLE-$\varepsilon$) method.
-    The closed-form expression of the compensator given in Proposition~\ref{prop:chap2_compensator} enables the use of the Time Change Theorem for inhomogeneous Poisson processes \cite[Proposition 7.4.IV]{DaleyV1}.
+    The closed-form expression of the compensator given in Proposition~\ref{prop:chap3_compensator} enables the use of the Time Change Theorem for inhomogeneous Poisson processes \cite[Proposition 7.4.IV]{DaleyV1}.
     For any $i$, the sequence of transformed times $(\Lambda^i(T_k^i))_k$ is a realisation of a homogeneous Poisson process with unit-intensity if and only if $(T_k^i)_k$ is a realisation of a point process with intensity $\lambda^i$.
 
     We can then define for any $\theta\in\Theta$ the null hypothesis
@@ -519,14 +519,14 @@ Their proof also requires some assumptions to ensure that one process is not tot
     This enables to assess properly the accuracy of estimations, without knowing the true conditional intensities.
     This is particularly interesting for real-world data.
 
-    Let us mention that the goodness-of-fit procedure is not only an assessment of the overall fit between the model and the observations but it provides also a tool to calibrate the threshold for the (MLE-$\varepsilon$) method. Indeed, for each threshold level $\varepsilon$ chosen over a grid, we compute all p-values (one for each subprocess, one for $p_{tot}$) and we choose the value of $\varepsilon$ that maximises the mean p-value. For the other two methods, (CfE) and (CfSt), the model selection procedure is described in Section~\ref{sec:chap2_confidence_interval} and the goodness-of-fit is only performed afterwards in order to establish the quality of the estimations.
+    Let us mention that the goodness-of-fit procedure is not only an assessment of the overall fit between the model and the observations but it provides also a tool to calibrate the threshold for the (MLE-$\varepsilon$) method. Indeed, for each threshold level $\varepsilon$ chosen over a grid, we compute all p-values (one for each subprocess, one for $p_{tot}$) and we choose the value of $\varepsilon$ that maximises the mean p-value. For the other two methods, (CfE) and (CfSt), the model selection procedure is described in Section~\ref{sec:chap3_confidence_interval} and the goodness-of-fit is only performed afterwards in order to establish the quality of the estimations.
 
-\section{Illustration on synthetic datasets}\label{sec:chap2_numerical}
+\section{Illustration on synthetic datasets}\label{sec:chap3_numerical}
     \subsection{Simulation procedure}
     In order to assess the performance of the maximum likelihood estimation method, we simulate different data by using Ogata's thinning method \parencite{Ogata1981}. This method consists in defining a piecewise constant function $\lambda^+$ such that for any $k\geq1$ and any $t\in[T\park, T\park[k+1])$, $\lambda^+(t) \geq \lambda(t)$. For this, we define $\lambda^+$ for any $t\in[T\park, T\park[k+1])$ as \[\lambda^+(t) = \sum_{i=1}^{d}{\left(\mu_i + \sum_{j=1}^{d}\int_{0}^{t}{\alpha_{ij}^+\mathrm{e}^{-\beta_i(T\park-s)}\,\mathrm{d}N^j(s)}\right)}\,,\] which corresponds to considering only the positive interactions.
 
     Four different parameter sets are considered: three sets for 2-dimensional Hawkes processes and a last one for a 10-dimensional process.
-    Table~\ref{tab:chap2_simulated_2_table} presents the parameters used in Dimension 2. All scenarios contain at least one negative interaction ($\alpha_{ij}<0$). Scenario (1) is a Hawkes process where all parameters are non-null whereas Scenarios (2) and (3) are chosen to study the performance of our methods when estimating null interactions ($\alpha_{12}$ for Scenario (2) and $\alpha_{21}$ for Scenario (3)).
+    Table~\ref{tab:chap3_simulated_2_table} presents the parameters used in Dimension 2. All scenarios contain at least one negative interaction ($\alpha_{ij}<0$). Scenario (1) is a Hawkes process where all parameters are non-null whereas Scenarios (2) and (3) are chosen to study the performance of our methods when estimating null interactions ($\alpha_{12}$ for Scenario (2) and $\alpha_{21}$ for Scenario (3)).
     All simulations have exactly \(5000\) event times in total.
     \begin{table}[h!]
     \begin{center}  
@@ -576,18 +576,18 @@ Their proof also requires some assumptions to ensure that one process is not tot
             \end{pmatrix}$
         \end{tabular}
         \caption{Parameters for simulations of two-dimensional Hawkes processes.}
-        \label{tab:chap2_simulated_2_table}
+        \label{tab:chap3_simulated_2_table}
     \end{center}
     \end{table}
 
-    In order to carry out the hypothesis testing procedure, we simulate a sample of Hawkes processes independent from the one used for the estimation. Each testing sample contains as many realisations as the estimation sample. All $p$-values presented in the paper correspond to the average obtained over all realisations.
+    In order to carry out the hypothesis testing procedure, we simulate a sample of Hawkes processes independent from the one used for the estimation. Each testing sample contains as many realisations as the estimation sample. All $p$-values presented in the chapter correspond to the average obtained over all realisations.
 
     \subsection{Proposed methods and comparison to existing procedures}
-    \label{sec:chap2_description_methods}
-    The main focus of this paper is to assess the performance of the maximum likelihood estimator to correctly detect the interacting functions of our processes without ambiguity, estimators are denoted with a tilde: $(\tilde\mu_i)_i$, $(\tilde\alpha_{ij})_{ij}$, $(\tilde\beta_i)_i$ and \((\tilde h_{ij})_{ij}\).
-    In this paper we propose four methods previously introduced in Section \ref{sec:chap2_support}:
+    \label{sec:chap3_description_methods}
+    The main focus of this chapter is to assess the performance of the maximum likelihood estimator to correctly detect the interacting functions of our processes without ambiguity, estimators are denoted with a tilde: $(\tilde\mu_i)_i$, $(\tilde\alpha_{ij})_{ij}$, $(\tilde\beta_i)_i$ and \((\tilde h_{ij})_{ij}\).
+    In this chapter we propose four methods previously introduced in Section \ref{sec:chap3_support}:
     \begin{itemize}
-        \item (MLE) The estimator obtained by minimising the opposite of the log-likelihood $-\sum_{i=1}^{d}{\ell_t^i(\theta)}$ (see Equation~\eqref{eq:chap2_log_likelihood}). The log-likelihood is computed via Algorithm~\ref{alg:chap2_likelihood} and the minimisation is done with the L-BFGS-B method \parencite{Byrd1995}.
+        \item (MLE) The estimator obtained by minimising the opposite of the log-likelihood $-\sum_{i=1}^{d}{\ell_t^i(\theta)}$ (see Equation~\eqref{eq:chap3_log_likelihood}). The log-likelihood is computed via Algorithm~\ref{alg:chap3_likelihood} and the minimisation is done with the L-BFGS-B method \parencite{Byrd1995}.
         \item (MLE-$\varepsilon$) The estimator obtained by adding a thresholding step to the previous method to determine the non-null estimations.  The value of $\varepsilon$ is chosen such that it maximises the mean over all $p$-values obtained.
         \item (CfE) The estimator whose support is obtained through the empirical confidence intervals.
         \item (CfSt) The estimator using Student distributed intervals after verification of normality of the estimations.
@@ -614,7 +614,7 @@ Their proof also requires some assumptions to ensure that one process is not tot
         which is an observable approximation of \(\|\lambda_\theta - \lambda\|_t^2 = \int_0^t (\lambda_\theta(u) - \lambda(u))^2 \, \mathrm du\) up to a constant term.
         In \textcite{Bacry2020}, all interactions are assumed to be positive, however the implemented version of this method in the package \texttt{tick} \textcite{Bacry2018} allows to retrieve negative values. For this, we consider two different kernel functions from this implementation:
         \begin{itemize}
-        \item (Lst-sq) $h_{ij}(t) = \alpha_{ij}\beta_{ij}e^{-\beta_{ij}t}$, where $\beta_{ij}$ is fixed beforehand by the practitioner. In practice, we fix $\beta_{ij} = \beta_i$ to be consistent with our model (see Assumption~\ref{assu:chap2_beta}). The only solver in the implementation that provides negative values is BFGS,
+        \item (Lst-sq) $h_{ij}(t) = \alpha_{ij}\beta_{ij}e^{-\beta_{ij}t}$, where $\beta_{ij}$ is fixed beforehand by the practitioner. In practice, we fix $\beta_{ij} = \beta_i$ to be consistent with our model (see Assumption~\ref{assu:chap3_beta}). The only solver in the implementation that provides negative values is BFGS,
         which is limited to work with an $\ell_2$-penalty. The grid of values $\{1, 10, \ldots, 10^6\}$ is considered for the regularisation constant. To obtain the best estimation for this method, we choose the constant that minimises the relative squared error over all estimated parameters. 
         
         \item (Grid-lst-sq) $h_{ij}(t) = \sum_{u=1}^{U}{\alpha_{ij}^u\beta^u e^{-\beta^u t}}$, with $(\beta^u)_u$ a fixed grid of parameters. In our case, we choose $U=d$ and the grid contains each parameter $\beta_{i}$. Intuitively, by applying an $\ell_1$-penalty, this method would be able to retrieve the corresponding parameter $\beta_{i}$ for each process.
@@ -623,9 +623,9 @@ Their proof also requires some assumptions to ensure that one process is not tot
     \end{enumerate}
 
 
-    \subsubsection{Results on bivariate Hawkes processes}\label{sec:chap2_dim2}
+    \subsubsection{Results on bivariate Hawkes processes}\label{sec:chap3_dim2}
 
-   We generate 25 realisations for each parameter set given in Table~\ref{tab:chap2_simulated_2_table} and we estimate the parameters for each individual simulation.  We begin this comparison by competing the proposed methods with both (Approx) and (Lst-sq) which are the two methods with the same kernel functions considered in this paper. Figure~\ref{fig:chap2_boxplots} displays the relative squared errors for each group of parameters (baselines $(\mu_i)_i$, interaction terms $(\alpha_{ij})_{i,j}$ and delay factors $(\beta_i)_i$)  by considering vector norms.
+   We generate 25 realisations for each parameter set given in Table~\ref{tab:chap3_simulated_2_table} and we estimate the parameters for each individual simulation.  We begin this comparison by competing the proposed methods with both (Approx) and (Lst-sq) which are the two methods with the same kernel functions considered in this chapter. Figure~\ref{fig:chap3_boxplots} displays the relative squared errors for each group of parameters (baselines $(\mu_i)_i$, interaction terms $(\alpha_{ij})_{i,j}$ and delay factors $(\beta_i)_i$)  by considering vector norms.
     
     {\begin{figure*}[!ht]
     \centering
@@ -633,11 +633,11 @@ Their proof also requires some assumptions to ensure that one process is not tot
     \caption{Boxplots of the relative squared error for each group of parameters ($(\mu_i)_i$, $(\alpha_{i,j})_{i,j}$ and $(\beta_i)_i$) for 25 realisations of a two-dimensional Hawkes processes.
     (Lst-sq) does not appear in the last column because it is provided with the true values of \((\beta_i)_i\).
     The proposed methods are (MLE), (MLE-$\varepsilon$), (CfE) and (CfSt).}
-    \label{fig:chap2_boxplots}
+    \label{fig:chap3_boxplots}
     \end{figure*}}
     
     First, we observe that delay factors \((\beta_i)_i\)
-    (last column of Figure~\ref{fig:chap2_boxplots})
+    (last column of Figure~\ref{fig:chap3_boxplots})
     are similarly estimated by all approaches.
     Let us recall that (Lst-sq) is not included in the comparison of delay factors:
     since it requires to provide a value for these parameters (they are not estimated),
@@ -655,14 +655,14 @@ Their proof also requires some assumptions to ensure that one process is not tot
     
     In Scenario~(1), the performance of (Approx) and (Lst-sq) is altered, in particular for the \((\tilde \alpha_{ij})_{ij}\) estimations, because the inhibiting effect is stronger than in Scenario~(2).
     The major changes appear in Scenario~(3), where both (Approx) and (Lst-sq) obtain very high relative errors.
-    More precisely, they fail to explain the interactions between the two processes (see the estimations \((\tilde \alpha_{ij})_{ij}\) in the middle column of Figure~\ref{fig:chap2_boxplots}), which is compensated by a wrong estimation \((\tilde \mu_i)_i\) of baseline intensities.
+    More precisely, they fail to explain the interactions between the two processes (see the estimations \((\tilde \alpha_{ij})_{ij}\) in the middle column of Figure~\ref{fig:chap3_boxplots}), which is compensated by a wrong estimation \((\tilde \mu_i)_i\) of baseline intensities.
     This is not surprising since Scenario~(1), and even more Scenario~(3), were designed so that the intensity functions are frequently equal to zero, which induces major differences between true and underlying intensities.
     Since (Approx) and (Lst-sq) are both based on assuming that these two functions are almost equal, the violation of this assumption causes large estimation errors.
     As expected, the proposed methods, which are developed to handle such inhibiting scenarios, provide accurate estimations.
     
-    These results are confirmed by the outcomes of the goodness-of-fit test displayed in Table~\ref{tab:chap2_p_values_2}.
-    It shows indeed the averaged $p$-values for each scenario using both the true parameters and all four estimations from Figure~\ref{fig:chap2_boxplots} with 25 simulations different from the ones used for estimation. In particular, we can see that our methods obtain high $p$-values, being very close to those obtained using the true parameters.
-    Table~\ref{tab:chap2_p_values_2} also highlights when parameters are incorrectly estimated.
+    These results are confirmed by the outcomes of the goodness-of-fit test displayed in Table~\ref{tab:chap3_p_values_2}.
+    It shows indeed the averaged $p$-values for each scenario using both the true parameters and all four estimations from Figure~\ref{fig:chap3_boxplots} with 25 simulations different from the ones used for estimation. In particular, we can see that our methods obtain high $p$-values, being very close to those obtained using the true parameters.
+    Table~\ref{tab:chap3_p_values_2} also highlights when parameters are incorrectly estimated.
     For instance, in Scenario (1), (Approx) correctly estimate Process~2 but provides less accurate estimations for Process~1 (the \(p\)-value is almost half the one obtained with the true parameters), which is the one characterised by a self-inhibiting behaviour.
     In addition, at least one of the proposed methods obtains the highest value for $p_{tot}$ in each scenario, which illustrates the ability of these procedures to reconstruct the complete process $N$.
     Let us note that the very low \(p\)-values obtained by (Approx) and (Lst-sq) for Scenario (3) confirm the ability of the goodness-of-fit procedure to detect when the parameter estimations strongly differ from the true parameters.
@@ -686,54 +686,54 @@ Their proof also requires some assumptions to ensure that one process is not tot
          Lst-sq & 0.154 & 0.438 & 0.392 & 0.534 & 0.463 & 0.478 & $\mathbf{0.0}$ & $\mathbf{0.0}$ & $\mathbf{0.0}$
     \end{tabular}
     \caption{Average $p$-values for estimations of two-dimensional Hawkes processes for all scenarios. The values are averaged over 25 simulations. In bold the $p$-values correspond to a rejected hypothesis at a confidence level of $0.95$.}
-    \label{tab:chap2_p_values_2}
+    \label{tab:chap3_p_values_2}
     \end{center}
     \end{table*}
 
      Lastly, let us investigate the estimations obtained via (Grid-lst-sq), which can be used in practice as a way to estimate the parameters $\beta_i$ by providing a grid of possible parameters.
      Let us mention that both of the previous comparisons (boxplots and \(p\)-values) cannot be done here due to the difference in the number of parameters, but we can compare the methods in terms of
      reconstructions $\tilde h_{ij}$ of the interaction functions $h_{ij}$.
-     For this purpose, we analyse Figure~\ref{fig:chap2_reconstruction_param_1}, which represents the estimated interaction functions \(\tilde h_{ij}\) for all methods in Scenario (3).
+     For this purpose, we analyse Figure~\ref{fig:chap3_reconstruction_param_1}, which represents the estimated interaction functions \(\tilde h_{ij}\) for all methods in Scenario (3).
      Interestingly, we see that (Grid-lst-sq) performs similarly to (Lst-sq),
      while the latter is fed with all true values \((\beta_i)_i\) for each interaction.
      However, we see that (Grid-lst-sq)  suffers from the same difficulties than (Approx) and (Lst-sq), which was expected since it relies on the same unvalid assumption.
      Let us note that we chose to display the results for Scenario (3) since it highlights the main differences between the compared approaches but the reconstructions for Scenarios (1) and (2)
-     can be found in Appendix~\ref{app:chap2_numerical}
+     can be found in Appendix~\ref{app:chap3_numerical}
      (Figures \ref{fig_supp:scenario_1} and \ref{fig_supp:scenario_2}).
      
      {\begin{figure*}[!ht]
      \centering
      \includegraphics[width=0.9\linewidth]{images/chapter3/reconstruction_param_3.pdf}
      \caption{Reconstruction of interaction functions $h_{ij}$ for Scenario (3) of two-dimensional Hawkes processes along with all estimated functions $\tilde h_{ij}$. The real function is plotted in red and 25 estimations are averaged for each method.}
-     \label{fig:chap2_reconstruction_param_1}
+     \label{fig:chap3_reconstruction_param_1}
      \end{figure*}}
 
 
   \subsubsection{A $10$-dimensional Hawkes process}
-    A \(10\)-dimensional Hawkes process is simulated based on a set of parameters corresponding to the quantities $(\sign(\alpha_{ij})\|h_{ij}\|_1)_{ij} = (\alpha_{ij}/\beta_i)_{ij}$ displayed in Figure~\ref{fig:chap2_heatmap_10}.
+    A \(10\)-dimensional Hawkes process is simulated based on a set of parameters corresponding to the quantities $(\sign(\alpha_{ij})\|h_{ij}\|_1)_{ij} = (\alpha_{ij}/\beta_i)_{ij}$ displayed in Figure~\ref{fig:chap3_heatmap_10}.
     The chosen parameters fulfil the existence condition $\|\rho(S^+)\| < 1$.
 
     {\begin{figure*}
     \centering
     \includegraphics[clip,width=0.75\linewidth]{images/chapter3/Realheat.pdf}
     \caption{Heatmap of real parameters $(\sign(\alpha_{ij})\|h_{ij}\|_1)_{ij} = (\alpha_{ij}/\beta_i)_{ij}$ for the $10$-dimensional simulation.}
-    \label{fig:chap2_heatmap_10}
+    \label{fig:chap3_heatmap_10}
     \end{figure*}}
     {\begin{figure*}
     \centering
     \includegraphics[clip, width=\linewidth]{images/chapter3/heatmap_hori.pdf}
-    \caption{Top row corresponds to the heatmap for each estimation method. Bottom row corresponds to errors made with respect to real parameters from Figure \ref{fig:chap2_heatmap_10}. A value of 1 (orange) shows an undetected 0 (non-null estimation for $\alpha_{ij} = 0$), a value of -1 (purple) shows a non-null value set to 0 and a value of -2 (black) shows a non-null value whose sign is wrongly estimated. Each of the compared approaches is described in Section \ref{sec:chap2_description_methods}.}
-    \label{fig:chap2_heatmap_estimated}
+    \caption{Top row corresponds to the heatmap for each estimation method. Bottom row corresponds to errors made with respect to real parameters from Figure \ref{fig:chap3_heatmap_10}. A value of 1 (orange) shows an undetected 0 (non-null estimation for $\alpha_{ij} = 0$), a value of -1 (purple) shows a non-null value set to 0 and a value of -2 (black) shows a non-null value whose sign is wrongly estimated. Each of the compared approaches is described in Section \ref{sec:chap3_description_methods}.}
+    \label{fig:chap3_heatmap_estimated}
     \end{figure*}}
 
-    The corresponding estimations \(\tilde \alpha_{ij}\) and \(\tilde \beta_{i}\) are averaged over 25 realisations and displayed in Figure~\ref{fig:chap2_heatmap_estimated}.
+    The corresponding estimations \(\tilde \alpha_{ij}\) and \(\tilde \beta_{i}\) are averaged over 25 realisations and displayed in Figure~\ref{fig:chap3_heatmap_estimated}.
     The heatmap representation is convenient for high-dimensional processes as it allows us to see whether the signs of each interaction are well-estimated and whether the null-interactions are correctly detected.
 
 
     In this example we decided to keep only (Approx) and (Lst-sq) as comparison methods as these are the ones with the same parameterisation for the kernel functions.
     Among the four methods considered, (Approx) is the only one that wrongly estimates the sign of some interactions, represented by the black boxes in the second row matrix. (MLE) and (Lst-sq) correctly retrieve the sign of each interactions but are unable to detect the null interactions: this is not surprising since (MLE) does not contain a regularisation step and the (Lst-sq) estimator is implemented with a $\ell_2$-penalty which does not provide a sparse solution.
     On the one hand, (MLE-$\varepsilon$) is in this case quite conservative by setting a single value equal to 0 compared to (MLE).
-    On the other hand, both confidence intervals methods improve the number of interactions whose sign is correctly estimated. Interestingly, we see that (CfE) sets more values equal to zero than it should (purple boxes) whereas (CfSt) denotes the opposite effect by not detecting null interactions (orange boxes). Overall, (CfSt) obtains the best results in terms of support recovery and sign estimations by committing only two errors. Table~\ref{tab:chap2_p_values_10} summarises the $p$-values for each hypothesis as described in Section~\ref{sec:chap2_goodness}. 
+    On the other hand, both confidence intervals methods improve the number of interactions whose sign is correctly estimated. Interestingly, we see that (CfE) sets more values equal to zero than it should (purple boxes) whereas (CfSt) denotes the opposite effect by not detecting null interactions (orange boxes). Overall, (CfSt) obtains the best results in terms of support recovery and sign estimations by committing only two errors. Table~\ref{tab:chap3_p_values_10} summarises the $p$-values for each hypothesis as described in Section~\ref{sec:chap3_goodness}. 
     All of the proposed methods obtain overall better $p$-values with no particularly low values, which is not the case for (Approx) (see $p_4$ and $p_{tot}$) and for (Lst-sq) (see $p_8$ and $p_{10}$). Although the $p$-values all exceed $5\%$, they remain substantially smaller than those obtained with the alternative methods.  
     
     \begin{table*}[!ht]
@@ -754,25 +754,25 @@ Their proof also requires some assumptions to ensure that one process is not tot
          Approx & 0.411 & 0.376 & 0.475 & 0.077 & 0.485 & 0.411 & 0.3 & 0.384 & 0.285 & 0.436 & 0.085\\
          Lst-sq & 0.422 & 0.63 & 0.344 & 0.456 & 0.416 & 0.439 & 0.411 & 0.096 & 0.579 & 0.157 & 0.423\
     \end{tabular}    
-    \caption{$p$-values for estimations of a ten-dimensional Hawkes process. The values are averaged over 25 simulations. $p_{tot}$ corresponds to testing whether the estimated intensity function corresponds to a multivariate Hawkes process $N$ as defined in Section \ref{sec:chap2_goodness}.}
-    \label{tab:chap2_p_values_10}
+    \caption{$p$-values for estimations of a ten-dimensional Hawkes process. The values are averaged over 25 simulations. $p_{tot}$ corresponds to testing whether the estimated intensity function corresponds to a multivariate Hawkes process $N$ as defined in Section \ref{sec:chap3_goodness}.}
+    \label{tab:chap3_p_values_10}
     \end{center}
     \end{table*}
 
-Finally, we compare the relative squared errors for each group of parameters (see Figure \ref{fig:chap2_errors_10_dim}). Similarly to the two-dimensional case, all proposed methods perform significantly better than alternative approaches regarding the estimation of all parameters.
+Finally, we compare the relative squared errors for each group of parameters (see Figure \ref{fig:chap3_errors_10_dim}). Similarly to the two-dimensional case, all proposed methods perform significantly better than alternative approaches regarding the estimation of all parameters.
 In addition, it can be noticed that inaccurate estimations of the parameters $\alpha_{ij}$ tend to deteriorate the estimations of $\mu_i$, which suggests an effect of compensation between these parameters.
 Regarding the estimator (CfSt), which shows the best averaged performance, it can be remarked that it also exhibits a large variance, in particular when estimating $\beta_i$. 
 
-Figure~\ref{fig:chap2_p_values_support} illustrates for (CfST) the ordered $p$-values for hypothesis $\mathcal{H}_0 : \alpha_{ij} = 0$.
+Figure~\ref{fig:chap3_p_values_support} illustrates for (CfST) the ordered $p$-values for hypothesis $\mathcal{H}_0 : \alpha_{ij} = 0$.
 
 {\begin{figure}[!ht]
      \centering
      \includegraphics[width=0.75\linewidth]{images/chapter3/p_values_10.pdf}
      \caption{Ordered $p$-values corresponding to support estimation of method (CfSt). Red points correspond to rejected null hypothesis $\mathcal{H}_0 : \alpha_{ij} = 0$ and blue points to non-rejected ones.}
-     \label{fig:chap2_p_values_support}
+     \label{fig:chap3_p_values_support}
      \end{figure}}
 
-This can be explained by this estimator providing a very sparse solution (as seen in Figure \ref{fig:chap2_heatmap_estimated}) and therefore taking into account less observations for estimating the coefficients $\beta_i$.
+This can be explained by this estimator providing a very sparse solution (as seen in Figure \ref{fig:chap3_heatmap_estimated}) and therefore taking into account less observations for estimating the coefficients $\beta_i$.
 
 {\begin{figure*}[!ht]
      \centering
@@ -780,10 +780,10 @@ This can be explained by this estimator providing a very sparse solution (as see
      \caption{Boxplots of the relative squared error for each group of parameters ($(\mu_i)_i$, $(\alpha_{ij})_{i,j}$ and $(\beta_i)_i$) for 25 realisations of a ten-dimensional Hawkes processes.
     (Lst-sq) does not appear in the last row because it is provided with the true values of \((\beta_i)_i\).
     The proposed methods are (MLE), (MLE-$\varepsilon$), (CfE) and (CfSt).}
-     \label{fig:chap2_errors_10_dim}
+     \label{fig:chap3_errors_10_dim}
      \end{figure*}}
 
-An important question for any inference method, especially in a high-dimensional setting, is its computational cost. Table~\ref{tab:chap2_times_10} shows the average estimation time (over 25 realisations), all times being total estimation time. More precisely, for our 3 model selection methods (MLE-$\varepsilon$), (CfE) and (CfSt), it takes into account the total times, including the first (MLE) estimation in addition to the re-estimation over the support. 
+An important question for any inference method, especially in a high-dimensional setting, is its computational cost. Table~\ref{tab:chap3_times_10} shows the average estimation time (over 25 realisations), all times being total estimation time. More precisely, for our 3 model selection methods (MLE-$\varepsilon$), (CfE) and (CfSt), it takes into account the total times, including the first (MLE) estimation in addition to the re-estimation over the support. 
 
 \begin{table*}[!ht] 
     \begin{center}
@@ -794,8 +794,8 @@ An important question for any inference method, especially in a high-dimensional
          \toprule
          Computing time & 87.6 & 178.2 & 147.2 & 152.2 & 51.4 & 1.32 & 47.7
     \end{tabular}
-    \caption{Average computing time in seconds for all estimation methods, averaged over 25 realisations of a ten-dimensional Hawkes process.  The time shown for (MLE-$\varepsilon$) is the total time of estimation for 7 different values of $\varepsilon$. Similarly for \texttt{tick} methods, the time is for 7 different levels of penalisation (as done in the estimations of Section~\ref{sec:chap2_dim2}). For the (Grid-lst-sq), we provided a search grid for $\beta_i$ that contains 12 values, including the true one.}
-    \label{tab:chap2_times_10}
+    \caption{Average computing time in seconds for all estimation methods, averaged over 25 realisations of a ten-dimensional Hawkes process.  The time shown for (MLE-$\varepsilon$) is the total time of estimation for 7 different values of $\varepsilon$. Similarly for \texttt{tick} methods, the time is for 7 different levels of penalisation (as done in the estimations of Section~\ref{sec:chap3_dim2}). For the (Grid-lst-sq), we provided a search grid for $\beta_i$ that contains 12 values, including the true one.}
+    \label{tab:chap3_times_10}
     \end{center}
     \end{table*}
 
@@ -805,7 +805,7 @@ It remains nevertheless that (Lst-sq) and (Grid-lst-sq) are both implemented in 
 However, all computation times remain quite reasonable, even for the methods that include a selection model step. 
 
 \subsection{Robustness on misspecified models}
-In this section, we address the question of the robustness of our estimator regarding the misspecification of the kernel function. More precisely, we generate a two-dimensional Hawkes process with power-law kernels, which are commonly used in the literature \parencite{Mishra2016, Ogata1988} as an alternative to the exponential kernel for modelling a slower convergence to zero. For all $i, j$ we define the power-law kernel as: \[h_{ij}(t) = \frac{\alpha_{ij}\beta_{ij}}{(1 + \beta_{ij}t)^{1 + \gamma}}\,,\] with $\beta_{ij} > 0$, $\gamma > 0$ and $\alpha_{ij}\in\RR$ in order to allow inhibition effects. Let us remark that in the general case each kernel function could be given a different parameter $\gamma_{ij}$ but here we fix the same parameter for all interactions, which is a similar condition as Assumption~\ref{assu:chap2_beta}.
+In this section, we address the question of the robustness of our estimator regarding the misspecification of the kernel function. More precisely, we generate a two-dimensional Hawkes process with power-law kernels, which are commonly used in the literature \parencite{Mishra2016, Ogata1988} as an alternative to the exponential kernel for modelling a slower convergence to zero. For all $i, j$ we define the power-law kernel as: \[h_{ij}(t) = \frac{\alpha_{ij}\beta_{ij}}{(1 + \beta_{ij}t)^{1 + \gamma}}\,,\] with $\beta_{ij} > 0$, $\gamma > 0$ and $\alpha_{ij}\in\RR$ in order to allow inhibition effects. Let us remark that in the general case each kernel function could be given a different parameter $\gamma_{ij}$ but here we fix the same parameter for all interactions, which is a similar condition as Assumption~\ref{assu:chap3_beta}.
 
 We propose to investigate different scenarios in order to model different behaviours. In all cases, we set the values of $\alpha_{ij}$ in order to have both excitation and inhibition effects and the values of $\mu_i$ as follows:
 \[
@@ -841,7 +841,7 @@ We propose to investigate different scenarios in order to model different behavi
   \end{pmatrix}\ ,
 \]
     
-all values being similar in order to be close to Assumption~\ref{assu:chap2_beta}. Then we study the effect of parameter $\gamma$ which controls how the kernel functions decrease to zero. We set \[\gamma\in\{2.0, 4.0, 6.0, 8.0\}\,.\]
+all values being similar in order to be close to Assumption~\ref{assu:chap3_beta}. Then we study the effect of parameter $\gamma$ which controls how the kernel functions decrease to zero. We set \[\gamma\in\{2.0, 4.0, 6.0, 8.0\}\,.\]
 
 
     \item Scenario $\beta$ : we keep the same values of $\mu_i$, $\alpha_{ij}$ as in Scenarios $\gamma$, we fix $\gamma=4.0$ and we choose very different values of $\beta_{i,j}$:
@@ -859,22 +859,22 @@ all values being similar in order to be close to Assumption~\ref{assu:chap2_beta
     
     
     
-    so that Assumption~\ref{assu:chap2_beta} is violated and therefore the intensity function of process $N^2$ is frequently non-monotonous between two event times.
+    so that Assumption~\ref{assu:chap3_beta} is violated and therefore the intensity function of process $N^2$ is frequently non-monotonous between two event times.
 
 \end{itemize}
 
 We expect that our estimator should adapt better to Scenarios $\gamma$ (in particular large values of $\gamma$ would correspond to a fast convergence to zero) than to Scenario $\beta$.
 
-Figure~\ref{fig:chap2_heatmap_powerlaw} represents the heatmap for $\sign(\alpha_{ij})\| h_{ij} \|_1 = \alpha_{ij}/\gamma$ and $\sign(\tilde \alpha_{ij})\| \tilde h_{ij}\|_1 = \tilde \alpha_{ij}/ \tilde\beta_{i}$ as well as whether the type of each interaction is correctly estimated (excitation or inhibition). We first notice that in most cases, our method is robust enough to differentiate between exciting and inhibiting interactions, the only errors concerning parameter $\alpha_{11}$ that is close to zero. For Scenarios $\gamma$, we can observe as expected that the bigger differences are obtained for smaller values of $\gamma$. Although the signs of the interactions are correctly estimated in Scenario $\beta$, we can observe substantial errors regarding the estimations of both $\alpha_{21}$ and $\alpha_{22}$. 
+Figure~\ref{fig:chap3_heatmap_powerlaw} represents the heatmap for $\sign(\alpha_{ij})\| h_{ij} \|_1 = \alpha_{ij}/\gamma$ and $\sign(\tilde \alpha_{ij})\| \tilde h_{ij}\|_1 = \tilde \alpha_{ij}/ \tilde\beta_{i}$ as well as whether the type of each interaction is correctly estimated (excitation or inhibition). We first notice that in most cases, our method is robust enough to differentiate between exciting and inhibiting interactions, the only errors concerning parameter $\alpha_{11}$ that is close to zero. For Scenarios $\gamma$, we can observe as expected that the bigger differences are obtained for smaller values of $\gamma$. Although the signs of the interactions are correctly estimated in Scenario $\beta$, we can observe substantial errors regarding the estimations of both $\alpha_{21}$ and $\alpha_{22}$. 
 
 {\begin{figure*}[!ht]
      \centering
      \includegraphics[width=0.9\linewidth]{images/chapter3/heatmap_powerlaw_both.pdf}
      \caption{Top row corresponds to the heatmap $\sign(\alpha_{ij})\| h_{ij} \|_1 = \alpha_{ij}/\gamma$. Middle row corresponds to the estimated heatmap $\sign(\tilde \alpha_{ij})\| \tilde h_{ij}\|_1 = \tilde \alpha_{ij}/ \tilde\beta_{i}$. Bottom row corresponds to errors when estimating the nature of the interaction. A black box represents a value $\alpha_{ij}$ whose sign is wrongly estimated.}
-     \label{fig:chap2_heatmap_powerlaw}
+     \label{fig:chap3_heatmap_powerlaw}
      \end{figure*}}
 
-Table~\ref{tab:chap2_p_values_powerlaw} shows the average $p$-values associated with the goodness-of-fit measure presented in Section~\ref{sec:chap2_goodness}. It confirms that for all Scenarios $\gamma$, the $p$-values are smaller for smaller values of $\gamma$, all $p$-values remaining greater than 5\%. However, the $p$-values associated with Scenario $\beta$ are always equal to zero, which means that the goodness-of-fit is able to detect that the interactions are not correctly estimated. 
+Table~\ref{tab:chap3_p_values_powerlaw} shows the average $p$-values associated with the goodness-of-fit measure presented in Section~\ref{sec:chap3_goodness}. It confirms that for all Scenarios $\gamma$, the $p$-values are smaller for smaller values of $\gamma$, all $p$-values remaining greater than 5\%. However, the $p$-values associated with Scenario $\beta$ are always equal to zero, which means that the goodness-of-fit is able to detect that the interactions are not correctly estimated. 
 
 \begin{table}[!ht]
     \begin{center}
@@ -890,15 +890,15 @@ Table~\ref{tab:chap2_p_values_powerlaw} shows the average $p$-values associated 
          \multicolumn{2}{c|}{Scenario $\beta$} & \textbf{0.0} & \textbf{0.0} & \textbf{0.0}
     \end{tabular}
     \caption{Average $p$-values for estimations of two-dimensional Hawkes processes for all scenarios in the misspecified power-law model. The values are averaged over 25 simulations. In bold the $p$-values correspond to a rejected hypothesis at a confidence level of $0.95$.}
-    \label{tab:chap2_p_values_powerlaw}
+    \label{tab:chap3_p_values_powerlaw}
     \end{center}
     \end{table}
 
 
-To conclude, if the true model is not too far from an exponential model and Assumption~\ref{assu:chap2_beta} holds, our procedure can adapt and provide reasonable estimations. If not, our estimator cannot adjust but we are able to detect incorrect estimations thanks to the goodness-of-fit procedure.
+To conclude, if the true model is not too far from an exponential model and Assumption~\ref{assu:chap3_beta} holds, our procedure can adapt and provide reasonable estimations. If not, our estimator cannot adjust but we are able to detect incorrect estimations thanks to the goodness-of-fit procedure.
 
 
-\section{Application on neuronal data}\label{sec:chap2_neuron}
+\section{Application on neuronal data}\label{sec:chap3_neuron}
 
 \subsection{Preprocessing and data description}
 
@@ -917,17 +917,17 @@ This approach is proposed in \cite[Section 3.4]{Reynaud2014}. In our case, we re
 
 \subsection{Goodness-of-fit and multiple testing procedure}
 
-Since we are dealing with a high-dimensional setting, it is crucial to account for a multiple testing correction which is performed through the Benjamini-Hochberg procedure as described in Section \ref{sec:chap2_support}. In this case, the adapted rejection threshold corresponds to $\frac{0.05 k}{d+1}$ and represented in Figure \ref{fig:chap2_p_values_neurons} by a blue line.
+Since we are dealing with a high-dimensional setting, it is crucial to account for a multiple testing correction which is performed through the Benjamini-Hochberg procedure as described in Section \ref{sec:chap3_support}. In this case, the adapted rejection threshold corresponds to $\frac{0.05 k}{d+1}$ and represented in Figure \ref{fig:chap3_p_values_neurons} by a blue line.
 This is particularly useful in order to determine the best value of $\varepsilon$ for (MLE-$\varepsilon$) as we do not have prior knowledge regarding the sparsity of the neuronal connections.
 
 {\begin{figure*}[!ht]
 \centering
 \includegraphics[width=0.9\linewidth]{images/chapter3/p_values_conf.pdf}
 \caption{Ordered $p$-values for all hypothesis tests $\mathcal{H}_i$ and $\mathcal{H}_{tot}$. $p_{tot}$ appears as a cross for each model (if there appears no cross for one given method, it means that the corresponding $p_{tot}$ is equal to zero). The blue curve corresponds to the adapted rejection threshold from the B-H procedure, so all tests whose $p$-value are under the line are rejected.}
-\label{fig:chap2_p_values_neurons}
+\label{fig:chap3_p_values_neurons}
 \end{figure*}}
 
- Figure~\ref{fig:chap2_p_values_neurons} shows the ordered $p$-values for each hypothesis $\mathcal{H}_i$ along with hypothesis $\mathcal{H}_{tot}$ displayed with a bold cross, all total $p$-values also being summarised in Table~\ref{tab:chap2_p_tot_neurons}. 
+ Figure~\ref{fig:chap3_p_values_neurons} shows the ordered $p$-values for each hypothesis $\mathcal{H}_i$ along with hypothesis $\mathcal{H}_{tot}$ displayed with a bold cross, all total $p$-values also being summarised in Table~\ref{tab:chap3_p_tot_neurons}. 
     
     \begin{table*}[!ht] 
     \begin{center}
@@ -939,7 +939,7 @@ This is particularly useful in order to determine the best value of $\varepsilon
          $p_{tot}$ & 0.0 & 0.002 & 0.004 & \textbf{0.048} & 0.0 & \textbf{0.053} & 0.0 & 0.0
     \end{tabular}
     \caption{Values of $p_{tot}$ for each estimation method for the neuronal dataset. In bold appear the \(p\)-values above the rejection threshold after Benjamini-Hochberg procedure.}
-    \label{tab:chap2_p_tot_neurons}
+    \label{tab:chap3_p_tot_neurons}
     \end{center}
     \end{table*}
     
@@ -953,8 +953,8 @@ Let us also recall that the (CfSt) method relies on the assumption that the MLE 
  
  Finally, the model that best describes the complete process $N$ is (CfE) with the highest value for $p_{tot}$ and with almost all hypotheses, including $\mathcal{H}_{tot}$, not rejected. This suggests indeed that the estimations provided by (CfE) are the best fit for explaining the entire process as well as each individual subprocess.
 
-\subsection{Estimation results} \label{sec:chap2_comment_neuron}
-Figure~\ref{fig:chap2_heatmap_CfE} illustrates the obtained estimation for all parameters for the (CfE) method. 
+\subsection{Estimation results} \label{sec:chap3_comment_neuron}
+Figure~\ref{fig:chap3_heatmap_CfE} illustrates the obtained estimation for all parameters for the (CfE) method. 
 Let us recall that the estimation for (CfE) is obtained by using the resampled trials: the support is determined by using the empirical quantiles confidence intervals after an estimation through (MLE) and then all parameters are re-estimated over each trial. A single estimation is obtained by averaging over all trials.
 
 Although the heatmap matrix corresponding to $(\sign(\tilde\alpha_{ij}))_{ij}$ contains only $4.26\%$ of non-null entries, there remain many significant interactions. Interestingly, among them we detect all types of interactions: mutual excitation, mutual inhibition, self-excitation, self-inhibition. This supports the relevance of carefully accounting for inhibition when developing inference procedures.
@@ -967,14 +967,14 @@ Another striking phenomenon is the behaviour of neuron $13$, which seems to inte
 \centering
 \includegraphics[width=0.8\linewidth]{images/chapter3/heatmap_mu_beta.pdf}
 \caption{Heatmap $(\sign(\alpha_{ij}))_{ij}$ of (CfE) estimation on 223 neurons.}
-\label{fig:chap2_heatmap_CfE}
+\label{fig:chap3_heatmap_CfE}
 \end{figure*}}
 
 \section{Discussion}
-\label{sec:chap2_discussion}
-In this paper, we proposed a methodology for estimating the parameters of multivariate exponential Hawkes processes with both exciting and inhibiting effects. Our first contribution was to provide a few sufficient conditions to ensure the identifiability of a commonly used model. Then we developed and implemented a maximum likelihood estimator combined with a variable selection procedure that enables to detect the significant interactions inside the whole process.
+\label{sec:chap3_discussion}
+In this chapter, we proposed a methodology for estimating the parameters of multivariate exponential Hawkes processes with both exciting and inhibiting effects. Our first contribution was to provide a few sufficient conditions to ensure the identifiability of a commonly used model. Then we developed and implemented a maximum likelihood estimator combined with a variable selection procedure that enables to detect the significant interactions inside the whole process.
 While our framework is more general than the usual linear Hawkes model, there remain two main limitations, the first one being the exponential distribution of the kernels, the second one the assumption that the delay factors \(\beta_{ij}\)
-only depend on the receiving process \(N^i\). If it is essential to assume a parametric form for the kernel functions in order to maintain the concepts of our approach, it would be of great interest to consider some extensions to account for potential combined effects, as already mentioned in Section \ref{sec:chap2_comment_neuron}. It would be notably relevant to include multi-scale effects or to consider a potential lag between an event time and its actual impact.  Regarding the assumption on the delay factors, while it is quite standard, it could be a limitation of our approach when considering heterogeneous phenomena.
+only depend on the receiving process \(N^i\). If it is essential to assume a parametric form for the kernel functions in order to maintain the concepts of our approach, it would be of great interest to consider some extensions to account for potential combined effects, as already mentioned in Section \ref{sec:chap3_comment_neuron}. It would be notably relevant to include multi-scale effects or to consider a potential lag between an event time and its actual impact.  Regarding the assumption on the delay factors, while it is quite standard, it could be a limitation of our approach when considering heterogeneous phenomena.
 
 Going over this assumption would lead us to explore numerical integration methods and would considerably increase the computational time of the estimation procedure.
 This is obviously detrimental since, in practice, time sequences are increasingly abundant and large.
@@ -991,11 +991,11 @@ Regarding the neuronal application, it could be of great interest to further inv
 
 
 \begin{subappendices}
-    \section{Proof of Lemma~\ref{lemma:chap2_restart_times}} \label{app:chap2_proof_lemma}
-    In order to prove Lemma~\ref{lemma:chap2_restart_times}, let us first state a preliminary result.
+    \section{Proof of Lemma~\ref{lemma:chap3_restart_times}} \label{app:chap3_proof_lemma}
+    In order to prove Lemma~\ref{lemma:chap3_restart_times}, let us first state a preliminary result.
     
-    \begin{lemma}\label{lemma:chap2_intensity_interval_form}
-        If Assumption~\ref{assu:chap2_beta} is granted, then for each $i\in\{1,\ldots, d\}$ and any $k\geq 1$:
+    \begin{lemma}\label{lemma:chap3_intensity_interval_form}
+        If Assumption~\ref{assu:chap3_beta} is granted, then for each $i\in\{1,\ldots, d\}$ and any $k\geq 1$:
         \begin{gather*}
             \forall t \in [T\park, T\park[k+1]),
             \\
@@ -1009,29 +1009,29 @@ Regarding the neuronal application, it could be of great interest to further inv
         This function is differentiable in the open interval $(T\park, T\park[k+1])$ and we obtain:
         \[(\lambda^{i\star})'(t) = -\sum_{j=1}^{d}{\beta_{ij}\sum_{\ell=1}^{N^j(t)}{\alpha_{ij}\mathrm{e}^{-\beta_{ij}(t-T_\ell^j)}}}\,.\]
   
-        By using Assumption~\ref{assu:chap2_beta} that for all $j\in\{1,\ldots, d\}$, $\beta_{ij} = \beta_i\in\RR_+^*$, we obtain the following differential equation:
+        By using Assumption~\ref{assu:chap3_beta} that for all $j\in\{1,\ldots, d\}$, $\beta_{ij} = \beta_i\in\RR_+^*$, we obtain the following differential equation:
         \[(\lambda^{i\star})'(t) = -\beta_i\left(\lambda^{i\star}(t) - \mu_i\right)\,,\] which by solving on the interval gives:
         \begin{equation*}
             \lambda^{i\star}(t) = \mu_i + \left(\lambda^{i\star}(T\park) - \mu_i\right)\mathrm{e}^{-\beta_i(t-T\park)}\,.
         \end{equation*}
       \end{proof}
       
-      \begin{proof}[Proof of Lemma~\ref{lemma:chap2_restart_times}]
+      \begin{proof}[Proof of Lemma~\ref{lemma:chap3_restart_times}]
         Let $i\in\{1,\ldots, d\}$ and $k\geq 1$.
-        By Lemma~\ref{lemma:chap2_intensity_interval_form}, $\forall t \in [T\park, T\park[k+1])$:
+        By Lemma~\ref{lemma:chap3_intensity_interval_form}, $\forall t \in [T\park, T\park[k+1])$:
         \begin{equation*}
             \lambda^{i\star}(t) = \mu_i + \left(\lambda^{i\star}(T\park) - \mu_i\right)\mathrm{e}^{-\beta_i(t-T\park)}\,.
         \end{equation*}
   
         In particular, the derivative of the underlying intensity function is of opposite sign as $(\lambda^{i\star}(T\park) - \mu_i)$.
         Let us distinguish two cases,
-        referring to Figure~\ref{fig:chap2_lemma} for a better understanding:
+        referring to Figure~\ref{fig:chap3_lemma} for a better understanding:
         
         {\begin{figure*}[!ht]
         \centering
         \includegraphics[width=\linewidth]{images/chapter3/cooldownTimesMarkedMulti.pdf}
         \caption{Illustration of three possible scenarios for restart times $T\park^{i\star}$ depending on the sign of $\lambda^{i\star}(T\park)$ and $\lambda^{i\star}(T\park[k+1]^-) = \lim_{t\to T\park[k+1]^-}{\lambda^{i\star}(t)}$. The dotted line in the last scenario shows the equation $\mu_i + (\lambda^{i\star}(T\park) - \mu_i)\mathrm{e}^{-\beta_i(t-T\park)} = 0$ and the term $T\park + \beta_i^{-1}\log{\adaptedpar{\frac{\mu_i - \lambda^{i\star}(T\park)}{\mu_i}}}$ as its only root.}
-        \label{fig:chap2_lemma}
+        \label{fig:chap3_lemma}
         \end{figure*}}
   
         \begin{itemize}
@@ -1043,7 +1043,7 @@ Regarding the neuronal application, it could be of great interest to further inv
   
             If $(\lambda^{i\star}(T\park) - \mu_i) \geq 0$, then $\lambda^{i\star}$ is decreasing and lower-bounded by $\mu_i$. If $(\lambda^{i\star}(T\park) - \mu_i) < 0$ then $\lambda^{i\star}$ is increasing and lower-bounded by zero. In both cases, for any $t\in(T^{i\star}\park, T\park[k+1])$, $\lambda^{i\star}(t) > 0$ and then $\lambda^i(t) = \lambda^{i\star}(t)$.
   
-            \item If $\lambda^{i\star}(T\park) < 0$, then $\left(\lambda^{i\star}\left(T\park\right) - \mu_i\right) < 0$ so $\lambda^{i\star}$ is strictly increasing and by continuity and by Lemma~\ref{lemma:chap2_intensity_interval_form}, there exists a unique $t^\star > T\park$ such that $\mu_i + \left(\lambda^{i\star}(T\park\right) - \mu_i)\mathrm{e}^{-\beta_i(t^\star-T\park)} = 0$.
+            \item If $\lambda^{i\star}(T\park) < 0$, then $\left(\lambda^{i\star}\left(T\park\right) - \mu_i\right) < 0$ so $\lambda^{i\star}$ is strictly increasing and by continuity and by Lemma~\ref{lemma:chap3_intensity_interval_form}, there exists a unique $t^\star > T\park$ such that $\mu_i + \left(\lambda^{i\star}(T\park\right) - \mu_i)\mathrm{e}^{-\beta_i(t^\star-T\park)} = 0$.
   
                 We obtain:
                 \[t^\star = T\park + \beta_i^{-1}\log{\adaptedpar{\frac{\mu_i - \lambda^{i\star}(T\park)}{\mu_i}}}\,.\] By denoting $\lambda^{i\star}(T\park[k+1]^-) := \lim_{t\to T\park[k+1]^-}{\lambda^{i\star}(t)}$:
@@ -1066,7 +1066,7 @@ Regarding the neuronal application, it could be of great interest to further inv
         Combining all scenarios achieves the proof.
       \end{proof}
       
-  \section{Proof of Proposition~\ref{prop:chap2_compensator}} \label{app:chap2_proof_prop_compensator}
+  \section{Proof of Proposition~\ref{prop:chap3_compensator}} \label{app:chap3_proof_prop_compensator}
       
       \begin{proof}
         For each $i\in\{1,\ldots, d\}$ and \(\forall t\geq 0\), with convention \(T\park[0] = 0\) and \(T\park[0]^{i\star} = 0\):
@@ -1076,14 +1076,14 @@ Regarding the neuronal application, it could be of great interest to further inv
           = \sum_{k=0}^{N(t)} \int_{T\park}^{T\park[k+1]}{\lambda^i(u) \II_{u \le t} \,\mathrm{d}u}\\
           &= \sum_{k=0}^{N(t)} \int_{T\park^{i\star}}^{T\park[k+1]} \lambda^{i\star}(u) \II_{u \le t} \, \mathrm{d}u \,,
         \end{align*}
-        where the last equation comes from Lemma~\ref{lemma:chap2_restart_times}.
+        where the last equation comes from Lemma~\ref{lemma:chap3_restart_times}.
         Then, for \(k=0\):
         \begin{align*}
           \int_{T\park[0]^{i\star}}^{T\park[1]} \lambda^{i\star}(u) \II_{u \le t} \, \mathrm{d}u
           &= \int_{T\park[0]^{i\star}}^{T\park[1]} \mu^i \II_{u \le t} \, \mathrm{d}u\\
           &= \mu_i \min(t, T\park[1]) \,,
         \end{align*}
-        and for every \(k \in \{1, \dots, N(t)\}\), by Lemma~\ref{lemma:chap2_intensity_interval_form}:
+        and for every \(k \in \{1, \dots, N(t)\}\), by Lemma~\ref{lemma:chap3_intensity_interval_form}:
         \begin{align*}
           &\int_{T\park^{i\star}}^{T\park[k+1]} \lambda^{i\star}(u) \II_{u \le t} \, \mathrm{d}u \\
           = &\int_{T\park^{i\star}}^{T\park[k+1]} \left[ \mu_i + \left(\lambda^{i\star}(T\park\right) - \mu_i)\mathrm{e}^{-\beta_i(t-T\park)} \right] \II_{u \le t} \, \mathrm{d}u \\
@@ -1092,7 +1092,7 @@ Regarding the neuronal application, it could be of great interest to further inv
         \end{align*}
       \end{proof}
   
-  \section{Proof of Theorem~\ref{th:chap2_identifiability}}\label{app:chap2_proof}
+  \section{Proof of Theorem~\ref{th:chap3_identifiability}}\label{app:chap3_proof}
   
   \begin{proof}
       We only need to prove that if $\lambda_{\theta_i}^i(t \mid \mathcal{F}_t) = \lambda_{\theta'_i}^i(t \mid \mathcal{F}_t)$ a.e. for every $i\in\{1, \ldots, d\}$ then $\theta = \theta'$. In this proof, both intensities are considered with respect to the same filtration $\mathcal{F}_t$ so we will omit it from the rest of the proof.
@@ -1113,7 +1113,7 @@ Regarding the neuronal application, it could be of great interest to further inv
           By definition of $T_{(k),\theta}^{i\star}$, \[T_{(k),\theta}^{i\star} < T\park[k+1] \text{ a.s.} \,.\]
           Furthermore, $\lambda_{\theta_i}^i(t) = 0$ for $t\in(T\park, T_{(k), \theta_i}^{i\star})$ and $\lambda_{\theta_i}^i(t) > 0$ for $t\in(T_{(k), \theta_i}^{i\star}, T\park[k+1])$.
           Then, as we assumed that $\lambda_{\theta_i}^i(t) = \lambda_{\theta'_i}^i(t)$ a.e., we can conclude that $T_{(k), \theta_i}^{i\star} = T_{(k), \theta'_i}^{i\star}$. 
-          By differentiating the intensity functions on the interval $(T_{(k),\theta_i}^{i\star}, T\park[k+1])$ as in the proof of Lemma \ref{lemma:chap2_restart_times} we obtain: 
+          By differentiating the intensity functions on the interval $(T_{(k),\theta_i}^{i\star}, T\park[k+1])$ as in the proof of Lemma \ref{lemma:chap3_restart_times} we obtain: 
           
           \begin{align*}
               \quad&(\lambda_{\theta_i}^i)'(t) = (\lambda_{\theta'_i}^i)'(t) \text{ a.e.}\\ 
@@ -1134,7 +1134,7 @@ Regarding the neuronal application, it could be of great interest to further inv
       
       Let $\tau$ and $\tau_+$ be two such event times. 
       As a reminder, $T\park[N(\tau) - 1]$ corresponds to the event time before $\tau$ and similarly for $\tau_+$. 
-      For $t \in [T\park[N(\tau) - 1], \tau)$, as $\lambda_{\theta_i}^i(t) = \lambda_{\theta'_i}^i(t)$ a.e.\ and by Condition \ref{hyp:chap2_ii}:
+      For $t \in [T\park[N(\tau) - 1], \tau)$, as $\lambda_{\theta_i}^i(t) = \lambda_{\theta'_i}^i(t)$ a.e.\ and by Condition \ref{hyp:chap3_ii}:
       
       \begin{equation*}
           \lambda_{\theta_i}^{i\star}(\tau^-) = \lambda_{\theta'_i}^{i\star}(\tau^-) \,.
@@ -1150,12 +1150,12 @@ Regarding the neuronal application, it could be of great interest to further inv
       \begin{gather}
       \lambda_{\theta_i}^{i\star}(\tau^-) = \lambda_{\theta'_i}^{i\star}(\tau^-)\nonumber\\
       \implies \sum_{l=1}^{d}{\alpha_{il}\sum_{T_k^l < \tau}{\mathrm{e}^{-\beta_i(\tau - T_k^l)}}} =\sum_{l=1}^{d}{\alpha_{il}'\sum_{T_k^l < \tau}{\mathrm{e}^{-\beta_i(\tau - T_k^l)}}}\nonumber\\
-      \implies \sum_{l=1}^{d}{(\alpha_{il} - \alpha_{il}')A^l}= 0\,,\label{eq:chap2_A^l}
+      \implies \sum_{l=1}^{d}{(\alpha_{il} - \alpha_{il}')A^l}= 0\,,\label{eq:chap3_A^l}
       \end{gather}
       where \[A^l = \sum_{T_k^l < \tau}{\mathrm{e}^{-\beta_i(\tau - T_k^l)}}\,.\]
       
-      We can then write Equation \eqref{eq:chap2_A^l} by replacing $\tau$ by $\tau_+$ as $\lambda_{\theta_i}^i(\tau_+^-) > 0$ because $\tau_+$ is an event time of process $N^i$.  We obtain then
-      \begin{equation}\label{eq:chap2_B^l}
+      We can then write Equation \eqref{eq:chap3_A^l} by replacing $\tau$ by $\tau_+$ as $\lambda_{\theta_i}^i(\tau_+^-) > 0$ because $\tau_+$ is an event time of process $N^i$.  We obtain then
+      \begin{equation}\label{eq:chap3_B^l}
           \sum_{l=1}^{d}{(\alpha_{il} - \alpha_{il}')B^l} = 0\,,
       \end{equation}
       where \[B^l = \sum_{T_k^l < \tau_+}{\mathrm{e}^{-\beta_i(\tau_+ - T_k^l)}}\,.\]
@@ -1164,7 +1164,7 @@ Regarding the neuronal application, it could be of great interest to further inv
       For $l=j$, 
       \[B^j = A^j\mathrm{e}^{-\beta_i(\tau_+ - \tau)} + \sum_{\tau \leq T_k^j < \tau_+}{\mathrm{e}^{-\beta_i(\tau_+ - T_k^j)}}\,,\] 
       where the second term of the right hand side is positive as interval $[\tau, \tau_+)$ contains at least one event, $\tau$, from process $N^j$. 
-      We can rewrite then Equation \eqref{eq:chap2_B^l}:
+      We can rewrite then Equation \eqref{eq:chap3_B^l}:
       \begin{equation*}
       \sum_{l=1}^{d}{(\alpha_{il} - \alpha_{il}')B^l} = 0
       \end{equation*}
@@ -1173,7 +1173,7 @@ Regarding the neuronal application, it could be of great interest to further inv
       &+ (\alpha_{ij}-\alpha_{ij}')\sum_{\tau \leq T_k^j < \tau_+}{\mathrm{e}^{-\beta_i(\tau_+ - T_k^j)}} = 0\,.
       \end{align*}
           
-      By Equation \eqref{eq:chap2_A^l}, the first term is null and the second sum is non-zero as interval $[\tau, \tau_+)$ contains at least an event from process $N^j$. It follows that:
+      By Equation \eqref{eq:chap3_A^l}, the first term is null and the second sum is non-zero as interval $[\tau, \tau_+)$ contains at least an event from process $N^j$. It follows that:
       
       \begin{gather*}
           (\alpha_{ij}-\alpha_{ij}')\sum_{\tau \leq T_k^j < \tau_+}{\mathrm{e}^{-\beta_i(\tau_+ - T_k^j)}} = 0\\
@@ -1197,7 +1197,7 @@ Regarding the neuronal application, it could be of great interest to further inv
   This achieves the proof.
   \end{proof}
   
-  \section{Proof of Corollary~\ref{cor:chap2_mle}} \label{app:chap2_proof_cor_mle}
+  \section{Proof of Corollary~\ref{cor:chap3_mle}} \label{app:chap3_proof_cor_mle}
       \begin{proof}
             For all \(i \in \{1, \dots, d\}\), \(\theta \in \Theta\) and \(k \in \mathbb N^*\),
             \begin{align*}
@@ -1215,7 +1215,7 @@ Regarding the neuronal application, it could be of great interest to further inv
             \[
               [T\park[q], T\park[q+1]) = [T\park[N(T_k^i)-1], T\park[N(T_k^i)]) = [S_k^i, T_k^i) \,,
             \]
-            and by Lemma~\ref{lemma:chap2_intensity_interval_form}, \(\forall t \in [T\park[q], T\park[q+1])\):
+            and by Lemma~\ref{lemma:chap3_intensity_interval_form}, \(\forall t \in [T\park[q], T\park[q+1])\):
             \begin{align*}
               \lambda_\theta^{i\star}(t)
               &= \mu_i + \left(\lambda_{\theta_i}^{i\star}(T\park[q]) - \mu_i\right)\mathrm{e}^{-\beta_i(t-T\park[q])}\\
@@ -1227,7 +1227,7 @@ Regarding the neuronal application, it could be of great interest to further inv
               &= \lim_{t \to T\park[q]^{-}} \lambda^{i^\star}_{\theta_i}(t)\\
               &= \mu_i + \left(\lambda_{\theta_i}^{i\star}(S_k^i) - \mu_i\right)\mathrm{e}^{-\beta_i(T_k^{i}-S_k^i)}\,.
             \end{align*}
-            To conclude, by Equation~\eqref{eq:chap2_general_log_likelihood},
+            To conclude, by Equation~\eqref{eq:chap3_general_log_likelihood},
             \begin{align*}
               \ell_t^{i}(\theta_i)
               = &\sum_{k=1}^{N^i(t)}{\log{\lambda^i_{\theta_i}(T_k^{i-})}} - \Lambda_{\theta_i}^i(t) \\
@@ -1239,9 +1239,9 @@ Regarding the neuronal application, it could be of great interest to further inv
   
   
   \section{Algorithm for computing the log-likelihood}
-  \label{app:chap2_log-lik}
+  \label{app:chap3_log-lik}
   
-  This section presents Algorithm \ref{alg:chap2_likelihood} for computing the log-likelihood $\ell_t(\theta)$ by leveraging the results from Corollary \ref{cor:chap2_mle}.
+  This section presents Algorithm \ref{alg:chap3_likelihood} for computing the log-likelihood $\ell_t(\theta)$ by leveraging the results from Corollary \ref{cor:chap3_mle}.
     \begin{algorithm}[!ht]
     \SetAlgoLined
      \textbf{Input} Parameters $\mu_i$, $\alpha_{ij}$, $\beta_i$ for $i,j\in\{1,\ldots, d\}$, list of event times and marks $(T\park, m_k)_{k=1:N(t)}$\;
@@ -1267,14 +1267,14 @@ Regarding the neuronal application, it could be of great interest to further inv
   
      \Return Log-likelihood $\ell_t(\theta)$.
      \caption{Computation of the log-likelihood $\ell_t(\theta)$ of a multivariate exponential Hawkes process.}
-     \label{alg:chap2_likelihood}
+     \label{alg:chap3_likelihood}
     \end{algorithm}
   
   
   \section{Reconstructed interaction functions for synthetic data}
-  \label{app:chap2_numerical}
+  \label{app:chap3_numerical}
   
-  This section presents the reconstruction of interaction functions $h_{ij}$ along with the estimated functions $\tilde h_{ij}$ from the two-dimensional Hawkes processes simulations as described in Section \ref{sec:chap2_dim2}. Figure \ref{fig_supp:scenario_1} and Figure \ref{fig_supp:scenario_2} correspond respectively to the estimations for Scenarios (1) and (2) from Table \ref{tab:chap2_simulated_2_table}.
+  This section presents the reconstruction of interaction functions $h_{ij}$ along with the estimated functions $\tilde h_{ij}$ from the two-dimensional Hawkes processes simulations as described in Section \ref{sec:chap3_dim2}. Figure \ref{fig_supp:scenario_1} and Figure \ref{fig_supp:scenario_2} correspond respectively to the estimations for Scenarios (1) and (2) from Table \ref{tab:chap3_simulated_2_table}.
   
   {\begin{figure}[!ht]
        \centering
