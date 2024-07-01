@@ -335,7 +335,7 @@ Algorithm~\ref{alg:chap2_simulation} builds upon Ogata's thinning simulation met
  Estimate intensity $\lambda_k = \lambda(t_{cand})$ using sequence of times $\mathcal{T}$\;
  Sample $U_2\sim U([0,1])$\;
  \If{$U_2 \leq \frac{\lambda_k}{\lambda_{max}}$}{
-        Add $t$ to sequence of times $\mathcal{T}$\;
+        Add $t_{cand}$ to sequence of times $\mathcal{T}$\;
         Update $\lambda_k = \lambda_k + \alpha$\;
      }
  Set $t_k = t_{cand}$\;

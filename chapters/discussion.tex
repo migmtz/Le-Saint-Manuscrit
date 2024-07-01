@@ -1,78 +1,53 @@
 
 \chapter{Discussion}
 
-% {Idea 1 (simple):}
-% \begin{itemize}
-%     \item Contributions part by part, chapter by chapter with insistence on questions asked before
-%     \item Perspectives in bullet points
-% \end{itemize}
+% %Our work in this thesis consisted in providing novel statistical tools for the analysis of the Hawkes process model in the frequentist parametric setting.
+% This thesis provides novel statistical tools for analysing the Hawkes process model within the frequentist parametric framework.
+% Our contributions intend to provide partial answers to the questions presented in Section~\ref{sec:chap0_outline}.
+% As emphasized throughout this manuscript, our main goal is to propose inference paradigms to enhance the quality of estimations when working with temporal data.
+% To achieve this, we focused our study on two different submodels of the Hawkes process, either to analyse inhibition effects or to properly account for imperfect data observations.
+% In a general sense, we leveraged and adapted results through two different log-likelihood optimisation approaches to address this issues.
+% Our main intention was to serve as a stepping stone to motivate more in-depth research on these topics.
+% We conclude our work here with a discussion on our contributions and perspectives we think can contribute significantly in this field.
 
-% \textbf{Idea 2 (similar but less scholar):}
-% \begin{itemize}
-%     \item A short explanation of thesis goals and achievements
-%     \item First half contributions and perspectives
-%     \item Second half contributions and perpectives
-% \end{itemize}
+% In the first part of this thesis, our work consisted in studying Hawkes processes exhibiting inhibition effects.
+% As exposed before, this model has been largely studied under many different perspectives in the literature, either from a non-parametric or a Bayesian point of view.
+% Our main contribution was to take the first step towards filling up a gap in the frequentist parametric setting by properly accounting for inhibition effects in both the univariate and multivariate settings (Chapters~\ref{chapter:univariate_inhibition} and \ref{chapter:multivariate_inhibition} respectively).
+% To do this, we adapted one of the most classical inference procedures in statistics, the maximum likelihood estimation.
+% We show that we are able to properly adapt this method under certain conditions, namely the monotony of the interaction function in the univariate setting or by introducing a mild assumption on the parameter space for the exponential kernel for multivariate processes.
+% As we focus mainly in the study of exponential kernels, for its practicality from a numerical sense, a natural extension of our work is to broaden our study to other parametrisation choices for either our kernels or even by considering time-evolving baseline intensities.
+% In the multivariate setting, we also brought into the light the identifiability issues that may appear where exciting and inhibiting effects may coexist, and to partially provide an answer to this problem we proposed an observational sufficient condition to recover this property.
+% Further work in this direction would involve establishing necessary conditions for identifiability on the adjacency matrix support or on the relative proportion of inhibition to excitation.
+% Another avenue of exploration is study of statistical properties of our estimators, such as consistency and asymptotic normality, for example by leveraging the results of \textcite{Ogata1978} or by taking inspiration from the works of \textcite{Costa2020} on limit theorems for interaction functions with bounded support.
+% Our final contribution to this topic was introducing some ad-hoc methods to estimate the support on the interaction matrix for multivariate processes. 
+% We illustrated the numerical advantages of such a step specially by leveraging a resampling method introduced in \textcite{Reynaud2014}.
+% This allowed us to recover a sparse interaction matrix in a real-data context of neuronal activity analysis.
+% This is a vital step from an applicative point of view in order to obtain more explicative models and so proposing more robust approaches will greatly benefit this field.
+% We believe this is a promising research field with novel contributions as shown in the works of \textcite{Lotz2024} on sparsity tests for Hawkes processes.
 
+% The second half of this manuscript was consacrated to the study of imperfect data issued from Hawkes processes.
+% We concentrated our efforts on two different noised scenarios: the first one in Chapter~\ref{chapter:spectral_superposition} considered an observation of event times where additional points from an external process are observed, whereas Chapter~\ref{chapter:spectral_thinning} focused on observations with missing data points.
+% Our study was carried out by taking a spectral analysis approach and so a parallel contribution on our side was to display the attractive potential of leveraging such tools for the study of the point processes.
+% We proposed an estimation method by the maximisation of a spectral version of the log-likelihood which, as illustrated by our numerical experiments on synthetic data, perform particularly well when the underlying model is identifiable.
+% In our work, we provided different conditions to retrieve the identifiability of our models defined by the spectral density function. 
+% As shown, issues may arise depending on the choice of the kernel functions and the interaction matrix in the multivariate setting which derives from the spectral approach. Obtaining more general conditions to ensure that identifiability holds will be a huge improvement on the field, specially for higher dimensional processes.
+% Ensuring the asymptotic properties for our estimators is again an open question and would help to cement the usefulness of this method for studying more complex point processes dynamics. 
+% Encouragingly enough, there is a current growing interest in establishing such properties for spectral quantities, as exemplified in the works of \textcite{Yang2024}.
+% Our last contribution in this thesis was to present a numerical paradigm to improve spectral estimations on a difficult learning task with low samples and small observation windows.
+% We leveraged two common solution in statistics by introducing a Ridge penalised version of the spectral estimator with an additional layer of subsampling by thinning.
+% This allowed us to make use of our results on thinned data and we illustrated the improvement of this procedure on simulated data, with very encouraging results.
+% This subsampling framework has been studied in the literature with very recent works of \textcite{Cronie2024, Coeurjolly2024} and our method would largely benefit from model evaluation and model selection methods. 
 
-% \textbf{Idea 3 (very scholar):}
-% \begin{itemize}
-%     \item Chapter by chapter summaries of contributions
-%     \item Chapter by chapter perspectives
-% \end{itemize}
+This thesis provides novel statistical tools for the estimation of Hawkes processes withing the frequentist parametric framework.
+Our main goal %contribution?
+was to provide theoretical and numerical tools to study two separate submodels largely unaccounted for in the literature in this setting
+The first concerned the study of inhibiting interactions between event times whereas the second addressed the issue of analysing imperfect data observations.
 
-% The goal of this thesis is to provide an overall insight of the difficulties of studying different extensions of the Hawkes process model.
-% In the spirit of contributing to the study of extensions to the Hawkes process model, our contribution throughout this the
-% The results presented here
-
-%Our work in this thesis consisted in providing novel statistical tools for the analysis of the Hawkes process model in the frequentist parametric setting.
-This thesis provides novel statistical tools for analysing the Hawkes process model within the frequentist parametric framework.
-Our contributions intend to provide partial answers to the questions presented in Section~\ref{sec:chap0_outline}.
-As emphasized throughout this manuscript, our main goal is to propose inference paradigms to enhance the quality of estimations when working with temporal data.
-To achieve this, we focused our study on two different submodels of the Hawkes process, either to analyse inhibition effects or to properly account for imperfect data observations.
-In a general sense, we leveraged and adapted results through two different log-likelihood optimisation approaches to address this issues.
-Our main intention was to serve as a stepping stone to motivate more in-depth research on these topics.
-We conclude our work here with a discussion on our contributions and perspectives we think can contribute significantly in this field.
-
-In the first part of this thesis, our work consisted in studying Hawkes processes exhibiting inhibition effects.
-As exposed before, this model has been largely studied under many different perspectives in the literature, either from a non-parametric or a Bayesian point of view.
-Our main contribution was to take the first step towards filling up a gap in the frequentist parametric setting by properly accounting for inhibition effects in both the univariate and multivariate settings (Chapters~\ref{chapter:univariate_inhibition} and \ref{chapter:multivariate_inhibition} respectively).
-To do this, we adapted one of the most classical inference procedures in statistics, the maximum likelihood estimation.
-We show that we are able to properly adapt this method under certain conditions, namely the monotony of the interaction function in the univariate setting or by introducing a mild assumption on the parameter space for the exponential kernel for multivariate processes.
-As we focus mainly in the study of exponential kernels, for its practicality from a numerical sense, a natural extension of our work is to broaden our study to other parametrisation choices for either our kernels or even by considering time-evolving baseline intensities.
-In the multivariate setting, we also brought into the light the identifiability issues that may appear where exciting and inhibiting effects may coexist, and to partially provide an answer to this problem we proposed an observational sufficient condition to recover this property.
-Further work in this direction would involve establishing necessary conditions for identifiability on the adjacency matrix support or on the relative proportion of inhibition to excitation.
-Another avenue of exploration is study of statistical properties of our estimators, such as consistency and asymptotic normality, for example by leveraging the results of \textcite{Ogata1978} or by taking inspiration from the works of \textcite{Costa2020} on limit theorems for interaction functions with bounded support.
-Our final contribution to this topic was introducing some ad-hoc methods to estimate the support on the interaction matrix for multivariate processes. 
-We illustrated the numerical advantages of such a step specially by leveraging a resampling method introduced in \textcite{Reynaud2014}.
-This allowed us to recover a sparse interaction matrix in a real-data context of neuronal activity analysis.
-This is a vital step from an applicative point of view in order to obtain more explicative models and so proposing more robust approaches will greatly benefit this field.
-We belive this is a promising research field with novel contributions as shown in the works of \textcite{Lotz2024} on sparsity tests for Hawkes processes.
-
-The second half of this manuscript was consacrated to the study of imperfect data issued from Hawkes processes.
-We concentrated our efforts on two different noised scenarios: the first one in Chapter~\ref{chapter:spectral_superposition} considered an observation of event times where additional points from an external process are observed, whereas Chapter~\ref{chapter:spectral_thinning} focused on observations with missing data points.
-Our study was carried out by taking a spectral analysis approach and so a parallel contribution on our side was to display the attractive potential of leveraging such tools for the study of the point processes.
-We proposed an estimation method by the maximisation of a spectral version of the log-likelihood which, as illustrated by our numerical experiments on synthetic data, perform particularly well when the underlying model is identifiable.
-In our work, we provided different conditions to retrieve the identifiability of our models defined by the spectral density function. 
-As shown, issues may arise depending on the choice of the kernel functions and the interaction matrix in the multivariate setting which derives from the spectral approach. Obtaining more general conditions to ensure that identifiability holds will be a huge improvement on the field, specially for higher dimensional processes.
-Ensuring the asymptotic properties for our estimators is again an open question and would help to cement the usefulness of this method for studying more complex point processes dynamics. 
-Encouragingly enough, there is a current growing interest in establishing such properties for spectral quantities, as exemplified in the works of \textcite{Yang2024}.
-Our last contribution in this thesis was to present a numerical paradigm to improve spectral estimations on a difficult learning task with low samples and small observation windows.
-We leveraged two common solution in statistics by introducing a Ridge penalised version of the spectral estimator with an additional layer of subsampling by thinning.
-This allowed us to make use of our results on thinned data and we illustrated the improvement of this procedure on simulated data, with very encouraging results.
-This subsampling framework has been studied in the literature with very recent works of \textcite{Cronie2024, Coeurjolly2024} and our method would largely benefit from model evaluation and model selection methods. 
-
-% EXTENSIONS:
-% \begin{itemize}
-%     \item Other models for inhibition ? %positive part, better with others (and link with theoretical properties) but harder as implementation
-%     \item Study theoretical properties of our models and estimators (identifiability, consistency, asymptotic normality)
-    
-%     \item Study other kernels and non-parametric settings through our approaches
-    
-%     \item Lasso penalisation for multivariate interaction matrix estimation
-%     \item Evaluation methods and model selection through cross-validation thanks to spectral 
-    
-%     \item (Lien entre deux) Faux pos Faux neg (like in epidemics, combine both could help to model this dynamics)
-%     %\item Applicaition links with spectral
-%     %\item Prediciton ?? (maybe too small )
-% \end{itemize}
+Chapters~\ref{chapter:univariate_inhibition} and \ref{chapter:multivariate_inhibition} are centered around the study of additive inhibition for Hawkes processes.
+Our approach was to establish a maximum likelihood estimation method under certain conditions on the interaction kernel. 
+In the univariate case, we achieved this under a monotony condition on the interaction function and we adapted our approach to the exponential multivariate Hawkes process under a mild assumption on the parameter space.
+The next step is to extend our results to a wider spectrum of kernel functions where the main difficulty is to address the complex dynamics of the multivariate case.
+The choice of the positive part function in our study brought into the light the identifiability issues that may appear specially when both exciting and inhibiting interactions may coexist.
+An avenue of exploration involves taking into consideration other non-linear functions with positivity constainst.
+As we exhibited through our applications to neuronal data, it is important to establish methods of estimation of the interaction graph.
+Our contribution to this was focused mainly on data-based methods so establishing more general approaches, for instance by implementing sparsity tests on the interaction matrix as shown in the recent work of \textcite{Lotz2024}
