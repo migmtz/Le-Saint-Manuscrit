@@ -6,18 +6,18 @@
 
 \section{Introduction}
 
-In this chapter, we present a succinct introduction of temporal point processes with notation and definitions that can be used as a general reference for this manuscript.
-In the literature of point processes, it is common to navigate concepts between probability theory and measure theory.
+Point processes are a fundamental concept in stochastic modeling, providing a framework for analysing events that occur randomly over time. 
+Traditionally, this model is presented through the concept of an ordered collection of random variables in the real line, each one representing the occurrence of an event.
+A practical approach to study point processes is by defining random measures, which are random variables with realisations on the space of boundedly finite measures.
+In particular, this framework gives access to many results from set theory and measure theory as largely shown in the literature \parencite{Cox1980, Baddeley2006, DaleyV2, Baccelli2020}.
 
-The approach that we prefer here is through the theory of random measures.
-Random measures provide a general framework that (...)
+In this chapter, we present a succinct introduction to these concepts in order to present the submodel of past-dependent point processes: the Hawkes model \parencite{Hawkes1971}.
+Our goal here is twofold: the first is to introduce numerous notations and definitions that are used throughout this manuscript, serving as a general reference for further chapters. The second is to present a short review of the original self-exciting Hawkes processes and some numerical results from the literature.
 
-The different concepts and results presented here are issued from different works on the literature \parencite{Cox1980, Baddeley2006, DaleyV2, Baccelli2020}. 
-Our goal is to provide a main reference for some classic concepts of point processes and Hawkes processes that are often used in the following chapters.
+We introduce the concept of temporal point processes through random measure theory in Section~\ref{sec:chap1_random_measures} with a particular interest on the concept of conditional intensity functions. 
+With this background, we formally introduce the univariate self-exciting Hawkes processes in Section~\ref{sec:chap1_hawkes_process} with the two classical extensions to multivariate settings and the non-linear version, which is often used to model inhibition effects.
+We follow up with a general presentation of some classic inference methods in Section~\ref{sec:chap1_inference} and we conclude with Section~\ref{sec:chap1_simulation} by presenting two methods of simulation that are commonly used in the context of Hawkes processes.
 
-We introduce the concept of point processes through random measure theory in Section~\ref{sec:chap1_random_measures} with a particular interest on temporal point processes defined through intensity functions. 
-In Section~\ref{sec:chap1_hawkes_process} we formally introduce the Hawkes processes, first for the original formulation with exciting interactions, and second by presenting the concept of non-linear Hawkes processes. 
-We follow up with a general introduction of some classic inference methods in Section~\ref{sec:chap1_inference} and we conclude with Section~\ref{sec:chap1_simulation} by presenting two methods of simulation that are commonly used in the context of Hawkes processes
 
 \section{Random measures and point processes}\label{sec:chap1_random_measures}
 
@@ -66,7 +66,7 @@ It turns out that a characterisation of any random measure is given by the distr
     The distribution of $\xi$ is fully given by its finite-dimensional distributions.
 \end{proposition}
 With this result, a way of defining any random measure is by defining its finite-dimensional distributions.
-However, not any set of finite-dimensional distributions correspond to those of a random measure, but a set of necessary and sufficient conditions (cf \parencite[Conditions 9.2.V-VI]{DaleyV2}).
+However, not any set of finite-dimensional distributions correspond to those of a random measure, but a set of necessary and sufficient conditions is proposed in (cf \parencite[Conditions 9.2.V-VI]{DaleyV2}).
 Finally, let us introduce the notion of stationarity. 
 For any $B\in\mathcal{B}_{\mathcal{X}}$, for any $x\in\mathcal{X}$, we define $B+x$ as the set:
 \[B+x = \{b + x \mid b\in B\}\,.\]
@@ -116,7 +116,7 @@ Let us now turn to some particularities of working in a temporal setting. As $\m
 The indexation of the sequence of event times slightly differs whether we work on $\RR_{\geq 0}$ or $\RR$. 
 Unlike Theorem~\ref{th:chap1_point_decomposition} may suggest, it is a common adopted convention, when working on the entire real line, that the event times are indexed by $\ZZ$ such that \[\ldots < T_{-2} < T_{-1} < T_{0} \leq 0 < T_1 < T_2 < \ldots\,.\]
 This way, positive indices will always denote points \emph{after} the origin of time $t=0$.
-Another usual convention is to denote $N(t) = N([0, t])$ the number of points in the interval $[0, t]$ specially used in inference contexts.
+Another usual convention is to denote $N(t) = N([0, t])$ the number of points in the interval $[0, t]$ especially used in inference contexts.
 This allows also to see $(N(t))_{t\in\mathcal{X}}$ as a right-continuous stochastic process.
 
 \subsection{Integrals and moment measures}
@@ -132,7 +132,7 @@ Let us now define the moment measures of $N$:
     Let $N$ be a point process. Whenever it exists, we note $M_k$ the \emph{$k$-th moment measure} of $N$ defined, for any $(B_1,\ldots, B_k)\in\mathcal{B}_{\mathcal{X}}^k$, as:
     \[M_k(B_1, \ldots, B_k) = \EE[N(B_1)\ldots N(B_k)]\,.\]
 
-    In particular, the first moment measure $M_1$ is also known as the \emph{intensity measure} of $N$, also noted $\Lambda$.
+    In particular, the first moment measure $M_1$ is also known as the \emph{intensity measure} of $N$, also denoted $\Lambda$.
 \end{definition}
 With the intensity measure, we are able to introduce the most classical point process: the Poisson process:
 
@@ -145,14 +145,14 @@ With the intensity measure, we are able to introduce the most classical point pr
         \item For any integer $K$ and any sequence of disjoint Borel sets $(B_k)_{k=1:K}$, the variables $(N(B_k))_{k=1:K}$ are independent.
     \end{enumerate}
 
-    If $\lambda$ is a constant function, $N$ is called a \emph{homogeneous} Poisson process.
+    If $\lambda$ is a constant function, then $N$ is called a \emph{homogeneous} Poisson process.
 \end{definition}
 The Poisson process is sometimes referred to as a process with independent increments because of the second property.
 In particular, when the intensity function $\lambda$ is constant, we can further characterise the process by its inter-arrival times:
 
 \begin{theorem}{\parencite[Theorem 7.2]{Last2017}}\label{th:chap1_interarrival_exponential}
 
-    $N$ is a homogeneous Poisson process with intensity $\lambda > 0$ if and only if the inter-arrival times $(T_{k+1} - T_k)_{k\in\ZZ}$ are i.i.d all following an exponential distribution with parameter $\lambda$.
+    $N$ is a homogeneous Poisson process with intensity $\lambda > 0$ if and only if the inter-arrival times $(T_{k+1} - T_k)_{k\in\ZZ}$ are i.i.d, all following an exponential distribution with parameter $\lambda$.
 \end{theorem}
 %Campbell ??
 
@@ -226,7 +226,9 @@ Lastly, we conclude this section by introducing the expression of the likelihood
     where $\lambda(T_k^-) = \lim_{t\to T_k^-}(\lambda(t))$.
 
     The log-likelihood of $N$ is:
-    \[\ell_T = \sum_{k=1}^{N(T)}{\log(\lambda(T_k^-))} - \Lambda(T)\,.\]
+    \begin{equation}\label{eq:chap1_loglikelihood}
+        \ell_T = \sum_{k=1}^{N(T)}{\log(\lambda(T_k^-))} - \Lambda(T)\,.
+    \end{equation}
 \end{proposition}
 The likelihood can be introduced by means of the Janossy densities.
 Let us note that, in the case of point processes on the entire real line $\RR$, the conditional intensity function necessitates to know the location of all points in the past before $T$ in order to compute the likelihood, which is usually unavailable.
@@ -276,7 +278,7 @@ The multivariate version of a self-exciting Hawkes process was simultaneously in
 \begin{definition}\label{def:chap1_multivariate_hawkes}
     We define a multivariate Hawkes process $N = (N_1, \ldots, N_d)$ of dimension $d$ is defined by $d$ point processes $(N_i)_{i=1:d}$.
     For each integer $i$, we note $T_k^i$ the event times of process $N_i$ and its conditional intensity function $\lambda^i$ reads:
-    \[\lambda^i(t) = \mu_i + \sum_{j=1}^{d}\int_{-\infty}^{t}{h_{ij}(t-s)}\,N^j(\dd s)\,.\]
+    \[\lambda^i(t) = \mu_i + \sum_{j=1}^{d}\int_{-\infty}^{t}{h_{ij}(t-s)}\,N_j(\dd s)\,.\]
     For any integer $i$, $\mu_i>0$ is the baseline intensity of $N_i$ and $h_{ij}\colon\RR_{\geq 0}\to \RR_{\geq 0}$ is a measurable function.
 \end{definition}
 For a multivariate Hawkes process, each intensity function $\lambda^i$ is influenced by every point $T_k^j$ of process $N_j$, for all integers $j$.
@@ -284,29 +286,59 @@ Function $h_{ij}$ represents the influence of a point from $N_j$ to process $N_i
 This condition ensures again the stationarity of all processes when defined in $\RR$.
 
 When $d=1$, we retrieve the original expression of a Hawkes process from Defintion~\ref{def:chap1_hawkes_process} and so we talk about an univariate Hawkes process. 
-Defining a multivariate Hawkes process as a vector is the more common formulation for any kind of point process, but it is sometimes practical to consider process $N$ as the superposition of all subprocesses $N^i$.
+Defining a multivariate Hawkes process as a vector is the more common formulation for any kind of point process, but it is sometimes practical to consider process $N$ as the superposition of all subprocesses $N_i$.
 $N$ is then characterised by the ordered union of all event times $(T_k^i)_{k\in\ZZ}$ for all integers $i$, forming a single point process in $\RR$ with event times $(T_{(k)})$ and conditional intensity function:
 
 \[\lambda(t) = \sum_{i=1}^{d}{\lambda^i(t)}\,.\]
 This perspective allows to extend any result from general point process theory to a multivariate process $N$, including inference methods.
 
+\subsection{Non-linear Hawkes processes}
+
+A more general formulation of a past dependent point process inspired by the Hawkes process was proposed in \cite{Bremaud1996} known as the non-linear Hawkes process.
+
+\begin{definition}
+    The univariate \emph{non-linear Hawkes process} $N$ on $\RR$ is defined by the conditional intensity function:
+    \begin{equation}\label{eq:nonlinear_hawkes_process}
+        \lambda(t) = \Phi\left(\int_{-\infty}^{t}{h(t-s)\,N(ds)}\right)\,,
+    \end{equation}
+    for $\Phi:\RR \to \RR_{\geq 0}$ and $h\colon \RR_{\geq 0}\to \RR$ two measurable functions.
+    $\Phi$ is known as the activation function and $h$ as the \emph{interaction} or \emph{kernel function}.
+\end{definition}
+The usual formulation of the self-exciting Hawkes process in Definition~\ref{def:chap1_hawkes_process} can be retrieved by taking the linear function $\Phi\colon x \to \mu + x$ for $\mu>0$ and by adding a positivity constraint on $h$. 
+Because of this, it is often referred to as the \emph{linear} Hawkes process.
+
+By allowing $h$ to take negative values in Equation~\eqref{eq:nonlinear_hawkes_process}, the non-linear Hawkes process can model an \emph{inhibiting} effect between points where each point decreases the chances of other points occuring, in opposition to the excitation effect.
+
+To guarantee the existence of such a process, either $\Phi$ needs to be upper-bounded or $\Phi$ to be $L$-lipschitz such that:
+\[L\|h^+\|_1 < 1\,,\]
+where $(\cdot)^+\colon x \to \max(0, x)$ denotes the positive part function.
+
+A multivariate version of this process can be defined as for the classical Hawkes process in Definition~\ref{def:chap1_multivariate_hawkes}.
+In this setting, existence can be retrieved either by upper-boundness of $\Phi$ or by imposing that the spectral radius of matrix $S^+ = (L \|h_{ij}^+\|_1)_{1 \geq i,j \geq d}$ is stricly smaller than $1$ \parencite[Lemma 2.1]{Sulem2024}.
+
+The most common choice for the non-linear function is the positive part function, often called a ReLU activation function \parencite{Lemonnier2014, Lu2018, Costa2020}, with other examples including clipped exponential \parencite{Chornoboy1988, Carstensen2010}, sigmoid \parencite{Menon2018} and softplus functions \parencite{Mei2017}.
 
 \section{Inference for Hawkes processes}\label{sec:chap1_inference}
 
-Estimation for Hawkes processes consists in estimating both the baseline intensity $\mu$ and the interaction function $h$ for a realisation of $N$ in a window $[0,T]$.
-A common optimisation procedure is the maximisation of the log-likelihood:
-\[\ell_T = \sum_{k=1}^{N(T)}{\log(\lambda(T_k^-))} - \Lambda(T)\,,\]
-as shown in \textcite{Ozaki1979} and a multivariate version is presented in \textcite{Embrechts2011, Guo2018} with good mathematical properties including consistency and asymptotic normality \parencite{Clinet2017}, mainly developed in parametric settings.
-We provide an insight of this method in Section~\ref{sec:chap1_exponential_MLE} for an exponential parametrisation of $h$.
-Other methods implemented in parametric settings are the method of moments \parencite{DaFonseca2013}, through spectral analysis \parencite{Adamopoulos1976} or by leveraging the branching structure of Hawkes processes \parencite{Veen2008}.
+% Estimation for Hawkes processes consists in estimating both the baseline intensity $\mu$ and the interaction function $h$ for a realisation of $N$ in a window $[0,T]$.
+% A common optimisation procedure is the maximisation of the log-likelihood:
+% \[\ell_T = \sum_{k=1}^{N(T)}{\log(\lambda(T_k^-))} - \Lambda(T)\,,\]
+% as shown in \textcite{Ozaki1979} and a multivariate version is presented in \textcite{Embrechts2011, Guo2018} with good mathematical properties including consistency and asymptotic normality \parencite{Clinet2017}, mainly developed in parametric settings.
+% We provide an insight of this method in Section~\ref{sec:chap1_exponential_MLE} for an exponential parametrisation of $h$.
+% Other methods implemented in parametric settings are the method of moments \parencite{DaFonseca2013}, through spectral analysis \parencite{Adamopoulos1976} or by leveraging the branching structure of Hawkes processes \parencite{Veen2008}.
 
-Inference procedures in non-parametric settings tend to be based in minimisation a least-squares contrast defined, for an estimator $\hat \lambda$ of the real intensity $\lambda$, as:
-\[\|\hat \lambda - \lambda\|_2^2 = \int_{0}^{T}{(\hat\lambda(t) - \lambda(t))^2\,\dd t}\,,\]
-usually by approximating $h$ through histograms \parencite{Lemonnier2014, Reynaud2014} or by using autoregressive models \parencite{Kirchner2017}. Other methods include solving Wiener-Hopf equations \parencite{Bacry2016}, by optimising a penalised log-likelihood through an EM algorithm \parencite{Lewis2011} or by fitting second and third-order cumulants \parencite{Achab2016}. 
+% Inference procedures in non-parametric settings tend to be based in minimisation a least-squares contrast defined, for an estimator $\hat \lambda$ of the real intensity $\lambda$, as:
+% \[\|\hat \lambda - \lambda\|_2^2 = \int_{0}^{T}{(\hat\lambda(t) - \lambda(t))^2\,\dd t}\,,\]
+% usually by approximating $h$ through histograms \parencite{Lemonnier2014, Reynaud2014} or by using autoregressive models \parencite{Kirchner2017}. Other methods include solving Wiener-Hopf equations \parencite{Bacry2016}, by optimising a penalised log-likelihood through an EM algorithm \parencite{Lewis2011} or by fitting second and third-order cumulants \parencite{Achab2016}. 
+In this section we will review some classical methods for the estimation of the baseline intensity $\mu$ and interaction function $h$ of a Hawkes process $N$.
 
 \subsection{MLE for Hawkes process with exponential kernel}\label{sec:chap1_exponential_MLE}
 
-Let us illustrate the implementation of the maximum likelihood estimation method for univariate Hawkes processes.
+A common optimisation procedure is the maximisation of the log-likelihood:
+\[\ell_T = \sum_{k=1}^{N(T)}{\log(\lambda(T_k^-))} - \Lambda(T)\,,\]
+as shown in \textcite{Ozaki1979} and a multivariate version is presented in \textcite{Embrechts2011, Guo2018} with good mathematical properties including consistency and asymptotic normality \parencite{Clinet2017}, mainly developed in parametric settings.
+
+We present here the implementation of the maximum likelihood estimation method for univariate self-exciting Hawkes processes.
 Let $N$ be a Hawkes process in $\RR_{\geq 0}$ and we assume that the function $h$ is parametrised by an exponential distribution such that:
 \[h(t) = \alpha\mathrm{e}^{-\beta t}\,, \quad \text{for $t\geq 0$,}\]
 with $\alpha >0$ and $\beta>0$.
@@ -317,13 +349,13 @@ By defining the following parametric model:
 \[\mathcal{P} = \left\{
     \lambda_\theta \mid \theta = (\mu, \alpha, \beta)\in\RR_{\geq 0}^3, \alpha < \beta
 \right\}\,,\]
-the log-likelihood \eqref{eq:chap1_likelihood} becomes a function of parameter $\theta$:
+the log-likelihood \eqref{eq:chap1_loglikelihood} becomes a function of parameter $\theta$:
 \[
     \ell_T(\theta) = \sum_{k=1}^{N(T)}{\log(\lambda_\theta(T_k^-))} - \Lambda_\theta(T)\,,
 \]
 with $\Lambda_\theta$ the compensator of $\lambda_\theta$.
 
-The choice of the exponential kernel function for $N$ implies that the intensity $\lambda$ is Markovian in the sense that in each interval $[T_k,T_{k+1})$ the expression is solely dependant on the value of $\lambda(T_k)$.
+The choice of the exponential kernel function for $N$ implies that the intensity $\lambda$ is Markovian in the sense that in each interval $[T_k,T_{k+1})$ the expression is solely dependent on the value of $\lambda(T_k)$.
 For any integer $k\geq 1$ and any $t\in[T_k,T_{k+1})$, the intensity reads:
 \begin{align}
     \lambda(t) = \mu + \int_{0}^{+\infty}{\alpha \mathrm{e}^{-\beta(t-s)}\,N(\dd s)} &= \mu + \sum_{j=1}^{k}{\alpha \mathrm{e}^{-\beta(t-T_j)}}\nonumber\\
@@ -364,6 +396,52 @@ The log-likelihood also has a complexity of $O(N(T))$ and can be efficiently com
 
 In practice, we obtain an estimation $\hat \theta$ of a parameter $\theta = (\mu, \alpha, \beta)$ by maximising the log-likelihood.
 
+Other methods implemented in parametric settings are the method of moments \parencite{DaFonseca2013}, through spectral analysis \parencite{Adamopoulos1976} or by leveraging the branching structure of Hawkes processes \parencite{Veen2008}.
+
+\subsection{Least-squares minimisation}
+
+Inference procedures in non-parametric settings tend to be based in the minimisation of a least-squares contrast.
+Let us assume that we want to estimate an intensity function $\lambda$ in an interval $[l, L]$ through a function $\hat \lambda$.
+We define the squared error of $\hat \lambda$ as:
+\begin{align}
+    \|\hat \lambda - \lambda\|_2^2 &= \int_{l}^{L}{(\hat \lambda(t) - \lambda(t))^2\,\dd t}\\
+    &= \int_{l}^{L}{\hat \lambda^2(t)\,\dd t} - 2\int_{l}^{L}{\hat \lambda(t)\lambda(t)\,\dd t} + \int_{l}^{L}{\lambda^2(t)\,\dd t}\,.
+\end{align}
+In order to minimise this quantity with respect to $\hat \lambda$, we need to remove the dependance on $\lambda$ as this quantity is unavailable in estimation contexts.
+We may remark that the last term can be completely ignored as it does not depend on $\hat \lambda$ but the middle term has to be treated differently.
+
+As done in \textcite{Reynaud2014}, we can leverage the fact that a valid approximation of $\lambda(t)\,\dd t$ is $N(t)$. 
+This is justified by the fact that locally $\EE[N(t)] = \Lambda(t)$ and that $\lambda$ is the Stieltjes-Lebesgue derivative of $\Lambda$.
+We can then minimise the following expression:
+\[\int_{l}^{L}{\hat \lambda^2(t)\,\dd t} - 2\int_{l}^{L}{\hat \lambda(t)N(\dd t)}\,,\]
+for an observation of process $N$.
+
+Non-parametric approaches to minimise this quantity tend to approximate the interaction function $h$ by histograms \parencite{Lemonnier2014, Reynaud2014} or by using autoregressive models \parencite{Kirchner2017}.
+
+Other non-parametric methods include solving Wiener-Hopf equations \parencite{Bacry2016}, by optimising a penalised log-likelihood through an EM algorithm \parencite{Lewis2011} or by fitting second and third-order cumulants \parencite{Achab2016}. 
+
+\subsection{A Bayesian estimation approach}
+
+The Bayesian approach for the inference of Hawkes processes consists on establishing estimating the posterior distribution for the parameters of the intensity function.
+The method we present here follows the procedure in \textcite{Rasmussen2013} by leveraging the expression of the likelihood \eqref{eq:chap1_likelihood}:
+\[p(N\mid \lambda) = \left(\prod_{k=1}^{N(T)}{\lambda(T_k^-)}\right)\mathrm{e}^{-\Lambda(T)}\,.\] 
+As suggested by our change of notation, the likelihood is a representation of the distribution of event times of process $N$ for a given intensity $\lambda$.
+As one of the examples in the paper, we consider an exponential kernel function $h(\cdot) = \alpha \beta \mathrm{e}^{-\beta \cdot}$ with $\alpha \in(0,1)$, $\beta > 0$.
+By the Bayes rule, it follows that:
+\[p(\mu, \alpha, \beta \mid N) \propto p(\mu, \alpha, \beta) p(N\mid \mu, \alpha, \beta)\,,\]
+where $p(\mu, \alpha, \beta)$ denotes the prior distribution on the parameters.
+
+In order to sample from the posterior distribution, a Metropolis-Hastings algorithm can be implemented by defining the Hastings ratio for each parameter.
+Let us illustrate with the baseline intensity: a candidate $\tilde \mu_k$ is sampled from a normal distribution centered around the current parameter $\mu_k$ and the acceptance ratio reads:
+\begin{align*}
+    H_\mu &=\frac{p(\tilde \mu_k, \alpha, \beta) p(N\mid \tilde \mu_k, \alpha, \beta)}{p(\mu_k, \alpha, \beta) p(N\mid \mu_k, \alpha, \beta)}\\
+    &= \frac{p(\tilde \mu_k, \alpha, \beta)}{p(\mu_k, \alpha, \beta)}\prod_{k=1}^{N(T)}\frac{\lambda_{\hat \mu_k}(T_k^-)}{\lambda_{\mu_k}(T_k^-)}\mathrm{e}^{-\Lambda_{\hat \mu_k}(T) + \Lambda{\mu_k}(T)}\\
+    &=\frac{p(\tilde \mu_k, \alpha, \beta)}{p(\mu_k, \alpha, \beta)}\prod_{k=1}^{N(T)}\frac{\lambda_{\hat \mu_k}(T_k^-)}{\lambda_{\mu_k}(T_k^-)}\mathrm{e}^{-(\hat\mu_k - \mu_k) T}\,.
+\end{align*}
+The subscripts in the intensity function and compensator are used to denote the differing parameter.
+This expression can be expressed for each update, establishing an overall update procedure to obtain an estimation the posterior distribution of each parameter.
+
+Further works in Bayesian contexts in the multivariate setting include \textcite{Blundell2012} for Hawkes processes for the study of a social interaction graph, \textcite{Donnet2020} with theoretical results concerning the concentration rates of posterior distributions. This methods have been recently adapted to include inhibition through non-linear Hawkes as shown in \textcite{Deutsch2022, Sulem2024}. 
 
 \section{Simulation}\label{sec:chap1_simulation}
 
@@ -372,7 +450,7 @@ In practice, we obtain an estimation $\hat \theta$ of a parameter $\theta = (\mu
 The most classical method to simulate point processes with an intensity function $\lambda$ is obtained through a rejection algorithm. An important condition to implement this method is to for the intensity function to be upper-bounded by a constant $\lambda^\star$.
 We may then simulate $N$ by first simulating a homogeneous Poisson process with intensity $\lambda^\star$ and then thinning each point with probability $\lambda(t) / \lambda^\star$.
 
-In general, it is not possible to find an upper bound for the intensity of a Hawkes processe. Additionally, the intensity function is dependant on each simulated point so each time a point appears, it has to be updated. In order to account for these particularities of a Hawkes process, one of the most used methods is Ogata's thinning algorithm \parencite{Ogata1981}.
+In general, it is not possible to find an upper bound for the intensity of a Hawkes processe. Additionally, the intensity function is dependent on each simulated point so each time a point appears, it has to be updated. In order to account for these particularities of a Hawkes process, one of the most used methods is Ogata's thinning algorithm \parencite{Ogata1981}.
 To simulate the points of a process $N$ in a window of time $[0,T]$ (with the convention that $T_0 = 0$), we follow the following paradigm:
 
 \begin{enumerate}
@@ -457,4 +535,4 @@ This is a result of Galton-Watson process theory, as each point tends to generat
 This algorithm presents some advantages when compared to Ogata's procedure.
 First, it does not require to compute an upper-bound for the intensity function, which as seen previously, is an important step in Algorithm~\ref{alg:chap1_ogata_simulation}.
 Second, this procedure does not have a rejection step and there is no need to compute the value $\lambda$ each time that a point is simulated, which can greatly reduce the overall computation time.
-Overall, the only constraint on $h$ imposed by Algorithm~\ref{alg:chap1_branching_simulation} is to be able to simulate according to the probability density function $h(\cdot - t)/\|h\|_1$, unlike the thinning algorithm whose simulation time is greatly dependant in the choide of $h$.
+Overall, the only constraint on $h$ imposed by Algorithm~\ref{alg:chap1_branching_simulation} is to be able to simulate accordingly to the probability density function $h(\cdot - t)/\|h\|_1$, unlike the thinning algorithm whose simulation time is greatly dependent on the choice of $h$.
