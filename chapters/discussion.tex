@@ -38,16 +38,111 @@
 % This allowed us to make use of our results on thinned data and we illustrated the improvement of this procedure on simulated data, with very encouraging results.
 % This subsampling framework has been studied in the literature with very recent works of \textcite{Cronie2024, Coeurjolly2024} and our method would largely benefit from model evaluation and model selection methods. 
 
-This thesis provides novel statistical tools for the estimation of Hawkes processes withing the frequentist parametric framework.
-Our main goal %contribution?
-was to provide theoretical and numerical tools to study two separate submodels largely unaccounted for in the literature in this setting
-The first concerned the study of inhibiting interactions between event times whereas the second addressed the issue of analysing imperfect data observations.
+% Chapters~\ref{chapter:univariate_inhibition} and \ref{chapter:multivariate_inhibition} are centered around the study of additive inhibition for Hawkes processes.
+% Our approach was to establish a maximum likelihood estimation method under certain conditions on the interaction kernel. 
+% In the univariate case, we achieved this under a monotony condition on the interaction function and we adapted our approach to the exponential multivariate Hawkes process under a mild assumption on the parameter space.
+% The next step is to extend our results to a wider spectrum of kernel functions where the main difficulty is to address the complex dynamics of the multivariate case.
+% The choice of the positive part function in our study brought into the light the identifiability issues that may appear specially when both exciting and inhibiting interactions may coexist.
+% An avenue of exploration involves taking into consideration other non-linear functions with positivity constainst.
+% As we exhibited through our applications to neuronal data, it is important to establish methods of estimation of the interaction graph.
+% Our contribution to this was focused mainly on data-based methods so establishing more general approaches, for instance by implementing sparsity tests on the interaction matrix as shown in the recent work of \textcite{Lotz2024}
 
-Chapters~\ref{chapter:univariate_inhibition} and \ref{chapter:multivariate_inhibition} are centered around the study of additive inhibition for Hawkes processes.
-Our approach was to establish a maximum likelihood estimation method under certain conditions on the interaction kernel. 
-In the univariate case, we achieved this under a monotony condition on the interaction function and we adapted our approach to the exponential multivariate Hawkes process under a mild assumption on the parameter space.
-The next step is to extend our results to a wider spectrum of kernel functions where the main difficulty is to address the complex dynamics of the multivariate case.
-The choice of the positive part function in our study brought into the light the identifiability issues that may appear specially when both exciting and inhibiting interactions may coexist.
-An avenue of exploration involves taking into consideration other non-linear functions with positivity constainst.
-As we exhibited through our applications to neuronal data, it is important to establish methods of estimation of the interaction graph.
-Our contribution to this was focused mainly on data-based methods so establishing more general approaches, for instance by implementing sparsity tests on the interaction matrix as shown in the recent work of \textcite{Lotz2024}
+% This thesis provides novel statistical tools for the estimation of Hawkes processes within the frequentist parametric framework.
+% Our main goal %contribution?
+% was to provide theoretical and numerical tools to study two separate submodels largely unaccounted for in the literature in this setting
+% The first concerned the study of inhibiting interactions between event times whereas the second addressed the issue of analysing imperfect data observations.
+
+
+The Hawkes process model is used accross a vast multitude of application fields, and so establishing inference procedures to model more complex phenomena is undeniably important. 
+Our work provided novel statistical tools for the estimation of Hawkes processes within the frequentist parametric framework.
+Our effort was centered around establishing theoretical results for two different submodels, with code implementations of our procedures and numerical illustrations of their efficiency. 
+
+\vspace{5mm}
+
+% Part 1
+
+The first part of our work focused on the study of inhibiting interactions for Hawkes processes by establishing the maximum likelihood estimation procedure.
+In Chapter~\ref{chapter:univariate_inhibition}, we implemented this method under the assumption of monotony of the kernel function, which allowed us to derive a closed-form expression of the log-likelihood. 
+In Chapter~\ref{chapter:multivariate_inhibition}, we extended our previous work to the multivariate setting for exponentially-shaped interactions which revealed the challenges of establishing the identifiability of our model.
+This issue arised primarily from our use of the positive part function in the non-linear Hawkes process model, as the non-bijectivity of the function may hinder the accurate identification of interaction parameters.
+The choice of this function helps modelling a closer behaviour to the classical linear Hawkes model and simplifies the computation of the intensity function.
+Prioritising positive non-linear functions is a way to circumvent this problem, as shown in the bayesian context in \textcite{Sulem2024}, for a shifted version of the positive part function.
+By adapting our procedure to an approximation of the positive part functions, for example through the softplus function, the resulting method could be a satisfying compromise between model fidelity and theoretical guarantees. 
+
+Numerically, we illustrated the improvements in our estimations by incorporating a support inference step for the interaction matrix, as evidenced by our goodness-of-fit hypothesis testing.
+Our methods relied on data-based paradigms which are highly dependant on sample size.
+In practical applications, such as medical data analysis with limited observations, it is important to propose more robust methods. 
+Future research could explore Lasso penalisation procedures, in the same vein as the work of \textcite{Bacry2020}, where both an $\ell_1$ and trace-norm penalisations are tuned by the means of data-driven weights and that can benefit from cross-validation procedures.
+
+In our application to the study of neuronal activity, the results exhibited a clear self-interaction behaviour for each studied neuron.
+This is consistent with the real behaviour of neurons as they present a post-activation refractory period, reflecting an incapacity to reactivate 
+after a synaptic impulse is produced.
+The fact that our estimations are not consistently self-inhibitory is most likely due to the choice of a monotone kernel in the form of the exponential function.
+In reality, when membrane potential is measured, the refractory effect is delayed which is better represented by a non-monotone function, suggesting that extending our work for more complex interaciton functions is a clear path to obtaining more faithful models.
+
+\vspace{5mm}
+
+The second part of our work focused examined noisy observations of Hawkes processes with excitation. 
+In Chapter~\ref{chapter:spectral_superposition}, we modelled the presence of exogeneous points by superposing a Hawkes process with a homogeneous Poisson process.
+Chapter~\ref{chapter:spectral_thinning} adresses the absence of points through a thinning representaiton of the original point process.
+Our spectral approach, utilising the Bartlett spectrum and periodogram, enabled us to establish an estimation procedure by optimising a spectral version of the log-likelihood.
+The main difficulty encountered was the identifiability issues that, as shown, derives directly from the spectral density function definition.
+To partially solve this problem, we provided some conditions on the kernel functions that allowed us to recover the identifiability of our model.
+Our method will greatly benefit from more general results, particularly for higher dimensional processes with more complex interactions.
+Another possible solution could be found in the recent works of \textcite{Roueff2019} that establish an equivalent expression of the Bartlett spectrum by relaxing the stationarity condition to a local stationarity. 
+This could help to incorporate more general shapes of noise which in turn could help to better identify the noise dynamics.
+
+Our numerical illustrations in synthetic data showed the efficiency of our approach to study these difficult task and the next step is to apply our results to real-world data.
+This can help to provide a better insights in contexts where measurement errors are more likely to appear.
+In particular, it can be interesting to combine both our models and results in order to study the spread of illnesses through screening.
+In this context, the presence of false positives and false negatives can be modelled by the superposition and thinning operations and so our model can clearly help to obtain better interpretations of disease transmission dynamics.
+
+Finally, in the context of subsampling through the thinning operation, a significant issue concerns the lack of evaluation methods for spectral estimators in unsupervised settings.
+As suggested in the recent works of \textcite{Cronie2024, Coeurjolly2024}, subsampling paradigms can greatly improve the estimation procedures and allow for more complex methods as cross-validation paradigms to be available for the study of point processes. 
+Establishing asymptotic results on our estimators could partially address this issue by providing a way of establishing asymptotic confidence intervals. Encourangingly, there has been recent advances concerning these guarantees for the periodogram in the works of \textcite{Rajala2023, Yang2024} which pave the way for the study of the periodogram-
+
+% % Part II
+
+% %% Identifiability ??
+
+% Our spectral approach through the study of the Bartlett in the framework of noised observations showed the identifiability issues that come with it.
+% Although we provide some conditions to reacquire the identifiability, our method would benefit of more general conditions so as to establish more general results.
+% A possible source of this problem is the very restrictive stationarity condition which constraints the shape of both the superposition and thinning to be very general.
+% A possible solution could be found in the recent works of ROUEFF that establish an equivalent expression of the Bartlett spectrum by relaxing the stationarity condition to a local stationarity. 
+% This could be a step to considering more complex noise dynamics which could prove more realistic and allowing for better theoretical results.
+
+% %% Applications
+
+% Our study on noised data focused solely in the study of synthetic data with encouraging results.
+% The next step is to apply our results to the analysis of real-world data in order to provide a better insight on the issue of noised data.
+% A possible application could be in the study of epidemiology and illnesses spread.
+% A common approach to the study of such data is by analysing the test results to a certain illness in time. 
+% In this context, the superposition noise could be used to represent the false positives (as it counts as sick an individual who is not) and the thinning for the false negatives (as they do not enter the study) and account for the people who do not realise tests.
+
+% %% Subsampling
+
+% Concerning the subsampling method via the thinning operation, the main remaining issue concerns the lack of an evaluation method particularly adapted to spectral estimators.
+% As suggested in the recent works of COEURJOLLY and CRONIE illustrate the efficiency of such approaches to improve the estimation procedures in both temporal and spatial contexts. A model evaluation and selection paradigm would greatly benefit our method for non-supervised problems, specially for the choice of hyper-parameters.
+
+% %% Asymptotic guarantees
+
+% Establishing asymptotic results concerning our estimators remains an open question. Encouragingly enough, there is a current growing interest in studying such results as in the works of YANG and RAJALA concerning the periodogram. This could be particularly useful in the framework of hypothesis testing where the asymptotic distribution could help establishing hypothesis test procedures for instance to determine the support of interaction matrices.
+
+% %% Modélisation neuro
+
+% The inclusion of inhibition in our model allowed us to include the study of neuronal activity in a real-data context.
+% The results obtained showed a particular behaviour of self-interactions, which is supported by the specialists. 
+% In order to obtain a more realistic representation of neuronal activation it is important to consider mode adapted kernel functions. In order to model the refractory effect of each neuron after an activation, a more complex kernel function can better capture the sudden effect of inhibition with a non necessary monotonous kernel.
+% This would provide a more explicative model which could prove more interesting for neurobiologists to study.
+% As supported by experts on the field, the effect post-activation of a neuron on itself is not exactly immediate nor monotone, which suggests that a more general shape for the kernel function $h$ will provide a more exact model for neuronal activity modelisation.
+% %% Identifiability
+
+% We elucidated the issue of assuring identifiability for a Hawkes process with inhibiting effects in the multivariate setting. 
+% This is mainly due to our choice of the positive part function, that although it allows for a more intuitive approach of real saturated processes, the non bijectivity stops us from differentiating different levels of inhibition without some observability conditions.
+% Considering positive non-linear activation function will prove to be an interesting option to obtain better theoretical guarantees although the cost of using such functions could complicate the numerical computation algorithms, so further developments should be done.
+% %% Interaction graph
+
+% AS shown in our work, determining the support of the interaction matrix was an important step to obtain better models, as shown by the goodness-of-fit procedure through $p$-values.
+% Our methods consist on data-based paradigms which are mainly dependant on sample availability, which in practical contexts particularly in medical and biological fields can be difficult.
+% An avenue of exploration will be the study of other estimation methods as with Lasso penalisation, in the same vein as the works of PATRICIA/BACRY.
+% Such implementations tend to bring upon its own optimisation difficulties, which would prove to be an additional difficulty added to the inhibiting scenario.
