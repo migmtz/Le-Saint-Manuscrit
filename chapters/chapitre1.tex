@@ -204,11 +204,11 @@ An important result concerning $\Lambda$ is the time change theorem:
 
 \begin{theorem}{\parencite[Theorem 7.4.IV]{DaleyV1}}
 
-    Let $(X_k)_{k\in\ZZ}$ be a sequence of random variables in $\mathcal{X}$, $\mathcal{F}_t = \sigma\{X_k \mid k\in\ZZ, X_k\leq t\}$ for all $t\in\RR$.
-    Let $\lambda(\cdot\mid \mathcal{F}_{\cdot})$ be a non-negative function such that, for all $t\in\RR$, $\lambda(t\mid \mathcal{F}_{t})$ is $\mathcal{F}_t$-measurable and let $\Lambda$ be defined, for any $t\in\RR$, as:
-    \[\Lambda(t) = \int_{-\infty}^{t}{\lambda(u)\,\dd u}\,.\]
+    Let $(X_k)_{k\in\ZZ}$ be an a.s.\ increasing sequence of random variables in $\mathcal{X}$ and $\mathcal{F}_t = \sigma(\{X_k \mid k\in\ZZ, X_k\leq t\})$, for all $t\in\RR$.
+    Let $\bar\lambda(\cdot\mid \mathcal{F}_{\cdot})$ be a non-negative function such that, for all $t\in\RR$, $\bar\lambda(t\mid \mathcal{F}_{t})$ is $\mathcal{F}_t$-measurable and let $\bar\Lambda$ be defined, for any $t\in\RR$, as:
+    \[\bar\Lambda(t) = \int_{-\infty}^{t}{\bar\lambda(u\mid\mathcal{F}_u)\,\dd u}\,.\]
 
-    Then, the process $\sum_{k\in\ZZ}{\delta_{X_k}}$ is a point process with conditional intensity function $\lambda$ if and only if $\sum_{k\in\ZZ}{\delta_{\Lambda(X_k)}}$ is a homogeneous Poisson process with unit intensity.
+    Then, the process $\sum_{k\in\ZZ}{\delta_{X_k}}$ is a point process with conditional intensity function $\bar\lambda$ if and only if $\sum_{k\in\ZZ}{\delta_{\bar\Lambda(X_k)}}$ is a homogeneous Poisson process with unit intensity.
 \end{theorem}
 It is then possible to rescale the event times of any observed point process $N$ in order to obtain a realisation of a homogeneous Poisson process.
 This is a very useful result in order to establish goodness-of-fit procedures for point processes when an estimation $\hat \Lambda$ of $\Lambda$ is available.
@@ -430,22 +430,22 @@ Other non-parametric methods include solving Wiener-Hopf equations \parencite{Ba
 
 The Bayesian approach for the inference of Hawkes processes consists in estimating the posterior distribution for the parameters of the intensity function.
 The method we present here follows the procedure by \textcite{Rasmussen2013} which leverages the expression of the likelihood. 
-We present an application for the exponential kernel function $h(\cdot) = \alpha \beta \mathrm{e}^{-\beta \cdot}$.
+We present an application for the exponential kernel function $h(\cdot) = \alpha \mathrm{e}^{-\beta \cdot}$.
 
-Let $\theta = (\mu, \alpha, \beta)\sim \Pi$ be a random vector of parameters with density $\pi$ and, conditionally on $\theta$, let $N$ be a linear Hawkes with intensity $\lambda_\theta$ parametrised by $\theta$.
+Let $\theta = (\mu, \alpha, \beta)\sim \Pi$ be a random vector of parameters with density $\pi$ and, conditionally on $\theta$, let $N$ be a linear Hawkes process with intensity $\lambda_\theta$ parametrised by $\theta$.
 We define the likelihood $L_T$ (Equation~\eqref{eq:chap1_likelihood}) of $N$, in a time window $[0, T]$ and for a history $\mathcal{H}_T$, as:
 \[L_T(\theta) = \left(\prod_{k=1}^{N(T)}{\lambda_\theta(T_k^-)}\right)\mathrm{e}^{-\Lambda_\theta(T)}\,.\]
 
-By the Bayes rule, the posterior distribution of $\theta$ conditional on $N$ admits a density:
-\[\pi(\theta\mid N) \propto \pi(\theta) L_T(\theta)\,.\]
-An estimator $\hat \theta = \EE[\theta\mid \mathcal{H}_t]$ can be approximated by sampling the posterior distribution of $\theta\mid\mathcal{H}_T$, which has the advantage of providing credibility intervals.
+By the Bayes rule, the posterior distribution of $\theta$ conditional on the observation of $N$ in $[0,T]$ admits a density $\pi(\cdot\mid\mathcal{H}_T)$ proportional to the prior $\pi$ and the likelihood $L_T$:
+\[\pi(\theta\mid \mathcal{H}_T) \propto \pi(\theta) L_T(\theta)\,.\]
+An estimator $\hat \theta = \EE[\theta\mid \mathcal{H}_T]$ can be approximated by sampling the posterior distribution of $\theta\mid\mathcal{H}_T$, which has the advantage of providing credibility intervals.
 
-For this, we implement a Metropolis-Hastings algorithm with Gaussian distributions for each term in $\theta = (\mu, \alpha, \beta)$.
-Let us illustrate with the baseline intensity $\mu$: for a current parameter $\mu_k$, a candidate $\hat \mu_k\mid \mu_k\sim\mathcal{N}(\mu_k, \sigma^2)$ is sampled and the acceptance ratio reads:
+For this, we implement a Metropolis-Hastings algorithm with multivariate isotropic normal distribution as the proposition kernel.
+Let us illustrate the principle with the baseline intensity $\mu$: for a current parameter $\mu_l$, a candidate $\tilde \mu_l\mid \mu_l\sim\mathcal{N}(\mu_l, \sigma^2)$ is sampled and the acceptance ratio reads:
 \begin{align*}
-    H_\mu = \frac{\pi(\hat\mu_k, \alpha, \beta)}{\pi(\mu_k, \alpha, \beta)}\left(\prod_{l=1}^{N(T)}\frac{\lambda_{(\hat \mu_k,\alpha, \beta)}(T_l^-)}{\lambda_{(\mu_k, \alpha, \beta)}(T_l^-)}\right)\mathrm{e}^{-(\hat\mu_k - \mu_k) T}\,.
+    H_\mu = \frac{\pi(\tilde\mu_l, \alpha, \beta)}{\pi(\mu_l, \alpha, \beta)}\left(\prod_{k=1}^{N(T)}\frac{\lambda_{(\tilde \mu_l,\alpha, \beta)}(T_k^-)}{\lambda_{(\mu_l, \alpha, \beta)}(T_k^-)}\right)\mathrm{e}^{-(\tilde\mu_l - \mu_l) T}\,.
 \end{align*}
-Each term in $\theta$ can then be updated sequentially to obtain an estimation $\hat \theta$ of $\theta$.
+This allows us to obtain approximatively a sample according to the posterior distribution and provides an estimation $\hat \theta$ by averaging.
 
 Further works in Bayesian contexts in the multivariate setting include \textcite{Blundell2012} for Hawkes processes for the study of a social interaction graph, \textcite{Donnet2020} with theoretical results concerning the concentration rates of posterior distributions. These methods have been recently adapted to include inhibition through non-linear Hawkes processes.
 In \textcite{Deutsch2022}, the authors propose to compute the log-likelihood by approximating the compensator by a Simpson's rule in a parametric setting.
