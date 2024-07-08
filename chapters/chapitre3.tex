@@ -23,7 +23,7 @@ Introduced in \textcite{Hawkes1974}, this parallel between Hawkes processes and 
 Estimation methods in the literature are vast including maximum likelihood estimators \parencite{Ozaki1979,Guo2018} and method of moments \parencite{DaFonseca2013}. 
 Nonparametric approaches include an EM procedure introduced in \textcite{Lewis2011}, estimations obtained via the solution of Wiener-Hopf equations \parencite{Bacry2016} or by approximating the process through autoregressive models \parencite{Kirchner2017} or through functions in reproducing kernel Hilbert spaces \parencite{Yang2017}.
 
-Although the self-exciting Hawkes process remains widely studied, there has been a growing interest in modeling the opposite effect, known as inhibition, in which the probability of observing an event is lowered by the occurrence of certain events. In practice, this amounts to considering negative kernel functions. In order to maintain the positivity of the intensity function, a non-linear operator is added to the expression which in turns entails the loss of the cluster representation. This model known as the non-linear Hawkes process was first presented in \textcite{Bremaud1996}, where existence of such processes was proved via construction using bi-dimensional marked Poisson processes. Such approach of analysis has been used in the literature as in \textcite{Chen2017}, where a coupling process is established and leveraged to obtain theoretical guarantees on cross-analysis covariance. Another approach is presented in \textcite{Costa2020}, where renewal theory allows to obtain limit theorems for processes with bounded support kernel functions. Estimation methods focus mainly on nonparametric methods for general interactions and non-linear functions, as found in \textcite{Bacry2016,Sulem2021}.
+Although the self-exciting Hawkes process remains widely studied, there has been a growing interest in modeling the opposite effect, known as inhibition, in which the probability of observing an event is lowered by the occurrence of certain events. In practice, this amounts to considering negative kernel functions. In order to maintain the positivity of the intensity function, a non-linear operator is added to the expression which in turns entails the loss of the cluster representation. This model known as the non-linear Hawkes process was first presented in \textcite{Bremaud1996}, where existence of such processes was proved via construction using bi-dimensional marked Poisson processes. Such approach of analysis has been used in the literature as in \textcite{Chen2017}, where a coupling process is established and leveraged to obtain theoretical guarantees on cross-analysis covariance. Another approach is presented in \textcite{Costa2020}, where renewal theory allows to obtain limit theorems for processes with bounded support kernel functions. Estimation methods focus mainly on nonparametric methods for general interactions and non-linear functions, as found in \textcite{Bacry2016,Sulem2024}.
 
 In the last years,
 alternative models have been designed in order to take into account inhibiting effects in Hawkes processes.
@@ -88,14 +88,14 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap3_n
     These marks can be written as \[m_k = \sum_{j=1}^{d}{j\II_{N^j\left(\{T\park\}\right) = 1}}\,.\]
     
     \begin{remark}
-    A more detailed introduction of multivariate point processes via the concept of marked point processes can be found in \cite[Chapter 6.4]{DaleyV1}
+    A more detailed introduction of multivariate point processes via the concept of marked point processes can be found in \textcite[Chapter 6.4]{DaleyV1}
     \end{remark}
 
     As the aim of this chapter is to describe a practical methodology for estimating the conditional intensities \(\lambda_1\), \dots, \(\lambda_d\) via maximising the log-likelihood, the latter quantity has to be made explicit.
     Let \(t \ge 0\) and assume that event times
     $\left\{ T_k^i : 1 \le k \le N_i(t), 1 \le i \le d \right\}$
     are observed in the interval \((0, t]\).
-    Then, given a parametric model $\mathcal{P} = \{(\lambda_{\theta_1}^1, \dots, \lambda_{\theta_d}^d)\colon \theta = (\theta_1, \dots, \theta_d) \in \Theta_1 \times \dots \times \Theta_d\}$ (and associated compensators \(\Lambda_{\theta_1}^1, \dots, \Lambda_{\theta_d}^d\)) for conditional intensity functions \(\lambda^1, \dots, \lambda^d\), for every \(\theta \in \Theta\), the log-likelihood $\ell_t(\theta)$ reads \cite[Proposition 7.3.III.]{DaleyV1}
+    Then, given a parametric model $\mathcal{P} = \{(\lambda_{\theta_1}^1, \dots, \lambda_{\theta_d}^d)\colon \theta = (\theta_1, \dots, \theta_d) \in \Theta_1 \times \dots \times \Theta_d\}$ (and associated compensators \(\Lambda_{\theta_1}^1, \dots, \Lambda_{\theta_d}^d\)) for conditional intensity functions \(\lambda^1, \dots, \lambda^d\), for every \(\theta \in \Theta\), the log-likelihood $\ell_t(\theta)$ reads \textcite[Proposition 7.3.III.]{DaleyV1}
     \begin{equation*}
       \ell_t(\theta) = \sum_{i=1}^{d}{\ell_t^i(\theta_i)}\,,\nonumber 
     \end{equation*}
@@ -123,7 +123,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap3_n
     Obviously, these methods should perform well when the intensities remain mostly positive, but it is unclear how they will adapt to scenarios when the intensities are frequently equal to zero due to inhibiting terms.
     A similar remark is mentioned in \textcite{Bacry2016} concerning their estimation method, that can provide negative estimations of the interactions only if there is a negligible chance of the intensities to be null.
     
-    Inference procedures that are specifically dedicated to Hawkes processes with inhibition are scarcer in the literature. \textcite{Sulem2021} presents various results for non-linear Hawkes processes including inhibition effects: existence, stability and Bayesian estimation for kernel functions with bounded support.
+    Inference procedures that are specifically dedicated to Hawkes processes with inhibition are scarcer in the literature. \textcite{Sulem2024} presents various results for non-linear Hawkes processes including inhibition effects: existence, stability and Bayesian estimation for kernel functions with bounded support.
     \textcite{Deutsch2022} presents choices of priors for Bayesian estimation based on a new reparametrisation of the process.
 
     Lastly, \textcite{bonnet2021} presents a maximum likelihood estimation adapted to the univariate Hawkes process with inhibition and monotone kernel functions.
@@ -140,7 +140,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap3_n
 
     \subsection{Introductive example}
     Before motivating and explaining the estimation procedure proposed in this chapter, we present an example of multivariate Hawkes process.
-    Figure~\ref{fig:chap3_2_dimension_example} depicts in red conditional intensities \(\lambda^1\) and \(\lambda^2\) for a realisation of a \(2\)-dimensional Hawkes process (see the forthcoming section for the definition of underlying intensities). The existence of such a process (along with its stationarity) is ensured by controlling the spectral radius $\rho(S^+) < 1$ of the matrix $S^+ = (\|h_{ij}^+\|_1)_{ij}$ \parencite{Deutsch2022}. Similar results with slightly different conditions can be found in \textcite{Bremaud1996} and \textcite{Sulem2021}.
+    Figure~\ref{fig:chap3_2_dimension_example} depicts in red conditional intensities \(\lambda^1\) and \(\lambda^2\) for a realisation of a \(2\)-dimensional Hawkes process (see the forthcoming section for the definition of underlying intensities). The existence of such a process (along with its stationarity) is ensured by controlling the spectral radius $\rho(S^+) < 1$ of the matrix $S^+ = (\|h_{ij}^+\|_1)_{ij}$ \parencite{Deutsch2022}. Similar results with slightly different conditions can be found in \textcite{Bremaud1996} and \textcite{Sulem2024}.
     The simulation has been carried out with baselines \(\mu_1 = 0.5\) and \(\mu_2 = 1.0\),
     and with exponential kernels \(h_{ij}(t) = \alpha_{ij} \mathrm{e}^{-\beta_{ij}t}\) parameterised by:
     \[
@@ -302,7 +302,7 @@ The whole procedure is illustrated on simulated data in Section~\ref{sec:chap3_n
     \]
 \end{theorem}
 
-The proof is presented in Appendix \ref{app:chap3_proof}. To the best of our knowledge, the only identifiability result for non-linear multivariate Hawkes processes is given by \textcite{Sulem2021} but only if interaction functions $h_{ij}$ have a bounded support. Their proof strongly relies on this assumption since they extend to the multivariate case the renewal properties proved by \textcite{Costa2020} for non-linear univariate Hawkes processes with a bounded kernel.
+The proof is presented in Appendix \ref{app:chap3_proof}. To the best of our knowledge, the only identifiability result for non-linear multivariate Hawkes processes is given by \textcite{Sulem2024} but only if interaction functions $h_{ij}$ have a bounded support. Their proof strongly relies on this assumption since they extend to the multivariate case the renewal properties proved by \textcite{Costa2020} for non-linear univariate Hawkes processes with a bounded kernel.
 Their proof also requires some assumptions to ensure that one process is not totally inhibited, which is also a consequence of the assumptions that we propose, as discussed in Section~\ref{sec:chap3_identifiability}. 
 
     As expected, Proposition~\ref{prop:chap3_compensator} makes it possible to compute explicitly the log-likelihood expressed in Equation~\eqref{eq:chap3_general_log_likelihood} for multivariate exponential Hawkes processes.
@@ -453,7 +453,7 @@ Their proof also requires some assumptions to ensure that one process is not tot
       
    \subsubsection{Thresholding}
    
-   The first method that will be referred to as (MLE-$\varepsilon$) is obtained by adding a thresholding step to the classic Maximum Likelihood Estimation (MLE). This is similar to the cumulative percentage of total variation approach presented in Principal Component Analysis \cite[Section 6.1.1]{Joliffe2002}. All absolute estimated values $\lvert \tilde\alpha_{ij}\rvert$ are arranged in increasing order $(\lvert \tilde\alpha_{(k)}\rvert)_{k\in \{1, \ldots, d^2\}}$. We compute then the cumulative sums
+   The first method that will be referred to as (MLE-$\varepsilon$) is obtained by adding a thresholding step to the classic Maximum Likelihood Estimation (MLE). This is similar to the cumulative percentage of total variation approach presented in Principal Component Analysis \textcite[Section 6.1.1]{Joliffe2002}. All absolute estimated values $\lvert \tilde\alpha_{ij}\rvert$ are arranged in increasing order $(\lvert \tilde\alpha_{(k)}\rvert)_{k\in \{1, \ldots, d^2\}}$. We compute then the cumulative sums
    $s_k = \sum_{l=1}^{k}{\lvert \tilde\alpha_{(l)}\rvert}$
    and write $S := s_{d^2}$ the sum of all absolute estimated values.
    Then all estimations $\tilde\alpha_{(k)}$ such that \[s_k < \varepsilon S\,,\] are set to zero, for a threshold $\varepsilon \in (0,1)$.
@@ -479,7 +479,7 @@ Their proof also requires some assumptions to ensure that one process is not tot
 
    where $s_n$ is the empirical standard deviation of the sample and $t_{1-\frac{\eta}{2}}$ is the quantile of level $1-\frac{\eta}{2}$ of the Student distribution with $n-1$ degrees of freedom. 
    This corresponds to a confidence interval obtained for normally distributed estimators.
-   For Hawkes processes with exclusively exciting interactions, estimations obtained through the MLE procedure are asymptotically normal as proven in \cite[Theorem 5]{Ogata1978} and as discussed in \textcite{Laub2014}.
+   For Hawkes processes with exclusively exciting interactions, estimations obtained through the MLE procedure are asymptotically normal as proven in \textcite[Theorem 5]{Ogata1978} and as discussed in \textcite{Laub2014}.
    For processes with inhibiting interactions, 
    asymptotic normality is still an open question but is in all likelihood true.
    However, one has to be careful when using this estimator, in particular a small number of observations could imply that the asymptotic normality is not achieved. In practice, normality can be tested thanks to a Kolmogorov-Smirnov test.   
@@ -498,7 +498,7 @@ Their proof also requires some assumptions to ensure that one process is not tot
 
   \subsection{Goodness-of-fit}\label{sec:chap3_goodness}
     As a benefit of our approach, it is possible to perform a goodness-of-fit test for assessing the quality of estimations. This is particularly useful when choosing between several estimations (such as those introduced before), in particular to choose an optimal level of thresholding for the (MLE-$\varepsilon$) method.
-    The closed-form expression of the compensator given in Proposition~\ref{prop:chap3_compensator} enables the use of the Time Change Theorem for inhomogeneous Poisson processes \cite[Proposition 7.4.IV]{DaleyV1}.
+    The closed-form expression of the compensator given in Proposition~\ref{prop:chap3_compensator} enables the use of the Time Change Theorem for inhomogeneous Poisson processes \textcite[Proposition 7.4.IV]{DaleyV1}.
     For any $i$, the sequence of transformed times $(\Lambda^i(T_k^i))_k$ is a realisation of a homogeneous Poisson process with unit-intensity if and only if $(T_k^i)_k$ is a realisation of a point process with intensity $\lambda^i$.
 
     We can then define for any $\theta\in\Theta$ the null hypothesis
@@ -912,7 +912,7 @@ As only ten realisations are available, this can obviously limit the performance
 	\item We cumulate all 3 realisations by considering that process $N_1$ takes place in $[0, 6.5]$ then process $N_2$ in $[6.5, 13]$ and finally $N_3$ in $[13, 19.5]$. This creates a single realisation $N$ in the interval $[0, 19.5]$. 
 \end{enumerate}
 
-This approach is proposed in \cite[Section 3.4]{Reynaud2014}. In our case, we repeat this process 20 times to obtain another sample of realisations. These new sample will be used for both the (MLE) method (presented as (resampled-MLE)) and for both (CfE) and (CfSt).
+This approach is proposed in \textcite[Section 3.4]{Reynaud2014}. In our case, we repeat this process 20 times to obtain another sample of realisations. These new sample will be used for both the (MLE) method (presented as (resampled-MLE)) and for both (CfE) and (CfSt).
 
 
 \subsection{Goodness-of-fit and multiple testing procedure}

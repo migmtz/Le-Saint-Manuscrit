@@ -1,6 +1,23 @@
 \begin{abstract}
-French version
+The Hawkes point process is a popular statistical tool to analyse temporal patterns.
+Modern applications propose extensions of this model to account for specificities in each field of study, which in turn complexifies the task of inference.
+In this thesis, we advance different approaches for the parametric estimation of two submodels of the Hawkes process in univariate and multivariate settings.
+Motivated by the modelling of complex neuronal interactions observed from spike train data,
+our first study focuses on accounting for both inhibition and excitation effects between neurons, modelled by the non-linear Hawkes process.
+We derive a closed-form expression of the log-likelihood in order to implement a maximum likelihood procedure.
+As a consequence of our approach, we gain access to a goodness-of-fit scheme allowing us to establish ad hoc model selection methods to estimate the interaction network in the multivariate setting. 
+The second part of this thesis focuses on studying Hawkes process data noised by two different alterations: adding or removing points.
+The absence of knowledge on the noise dynamics makes classical inference procedures intractable or computationally expensive.
+Our solution is to leverage the spectral analysis of point processes to establish an estimator obtained by maximising the spectral log-likelihood.
+By deriving the spectral densities of the noised processes and by establishing identifiability conditions on our model, we show that the spectral inference method does not necessitate any information on the structure of the noise, effectively circumventing this issue.
+An additional result of the study of Hawkes processes with missing points is that it gives access to a subsampling paradigm to enhance the estimation methods by introducing a penalisation parameter.
+We illustrate the efficiency of all of our methods through reproducible numerical implementations.
+
+
 \end{abstract}
 \begin{abstract}
-English version
+Le processus ponctuel de Hawkes est un outil statistique très répandu pour analyser des dynamiques temporelles. Les applications modernes des processus de Hawkes proposent des extensions du modèle initial pour prendre en compte certaines caractéristiques spécifiques à chaque domaine d’étude, ce qui complexifie les tâches d’inférence. Dans cette
+    thèse, nous proposons différentes contributions à l’estimation paramétrique de deux variantes du processus de Hawkes dans les cadres univarié et multivarié. Motivée par la modélisation d'interactions complexes au sein d'une population de neurones, notre première étude porte sur la prise en compte conjointe d'effets excitateurs et inhibiteurs entre les signaux émis par les neurones au cours du temps, modélisés par un processus de Hawkes non-linéaire. Dans ce modèle, nous obtenons une expression explicite de la log-vraisemblance qui nous permet d’implémenter une procédure de maximum de vraisemblance.
+    Nous établissons également une méthode de sélection de modèle qui fournit notamment une estimation du réseau d’interactions dans le cadre multivarié. La deuxième partie de cette thèse est consacrée à l’étude des processus de Hawkes bruités par deux types d'altérations : l’ajout ou la suppression de certains points. Le manque d'information liée à ces mécanismes de bruit rend les méthodes classiques d’inférence non-applicables ou numériquement coûteuses. Notre solution consiste à s'appuyer sur l’analyse spectrale des processus ponctuels afin d’établir un estimateur obtenu en maximisant la log-vraisemblance spectrale. Nous obtenons l’expression des densités spectrales des processus bruités et, après avoir établi des conditions d’identifiabilité pour nos différents modèles, nous montrons que cette méthode d’inférence ne nécessite pas de connaître la structure du bruit, contournant ainsi le problème d'estimation. Notre étude sur les processus bruités donne accès à une méthode de sous-échantillonnage qui nous permet d’améliorer les approches d’estimation en introduisant un paramètre de pénalisation. Nous illustrons la performance des différentes méthodes proposées à travers des implémentations numériques reproductibles.
+
 \end{abstract}
