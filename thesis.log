@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.13)  22 JUL 2024 15:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.13)  21 AUG 2024 14:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1299,4 +1299,4410 @@ Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@savedlistf=\count541
 \c@location=\count542
 \c@savedlocation=\count543
-\c@or
+\c@organization=\count544
+\c@savedorganization=\count545
+\c@origlocation=\count546
+\c@savedoriglocation=\count547
+\c@origpublisher=\count548
+\c@savedorigpublisher=\count549
+\c@publisher=\count550
+\c@savedpublisher=\count551
+\c@language=\count552
+\c@savedlanguage=\count553
+\c@origlanguage=\count554
+\c@savedoriglanguage=\count555
+\c@pageref=\count556
+\c@savedpageref=\count557
+\shorthandwidth=\skip120
+\shortjournalwidth=\skip121
+\shortserieswidth=\skip122
+\shorttitlewidth=\skip123
+\shortauthorwidth=\skip124
+\shorteditorwidth=\skip125
+\locallabelnumberwidth=\skip126
+\locallabelalphawidth=\skip127
+\localshorthandwidth=\skip128
+\localshortjournalwidth=\skip129
+\localshortserieswidth=\skip130
+\localshorttitlewidth=\skip131
+\localshortauthorwidth=\skip132
+\localshorteditorwidth=\skip133
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
+\c@textcitecount=\count558
+\c@textcitetotal=\count559
+\c@textcitemaxnames=\count560
+\c@biburlbigbreakpenalty=\count561
+\c@biburlbreakpenalty=\count562
+\c@biburlnumpenalty=\count563
+\c@biburlucpenalty=\count564
+\c@biburllcpenalty=\count565
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count566
+)
+Package biblatex Info: Trying to load bibliography style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.bbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+File: authoryear.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count567
+\c@bbx:relatedtotal=\count568
+))
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+File: authoryear.cbx 2022/02/02 v3.17 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+Package biblatex Info: ... and expl3
+(biblatex)             2022-02-24 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
+Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
+)) (/usr/local/texlive/2022/texmf-dist/tex/latex/oberdiek/hypcap.sty
+Package: hypcap 2016/05/16 v1.12 Adjusting the anchors of captions (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count569
+))
+
+Package siunitx Info: Option "detect-all" has been deprecated in this release.
+(siunitx)             
+(siunitx)             Use "mode = match, propagate-math-font = true,
+(siunitx)             reset-math-version = false, reset-text-family = false,
+(siunitx)             reset-text-series = false, reset-text-shape = false,
+(siunitx)             text-family-to-math = true, text-series-to-math = true"
+(siunitx)             as a replacement.
+
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'english'.
+ (./thesis.aux (./chapters/introductionENalt.aux) (./chapters/chapitre1.aux) (./chapters/chapitre2.aux) (./chapters/chapitre3.aux) (./chapters/chapitre4.aux) (./chapters/chapitre5.aux) (./chapters/discussion.aux))
+\openout1 = `thesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-0.93083pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=69.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count570
+\scratchdimen=\dimen370
+\scratchbox=\box149
+\nofMPsegments=\count571
+\nofMParguments=\count572
+\everyMPshowfont=\toks99
+\MPscratchCnt=\count573
+\MPscratchDim=\dimen371
+\MPnumerator=\count574
+\makeMPintoPDFobject=\count575
+\everyMPtoPDFconversion=\toks100
+) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package nonumonpart Info: The command \@endpart is redefined.
+LaTeX Info: Redefining \degres on input line 24.
+LaTeX Info: Redefining \up on input line 24.
+\Etoc@tf=\read8
+
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into your preamble.
+ on input line 24.
+
+(/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 24.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-dictionary-spanish.trsl
+File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 24.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-dictionary-french.trsl
+File: translations-basic-dictionary-french.trsl (french translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `french'. on input line 24.
+Package hyperref Info: Link coloring OFF on input line 24.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/local/texlive/2022/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count576
+)
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
+LaTeX Info: Redefining \nameref on input line 24.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hypcap package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'spanish'...
+Package biblatex Info: ... file 'spanish.lbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/spanish.lbx
+File: spanish.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'french'...
+Package biblatex Info: ... file 'french.lbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/french.lbx
+File: french.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `thesis.bcf'.
+
+
+
+Package morewrites Warning: File 'thesis.mw' exists, using 'thesis.mw.mw'
+(morewrites)                instead.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'thesis.bbl' found.
+(./thesis.bbl)
+Package biblatex Info: Reference section=0 on input line 24.
+Package biblatex Info: Reference segment=0 on input line 24.
+ (./config/infos.tex) (./config/infos_lpsm.tex)
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* hratio: 1:1
+* vratio: 1:1
+* modes: includehead includefoot includemp 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(28.45274pt, 788.14136pt, 28.45274pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=652.30748pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-43.81725pt
+* \headheight=92.47145pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=0.0pt
+* \marginparsep=0.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 32.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+<logos/su.png, id=13, 702.625pt x 286.06876pt>
+File: logos/su.png Graphic file (type png)
+<use logos/su.png>
+Package pdftex.def Info: logos/su.png  used on input line 32.
+(pdftex.def)             Requested size: 87.34544pt x 35.56593pt.
+<logos/lpsm.png, id=16, 215.3646pt x 155.1396pt>
+File: logos/lpsm.png Graphic file (type png)
+<use logos/lpsm.png>
+Package pdftex.def Info: logos/lpsm.png  used on input line 32.
+(pdftex.def)             Requested size: 59.2468pt x 42.67912pt.
+\openout3 = `thesis.mw.mw'.
+
+ [1
+
+
+
+
+
+
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logos/su.png> <./logos/lpsm.png>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <48> not available
+(Font)              size <35.83> substituted on input line 32.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/sc' in size <48> not available
+(Font)              size <35.83> substituted on input line 32.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <15> not available
+(Font)              size <14.4> substituted on input line 32.
+
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 32.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Overfull \hbox (15.0pt too wide) in paragraph at lines 32--32
+[]$[]$
+ []
+
+File: logos/su.png Graphic file (type png)
+<use logos/su.png>
+Package pdftex.def Info: logos/su.png  used on input line 32.
+(pdftex.def)             Requested size: 87.34544pt x 35.56593pt.
+File: logos/lpsm.png Graphic file (type png)
+<use logos/lpsm.png>
+Package pdftex.def Info: logos/lpsm.png  used on input line 32.
+(pdftex.def)             Requested size: 59.2468pt x 42.67912pt.
+\openout3 = `thesis.mw.mw'.
+
+[2
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+LaTeX Font Info:    Trying to load font information for U+mvs on input line 37.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/marvosym/umvs.fd)
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 37.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+File: logos/lpsm.png Graphic file (type png)
+<use logos/lpsm.png>
+Package pdftex.def Info: logos/lpsm.png  used on input line 37.
+(pdftex.def)             Requested size: 128.3719pt x 92.47145pt.
+\openout3 = `thesis.mw.mw'.
+
+ [3
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+ (./abstract.tex)
+\openout3 = `thesis.mw.mw'.
+
+ [4
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\tf@toc=\write22
+\openout3 = `thesis.toc'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [5
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [6] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [7] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout2 = `chapters/introductionENalt.aux'.
+
+ (./chapters/introductionENalt.tex
+Chapter 1.
+LaTeX Font Info:    Trying to load font information for OT1+pzc on input line 11.
+(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1pzc.fd
+File: ot1pzc.fd 2020/03/25 font definitions for OT1/pzc.
+)
+LaTeX Font Info:    Font shape `OT1/pzc/m/n' in size <76> not available
+(Font)              Font shape `OT1/pzc/m/it' tried instead on input line 11.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 11--11
+[][][][][][][][][][][]  
+ []
+
+
+Overfull \hbox (14.5573pt too wide) in paragraph at lines 11--11
+ [][][]\T1/cmr/m/n/10 Maximum Like-li-hood Es-ti-ma-tion for Hawkes Pro-cesses with self-excitation 
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[1
+
+
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [2] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter0/two_kernel_examples_rev.pdf, id=569, 729.09946pt x 394.12932pt>
+File: images/chapter0/two_kernel_examples_rev.pdf Graphic file (type pdf)
+<use images/chapter0/two_kernel_examples_rev.pdf>
+Package pdftex.def Info: images/chapter0/two_kernel_examples_rev.pdf  used on input line 52.
+(pdftex.def)             Requested size: 418.25368pt x 226.09337pt.
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [3 <./images/chapter0/two_kernel_examples_rev.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter0/branching_and_cluster05.pdf, id=640, 712.46689pt x 925.37032pt>
+File: images/chapter0/branching_and_cluster05.pdf Graphic file (type pdf)
+<use images/chapter0/branching_and_cluster05.pdf>
+Package pdftex.def Info: images/chapter0/branching_and_cluster05.pdf  used on input line 83.
+(pdftex.def)             Requested size: 397.3397pt x 516.08585pt.
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [4] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+
+LaTeX Warning: Text page 5 contains only floats.
+
+\openout3 = `thesis.mw.mw'.
+
+[5 <./images/chapter0/branching_and_cluster05.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [6] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [7] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [8] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [9] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+LaTeX Font Info:    Trying to load font information for U+dsrom on input line 291.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [10] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [11] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (0.38431pt too wide) in paragraph at lines 406--406
+|[]\T1/cmr/bx/n/14.4 Something is amiss: spec-tral meth-ods for im-per-fect data| 
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[12] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [13] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [14] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (12.56416pt too wide) in paragraph at lines 558--559
+[]\T1/cmr/m/n/10 Code is freely avail-able at []$\T1/cmtt/m/n/10 https : / / github . com / migmtz / multivariate-[]hawkes-[]inhibition$[] 
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+)
+\openout3 = `thesis.mw.mw'.
+
+ [15] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout2 = `chapters/chapitre1.aux'.
+
+ (./chapters/chapitre1.tex
+Chapter 2.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 5--5
+[][][][][][][][][][][]  
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[16
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [17] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [18] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [19] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [20] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [21] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [22] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [23] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [24] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [25] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [26] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [27] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [28] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+)
+\openout3 = `thesis.mw.mw'.
+
+ [29] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [30] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout2 = `chapters/chapitre2.aux'.
+
+ (./chapters/chapitre2.tex
+Chapter 3.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 8--8
+[][][][][][][][][][][]  
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[31
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [32] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter2/cooldownTimesMarkedSerif2.pdf, id=1305, 527.32837pt x 286.41177pt>
+File: images/chapter2/cooldownTimesMarkedSerif2.pdf Graphic file (type pdf)
+<use images/chapter2/cooldownTimesMarkedSerif2.pdf>
+Package pdftex.def Info: images/chapter2/cooldownTimesMarkedSerif2.pdf  used on input line 86.
+(pdftex.def)             Requested size: 292.77629pt x 159.02159pt.
+
+Overfull \hbox (18.36684pt too wide) in paragraph at lines 98--98
+|[]\T1/cmr/bx/n/14.4 Maximum like-li-hood es-ti-ma-tion and the ex-po-nen-tial model| 
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[33] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (24.062pt too wide) in paragraph at lines 128--130
+[]\T1/cmr/m/n/10 In or-der to give an ex-plicit com-pu-ta-tion of the quan-tity $[][] []$ (equiv-a-lently $[][] []$)
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[34 <./images/chapter2/cooldownTimesMarkedSerif2.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [35] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [36] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter2/intensity_boxplot_log_cropped.pdf, id=1417, 582.25482pt x 387.84851pt>
+File: images/chapter2/intensity_boxplot_log_cropped.pdf Graphic file (type pdf)
+<use images/chapter2/intensity_boxplot_log_cropped.pdf>
+Package pdftex.def Info: images/chapter2/intensity_boxplot_log_cropped.pdf  used on input line 241.
+(pdftex.def)             Requested size: 418.25368pt x 278.60564pt.
+\openout3 = `thesis.mw.mw'.
+
+ [37 <./images/chapter2/intensity_boxplot_log_cropped.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [38] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+)
+\openout3 = `thesis.mw.mw'.
+
+ [39] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout2 = `chapters/chapitre3.aux'.
+
+ (./chapters/chapitre3.tex
+Chapter 4.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 10--10
+[][][][][][][][][][][]  
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[40
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [41] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [42] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [43] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [44] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/timesMarkedMulti.pdf, id=1672, 507.11218pt x 306.28064pt>
+File: images/chapter3/timesMarkedMulti.pdf Graphic file (type pdf)
+<use images/chapter3/timesMarkedMulti.pdf>
+Package pdftex.def Info: images/chapter3/timesMarkedMulti.pdf  used on input line 171.
+(pdftex.def)             Requested size: 313.69025pt x 189.46207pt.
+\openout3 = `thesis.mw.mw'.
+
+ [45] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [46 <./images/chapter3/timesMarkedMulti.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/restarTimesMarkedMulti.pdf, id=1737, 723.7508pt x 496.2584pt>
+File: images/chapter3/restarTimesMarkedMulti.pdf Graphic file (type pdf)
+<use images/chapter3/restarTimesMarkedMulti.pdf>
+Package pdftex.def Info: images/chapter3/restarTimesMarkedMulti.pdf  used on input line 213.
+(pdftex.def)             Requested size: 334.60422pt x 229.43262pt.
+\openout3 = `thesis.mw.mw'.
+
+ [47 <./images/chapter3/restarTimesMarkedMulti.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [48] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [49] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [50] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [51] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [52] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [53] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [54] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (1.85976pt too wide) in paragraph at lines 590--591
+[]\T1/cmr/m/n/10 (MLE) The es-ti-ma-tor ob-tained by min-imis-ing the op-po-site of the log-likelihood $\OMS/cmsy/m/n/10 ^^@ [][] []$
+ []
+
+
+Overfull \hbox (0.98094pt too wide) in paragraph at lines 596--597
+[]\T1/cmr/m/n/10 The lat-ter three meth-ods are spe-cially in-ter-est-ing for Sce-nar-ios (2) and (3) of the 2-dimensional
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[55] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/boxplots2O.pdf, id=1917, 1183.83846pt x 721.76714pt>
+File: images/chapter3/boxplots2O.pdf Graphic file (type pdf)
+<use images/chapter3/boxplots2O.pdf>
+Package pdftex.def Info: images/chapter3/boxplots2O.pdf  used on input line 632.
+(pdftex.def)             Requested size: 376.42575pt x 229.49443pt.
+\openout3 = `thesis.mw.mw'.
+
+ [56] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [57 <./images/chapter3/boxplots2O.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/reconstruction_param_3.pdf, id=2006, 842.23091pt x 480.13086pt>
+File: images/chapter3/reconstruction_param_3.pdf Graphic file (type pdf)
+<use images/chapter3/reconstruction_param_3.pdf>
+Package pdftex.def Info: images/chapter3/reconstruction_param_3.pdf  used on input line 706.
+(pdftex.def)             Requested size: 376.42575pt x 214.59164pt.
+<images/chapter3/Realheat.pdf, id=2008, 397.18224pt x 330.79836pt>
+File: images/chapter3/Realheat.pdf Graphic file (type pdf)
+<use images/chapter3/Realheat.pdf>
+Package pdftex.def Info: images/chapter3/Realheat.pdf  used on input line 718.
+(pdftex.def)             Requested size: 313.69025pt x 261.27736pt.
+\openout3 = `thesis.mw.mw'.
+
+ [58 <./images/chapter3/reconstruction_param_3.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/heatmap_hori.pdf, id=2065, 1058.32793pt x 326.97784pt>
+File: images/chapter3/heatmap_hori.pdf Graphic file (type pdf)
+<use images/chapter3/heatmap_hori.pdf>
+Package pdftex.def Info: images/chapter3/heatmap_hori.pdf  used on input line 724.
+(pdftex.def)             Requested size: 418.25368pt x 129.22218pt.
+\openout3 = `thesis.mw.mw'.
+
+ [59 <./images/chapter3/Realheat.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/p_values_10.pdf, id=2105, 723.20187pt x 479.27307pt>
+File: images/chapter3/p_values_10.pdf Graphic file (type pdf)
+<use images/chapter3/p_values_10.pdf>
+Package pdftex.def Info: images/chapter3/p_values_10.pdf  used on input line 770.
+(pdftex.def)             Requested size: 313.69025pt x 207.88242pt.
+<images/chapter3/boxplots_10_dim.pdf, id=2107, 829.637pt x 495.14487pt>
+File: images/chapter3/boxplots_10_dim.pdf Graphic file (type pdf)
+<use images/chapter3/boxplots_10_dim.pdf>
+Package pdftex.def Info: images/chapter3/boxplots_10_dim.pdf  used on input line 779.
+(pdftex.def)             Requested size: 376.42575pt x 224.65662pt.
+\openout3 = `thesis.mw.mw'.
+
+ [60 <./images/chapter3/heatmap_hori.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [61 <./images/chapter3/p_values_10.pdf> <./images/chapter3/boxplots_10_dim.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [62] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/heatmap_powerlaw_both.pdf, id=2290, 836.91504pt x 380.60255pt>
+File: images/chapter3/heatmap_powerlaw_both.pdf Graphic file (type pdf)
+<use images/chapter3/heatmap_powerlaw_both.pdf>
+Package pdftex.def Info: images/chapter3/heatmap_powerlaw_both.pdf  used on input line 872.
+(pdftex.def)             Requested size: 376.42575pt x 171.18245pt.
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [63 <./images/chapter3/heatmap_powerlaw_both.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [64] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/p_values_conf.pdf, id=2376, 830.2016pt x 479.27307pt>
+File: images/chapter3/p_values_conf.pdf Graphic file (type pdf)
+<use images/chapter3/p_values_conf.pdf>
+Package pdftex.def Info: images/chapter3/p_values_conf.pdf  used on input line 925.
+(pdftex.def)             Requested size: 376.42575pt x 217.30902pt.
+\openout3 = `thesis.mw.mw'.
+
+ [65 <./images/chapter3/p_values_conf.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/heatmap_mu_beta.pdf, id=2436, 596.94116pt x 543.85844pt>
+File: images/chapter3/heatmap_mu_beta.pdf Graphic file (type pdf)
+<use images/chapter3/heatmap_mu_beta.pdf>
+Package pdftex.def Info: images/chapter3/heatmap_mu_beta.pdf  used on input line 968.
+(pdftex.def)             Requested size: 334.60422pt x 304.84909pt.
+\openout3 = `thesis.mw.mw'.
+
+ [66] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [67 <./images/chapter3/heatmap_mu_beta.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (8.09856pt too wide) in paragraph at lines 1026--1029
+[]\T1/cmr/m/n/10 In par-tic-u-lar, the deriva-tive of the un-der-ly-ing in-ten-sity func-tion is of op-po-site sign as $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 T[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[68] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/cooldownTimesMarkedMulti.pdf, id=2515, 736.04674pt x 333.8742pt>
+File: images/chapter3/cooldownTimesMarkedMulti.pdf Graphic file (type pdf)
+<use images/chapter3/cooldownTimesMarkedMulti.pdf>
+Package pdftex.def Info: images/chapter3/cooldownTimesMarkedMulti.pdf  used on input line 1032.
+(pdftex.def)             Requested size: 418.25368pt x 189.7244pt.
+\openout3 = `thesis.mw.mw'.
+
+ [69 <./images/chapter3/cooldownTimesMarkedMulti.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [70] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [71] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [72] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [73] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter3/reconstruction_param_1.pdf, id=2619, 829.93498pt x 481.12057pt>
+File: images/chapter3/reconstruction_param_1.pdf Graphic file (type pdf)
+<use images/chapter3/reconstruction_param_1.pdf>
+Package pdftex.def Info: images/chapter3/reconstruction_param_1.pdf  used on input line 1281.
+(pdftex.def)             Requested size: 418.25368pt x 242.46843pt.
+<images/chapter3/reconstruction_param_2.pdf, id=2620, 829.93498pt x 479.27307pt>
+File: images/chapter3/reconstruction_param_2.pdf Graphic file (type pdf)
+<use images/chapter3/reconstruction_param_2.pdf>
+Package pdftex.def Info: images/chapter3/reconstruction_param_2.pdf  used on input line 1288.
+(pdftex.def)             Requested size: 418.25368pt x 241.53735pt.
+)
+\openout3 = `thesis.mw.mw'.
+
+ [74] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [75 <./images/chapter3/reconstruction_param_1.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [76 <./images/chapter3/reconstruction_param_2.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout2 = `chapters/chapitre4.aux'.
+
+ (./chapters/chapitre4.tex
+Chapter 5.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 17--17
+[][][][][][][][][][][]  
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[77
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [78] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [79] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [80] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (7.93208pt too wide) in paragraph at lines 168--170
+[]\T1/cmr/m/n/10 Then, the Bartlett spec-trum of $\OML/cmm/m/it/10 N$ \T1/cmr/m/n/10 is the matrix-valued func-tion $\OT1/cmr/bx/n/10 ^^@[] \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 ! \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 R \OMS/cmsy/m/n/10 7! \OT1/cmr/m/n/10 (^^@[](\OML/cmm/m/it/10 !\OT1/cmr/m/n/10 ))[] \OMS/cmsy/m/n/10 2
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[81] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [82] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [83] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [84] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [85] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [86] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [87] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [88] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [89] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter4//l2_error_wrt_nbpoints.pdf, id=3033, 833.31038pt x 412.38417pt>
+File: images/chapter4//l2_error_wrt_nbpoints.pdf Graphic file (type pdf)
+<use images/chapter4//l2_error_wrt_nbpoints.pdf>
+Package pdftex.def Info: images/chapter4//l2_error_wrt_nbpoints.pdf  used on input line 655.
+(pdftex.def)             Requested size: 418.25368pt x 206.98442pt.
+<images/chapter4//vector_max_hor_wrt_noise_N.pdf, id=3035, 853.74861pt x 433.62pt>
+File: images/chapter4//vector_max_hor_wrt_noise_N.pdf Graphic file (type pdf)
+<use images/chapter4//vector_max_hor_wrt_noise_N.pdf>
+Package pdftex.def Info: images/chapter4//vector_max_hor_wrt_noise_N.pdf  used on input line 669.
+(pdftex.def)             Requested size: 418.25368pt x 212.43596pt.
+\openout3 = `thesis.mw.mw'.
+
+ [90 <./images/chapter4//l2_error_wrt_nbpoints.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter4//compensation_beta_N.pdf, id=3101, 853.74861pt x 578.16pt>
+File: images/chapter4//compensation_beta_N.pdf Graphic file (type pdf)
+<use images/chapter4//compensation_beta_N.pdf>
+Package pdftex.def Info: images/chapter4//compensation_beta_N.pdf  used on input line 687.
+(pdftex.def)             Requested size: 418.25368pt x 283.24794pt.
+<images/chapter4//compensation_alpha_N.pdf, id=3104, 853.74861pt x 578.16pt>
+File: images/chapter4//compensation_alpha_N.pdf Graphic file (type pdf)
+<use images/chapter4//compensation_alpha_N.pdf>
+Package pdftex.def Info: images/chapter4//compensation_alpha_N.pdf  used on input line 699.
+(pdftex.def)             Requested size: 418.25368pt x 283.24794pt.
+\openout3 = `thesis.mw.mw'.
+
+ [91 <./images/chapter4//vector_max_hor_wrt_noise_N.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (23.19923pt too wide) in paragraph at lines 733--736
+\T1/cmr/m/n/10 The Hawkes pro-cess is then sim-u-lated with dif-fer-ent lev-els of cross-interaction: $\OML/cmm/m/it/10 [] \OMS/cmsy/m/n/10 2 f\OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 6\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 8\OMS/cmsy/m/n/10 g$\T1/cmr/m/n/10 ,
+ []
+
+<images/chapter4//phase_transition.pdf, id=3167, 832.05405pt x 198.42317pt>
+File: images/chapter4//phase_transition.pdf Graphic file (type pdf)
+<use images/chapter4//phase_transition.pdf>
+Package pdftex.def Info: images/chapter4//phase_transition.pdf  used on input line 746.
+(pdftex.def)             Requested size: 418.25368pt x 99.7442pt.
+\openout3 = `thesis.mw.mw'.
+
+[92 <./images/chapter4//compensation_beta_N.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [93 <./images/chapter4//compensation_alpha_N.pdf> <./images/chapter4//phase_transition.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter4//bivariate_spectral_hawkes.pdf, id=3319, 845.04686pt x 426.79132pt>
+File: images/chapter4//bivariate_spectral_hawkes.pdf Graphic file (type pdf)
+<use images/chapter4//bivariate_spectral_hawkes.pdf>
+Package pdftex.def Info: images/chapter4//bivariate_spectral_hawkes.pdf  used on input line 775.
+(pdftex.def)             Requested size: 209.12683pt x 105.61652pt.
+<images/chapter4//column_triangle_model_estimation.pdf, id=3322, 711.77681pt x 707.14188pt>
+File: images/chapter4//column_triangle_model_estimation.pdf Graphic file (type pdf)
+<use images/chapter4//column_triangle_model_estimation.pdf>
+Package pdftex.def Info: images/chapter4//column_triangle_model_estimation.pdf  used on input line 788.
+(pdftex.def)             Requested size: 418.25368pt x 415.53763pt.
+\openout3 = `thesis.mw.mw'.
+
+ [94 <./images/chapter4//bivariate_spectral_hawkes.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [95 <./images/chapter4//column_triangle_model_estimation.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [96] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [97] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (30.14299pt too wide) in alignment at lines 916--920
+ [][] []
+ []
+
+
+Overfull \hbox (30.14299pt too wide) detected at line 920
+ [][] 
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[98
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.5.B.18}) has been already used, duplicate ignored
+
+\__morewrites_shipout_ii: ...rewrites_shipout_box 
+                                                  \__morewrites_after_shipout: 
+l.942         \end{subnumcases}
+                               ] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (3.70729pt too wide) detected at line 994
+\OML/cmm/m/it/10 f[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 f[]  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  []  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  []
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[99
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.5.B.18}) has been already used, duplicate ignored
+
+\__morewrites_shipout_ii: ...rewrites_shipout_box 
+                                                  \__morewrites_after_shipout: 
+l.994   \]
+          
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.5.B.19}) has been already used, duplicate ignored
+
+\__morewrites_shipout_ii: ...rewrites_shipout_box 
+                                                  \__morewrites_after_shipout: 
+l.994   \]
+          ] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [100] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (9.84077pt too wide) in paragraph at lines 1056--1060
+[]\T1/cmr/m/n/10 Now de-fine in the same man-ner $\OML/cmm/m/it/10 ^^\[]$\T1/cmr/m/n/10 , $\OML/cmm/m/it/10 G[]$\T1/cmr/m/n/10 , and $\OML/cmm/m/it/10 D[]$ \T1/cmr/m/n/10 from the pro-cess $\OML/cmm/m/it/10 N[]$ \T1/cmr/m/n/10 with pa-ram-e-ter $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^V[]; []; ^^L[]; ^^U[]\OT1/cmr/m/n/10 )$\T1/cmr/m/n/10 ,
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[101] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [102] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [103] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [104] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [105] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (12.03796pt too wide) detected at line 1339
+[]
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[106] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [107] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [108] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+LaTeX Font Info:    Trying to load font information for U+euf on input line 1478.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+\openout3 = `thesis.mw.mw'.
+
+ [109] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+)
+\openout3 = `thesis.mw.mw'.
+
+ [110] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout2 = `chapters/chapitre5.aux'.
+
+ (./chapters/chapitre5.tex
+Chapter 6.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 11--11
+[][][][][][][][][][][]  
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[111
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [112] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 66.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 66.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[113] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [114] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [115] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 231.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[116] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [117] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [118] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter5/l2_error_same_information.pdf, id=3765, 1422.42758pt x 425.87292pt>
+File: images/chapter5/l2_error_same_information.pdf Graphic file (type pdf)
+<use images/chapter5/l2_error_same_information.pdf>
+Package pdftex.def Info: images/chapter5/l2_error_same_information.pdf  used on input line 373.
+(pdftex.def)             Requested size: 418.25368pt x 125.22203pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 379.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 379.
+
+\openout3 = `thesis.mw.mw'.
+
+[119 <./images/chapter5/l2_error_same_information.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (8.5815pt too wide) in paragraph at lines 399--400
+[]$[]$\T1/cmr/m/n/10 : the es-ti-ma-tor ob-tained by max-is-ing the pe-nalised spec-tral log-likelihood (Equa-tion [])
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+<images/chapter5/l2_error_subsampling.pdf, id=3868, 730.61281pt x 380.04546pt>
+File: images/chapter5/l2_error_subsampling.pdf Graphic file (type pdf)
+<use images/chapter5/l2_error_subsampling.pdf>
+Package pdftex.def Info: images/chapter5/l2_error_subsampling.pdf  used on input line 422.
+(pdftex.def)             Requested size: 418.25368pt x 217.56758pt.
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+[120] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [121 <./images/chapter5/l2_error_subsampling.pdf>] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [122] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [123] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [124] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [125] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+)
+\openout3 = `thesis.mw.mw'.
+
+ [126] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout2 = `chapters/discussion.aux'.
+
+ (./chapters/discussion.tex
+Chapter 7.
+
+Overfull \hbox (9.0pt too wide) in paragraph at lines 2--2
+[][][][][][][][][][][]  
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (0.56438pt too wide) in paragraph at lines 26--31
+[]\T1/cmr/m/n/10 In our ap-pli-ca-tion to the study of neu-ronal ac-tiv-ity, the re-sults ex-hib-ited a clear self-interaction
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[127
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+)
+\openout3 = `thesis.mw.mw'.
+
+ [128] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [129
+
+
+
+
+
+
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [130] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [131] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [132] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+
+Overfull \hbox (3.31438pt too wide) in paragraph at lines 78--78
+[][]\T1/cmr/m/n/10 Lund, J. and M. Rudemo (2000). ^^P  Mod-els for Point Pro-cesses Ob-served with Noise^^Q. In: \T1/cmr/m/it/10 Biometrika
+ []
+
+\openout3 = `thesis.mw.mw'.
+
+[133] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ [134] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+Package biblatex Info: Reference segment=1 on input line 78.
+Package biblatex Info: Setting label 'refsegment:01' on input line 78.
+Package biblatex Info: Reference segment=0 on input line 78.
+\openout3 = `thesis.mw.mw'.
+
+ [135] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+File: logos/lpsm.png Graphic file (type png)
+<use logos/lpsm.png>
+Package pdftex.def Info: logos/lpsm.png  used on input line 80.
+(pdftex.def)             Requested size: 28.45274pt x 20.49553pt.
+\openout3 = `thesis.mw.mw'.
+
+ [136
+
+
+] (./thesis.mw.mw)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ (./thesis.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+ (./chapters/introductionENalt.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+) (./chapters/chapitre1.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+) (./chapters/chapitre2.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+) (./chapters/chapitre3.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+) (./chapters/chapitre4.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+) (./chapters/chapitre5.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+) (./chapters/discussion.aux
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+)
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 12.17pt have occurred.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.mw.mw'.
+
+\openout3 = `thesis.bcf'.
+
+Package logreq Info: Writing requests to 'thesis.run.xml'.
+\openout1 = `thesis.run.xml'.
+
+\openout3 = `thesis.toc'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 64680 strings out of 478268
+ 1472300 string characters out of 5846347
+ 2654366 words of memory out of 5000000
+ 80783 multiletter control sequences out of 15000+600000
+ 512301 words of font info for 137 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 109i,18n,134p,1650b,2858s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/marvosym/marvosym.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx0900.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc0900.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfsx1728.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfxc0900.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb>
+Output written on thesis.pdf (143 pages, 2569357 bytes).
+PDF statistics:
+ 4743 PDF objects out of 5155 (max. 8388607)
+ 3363 compressed objects within 34 object streams
+ 704 named destinations out of 1000 (max. 500000)
+ 1050 words of extra memory for PDF output out of 10000 (max. 10000000)
+
