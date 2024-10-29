@@ -250,7 +250,8 @@
 
     Our general contribution in the context of Hawkes processes with inhibition is to provide parametric estimation procedures in a frequentist framework through maximum likelihood estimation.
     To our knowledge, and by the time of publication of both corresponding papers, other frequentist approaches \parencite{Reynaud2014,Bacry2016} do not model inhibition but can provide negative estimations.
-    In Bayesian contexts, works modelling non-linear Hawkes processes focus around the log-likelihood. In \textcite{Deutsch2022}, the compensator is approximated through a Simpson's rule to obtain posterior samples in a parametric setting. 
+    In Bayesian contexts, works modelling non-linear Hawkes processes focus around the log-likelihood. In \textcite{Deutsch2022}, the compensator is computed exactly in the case where the interaction functions $h_{ij}$ are exponential with shared decay rate (a similar result to the one presented in Chapter~\ref{chapter:multivariate_inhibition}, obtained independently
+    during the same period). In practice, an approximation of the compensator through a Simpson's rule is proposed for more general scenarios. This gives access to posterior density estimates in a parametric setting. %In parenthesis cite and then approximation in practice
     Works in non-parametric settings include \textcite{Sulem2024} that derives posterior concentration rates and \textcite{Sulem2023} proposing a variational Bayes method and a sparsity-inducing version based on a model selection paradigm.
 
     \subsection{Maximum Likelihood Estimation for Hawkes Processes with self-excitation or inhibition}

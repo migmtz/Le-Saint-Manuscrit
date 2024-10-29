@@ -95,7 +95,7 @@ Intuitively, a point process $N$ is a random measure \parencite[Corollary 1.6.4.
 For instance, for any $B\in\mathcal{B}_{\mathcal{X}}$, $N(B)$ will denote the measure of $B$ by $N$, which allows us to introduce the definition of a simple point process.
 
 \begin{definition}
-A point process $N$ is \emph{simple} if for any $x\in\mathcal{X}$, $N(\{x\}) \in \{0, 1\}$ a.s.
+A point process $N$ is \emph{simple} if, for any $x\in\mathcal{X}$, $N(\{x\}) \in \{0, 1\}$, a.s.
 \end{definition}
 
 It is very common in the literature to work uniquely with simple point processes, but before further discussing this, let us exhibit the following result from the theory of point processes.
@@ -448,7 +448,9 @@ Let us illustrate the principle with the baseline intensity $\mu$: for a current
 This allows us to obtain approximatively a sample according to the posterior distribution and provides an estimation $\hat \theta$ by averaging.
 
 Further works in Bayesian contexts in the multivariate setting include \textcite{Blundell2012} for Hawkes processes for the study of a social interaction graph, \textcite{Donnet2020} with theoretical results concerning the concentration rates of posterior distributions. These methods have been recently adapted to include inhibition through non-linear Hawkes processes.
-In \textcite{Deutsch2022}, the authors propose to compute the log-likelihood by approximating the compensator by a Simpson's rule in a parametric setting.
+%In \textcite{Deutsch2022}, the authors propose to compute the log-likelihood by approximating the compensator by a Simpson's rule in a parametric setting.
+In \textcite{Deutsch2022}, the authors propose to compute the log-likelihood in a multivariate parametric setting with a time-dependent baseline $\mu$. %Choix du prior reparam
+They provide an exact computation of the log-likelihood for exponential kernels with shared decaying parameters ($\beta_{ij} = \beta \in\RR$), and an approximation of it by a Simpson's rule suited for more general cases. Additionally, the model is reparametrised with respect to the expected total number of offsprings in order to provide normal priors better adapted for higher dimensional processes.  
 A non-parametric estimation method is proposed in \textcite{Sulem2024} which derives posterior concentration rates and in \textcite{Sulem2023} through a variational Bayes procedure with a sparsity-inducing paradigm. 
 
 
