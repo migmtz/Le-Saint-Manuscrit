@@ -275,7 +275,7 @@
 	      the spectral density $\mathbf{f}^H$ of the Hawkes process $H$ (defined as in Equation~\eqref{eq:chap4_hawkes_intensity}) is \parencite[Equation (8.3.11)]{DaleyV1}:
 	      \begin{equation}\label{eq:chap4_multivariate_spectral_matrix}
 	        \forall w \in \RR: \quad
-          \mathbf{f}^H(\omega) = \left( I_d - \tilde h(-\omega) \right)^{-1} \diag \left(m^H \right) \left(I_d - \tilde h(\omega)^T \right)^{-1}\,,
+          \mathbf{f}^H(\omega) = \left( I_d - \tilde h(\omega) \right)^{-1} \diag \left(m^H \right) \left(I_d - \tilde h(-\omega)^T \right)^{-1}\,,
         \end{equation}
         where $I_d$ is the identity matrix of dimension $d$ and $\diag \left(m^H \right)$ is the diagonal matrix formed by the vector of the mean intensities:
         \[
@@ -482,7 +482,7 @@ Still, we will show how, by imposing some constraints on the modelling of multiv
         \[
           \begin{cases}
             f_{11}^H (\omega) = \frac{m_1^H \left \lvert 1 - \tilde h_{22}(\omega) \right \rvert^2 + m_2^H \left \lvert  \tilde h_{12}(\omega) \right \rvert^2}{\left \lvert \left (1-\tilde h_{11}(\omega) \right) \left (1-\tilde h_{22}(\omega) \right) - \tilde h_{12}(\omega) \tilde h_{21}(\omega) \right \rvert^2}\\
-            f_{12}^H(\omega) = \frac{m_1^H \left(1-\tilde h_{22}(-\omega) \right)\tilde h_{21}(\omega) + m_2^H \left (1-\tilde h_{11}(\omega) \right) \tilde h_{12}(-\omega)}{\left \lvert \left (1-\tilde h_{11}(\omega) \right) \left (1-\tilde h_{22}(\omega) \right) - \tilde h_{12}(\omega) \tilde h_{21}(\omega) \right \rvert^2}
+            f_{12}^H(\omega) = \frac{m_1^H \left(1-\tilde h_{22}(\omega) \right)\tilde h_{21}(-\omega) + m_2^H \left (1-\tilde h_{11}(-\omega) \right) \tilde h_{12}(\omega)}{\left \lvert \left (1-\tilde h_{11}(\omega) \right) \left (1-\tilde h_{22}(\omega) \right) - \tilde h_{12}(\omega) \tilde h_{21}(\omega) \right \rvert^2}
           \end{cases} \,,
         \]
         and
@@ -1243,8 +1243,8 @@ For any admissible parameter $\theta = (\mu, \alpha, \beta, \lambda_0)$ and for 
   {f_\theta^N}_{21}(\omega) & {f_\theta^N}_{22}(\omega)
 \end{bmatrix}	=
 \begin{bmatrix}
-  {f_\theta^N}_{11}(\omega) &  \dfrac{\mu_2 \beta_1 \alpha_{12}}{\beta_1(1-\alpha_{11}) - 2 \pi \iu \omega}\\
-   \dfrac{\mu_2 \beta_1 \alpha_{12}}{\beta_1(1-\alpha_{11}) + 2 \pi \iu \omega} & \mu_2 + \lambda_0
+  {f_\theta^N}_{11}(\omega) &  \dfrac{\mu_2 \beta_1 \alpha_{12}}{\beta_1(1-\alpha_{11}) + 2 \pi \iu \omega}\\
+   \dfrac{\mu_2 \beta_1 \alpha_{12}}{\beta_1(1-\alpha_{11}) - 2 \pi \iu \omega} & \mu_2 + \lambda_0
 \end{bmatrix}
 \end{equation*}
 with 
@@ -1269,8 +1269,8 @@ which allow us to rewrite the spectral matrix as:
 \begin{equation}\label{eq:chap4_bi_matrix_constants}
 \mathbf{f}_\theta^N(\omega) = 
 \begin{bmatrix}
-  \dfrac{E}{C^2 + 4 \pi^2 \omega^2} + D & \dfrac{B}{C - 2 \pi \iu \omega}\\
-  \dfrac{B}{C + 2 \pi \iu \omega} & A
+  \dfrac{E}{C^2 + 4 \pi^2 \omega^2} + D & \dfrac{B}{C + 2 \pi \iu \omega}\\
+  \dfrac{B}{C - 2 \pi \iu \omega} & A
 \end{bmatrix}\,.
 \end{equation}
 
@@ -1342,8 +1342,8 @@ This assures that, for all $\omega \in \RR$:
 
 \[
 \mathbf{f}_{\theta'}^N(\omega) = \begin{bmatrix}
-  \dfrac{E}{C^2 + 4 \pi^2 \omega^2} + D & \dfrac{B}{C - 2 \pi \iu \omega}\\
-  \dfrac{B}{C + 2 \pi \iu \omega} & A
+  \dfrac{E}{C^2 + 4 \pi^2 \omega^2} + D & \dfrac{B}{C + 2 \pi \iu \omega}\\
+  \dfrac{B}{C - 2 \pi \iu \omega} & A
 \end{bmatrix} 
 = \mathbf{f}_{\theta}^N(\omega) \,,
 \]
@@ -1366,7 +1366,7 @@ Without loss of generality, let
 Then, for any admissible parameter $\theta = (\mu, \alpha, \beta, \lambda_0)$ and all $\omega\in\RR$:
 \[\begin{dcases}
 {f_\theta^N}_{11}(\omega) = \frac{\mu_1}{1-\alpha_{11}}\frac{\beta_1^2 + 4 \pi^2 \omega^2}{\beta_1^2(1-\alpha_{11})^2 + 4\pi^2\omega^2} + \lambda_0\\
-{f_\theta^N}_{12}(\omega) = \frac{\mu_1}{1-\alpha_{11}}\frac{\beta_1^2 + 4 \pi^2 \omega^2}{\beta_1^2(1-\alpha_{11})^2 + 4\pi^2\omega^2} \frac{\alpha_{21}\beta_2}{\beta_2 + 2\pi \iu \omega}\\
+{f_\theta^N}_{12}(\omega) = \frac{\mu_1}{1-\alpha_{11}}\frac{\beta_1^2 + 4 \pi^2 \omega^2}{\beta_1^2(1-\alpha_{11})^2 + 4\pi^2\omega^2} \frac{\alpha_{21}\beta_2}{\beta_2 - 2\pi \iu \omega}\\
 {f_\theta^N}_{22}(\omega) = \frac{\mu_1}{1-\alpha_{11}}\frac{\beta_1^2 + 4 \pi^2 \omega^2}{\beta_1^2(1-\alpha_{11})^2 + 4\pi^2\omega^2} \frac{\alpha_{21}^2\beta_2^2}{\beta_2^2 + 4\pi^2\omega^2} + \mu_2 + \frac{\mu_1 \alpha_{21}}{1-\alpha_{11}} + \lambda_0\,,
 \end{dcases}\]
 and ${f_\theta^N}_{21}(\omega) = \overline{{f_\theta^N}_{12}(\omega)}$.
@@ -1375,7 +1375,7 @@ These expressions can be reformulated as follows:
 
 \[\begin{dcases}
 {f_\theta^N}_{11}(\omega) = m_1^H \frac{1}{\lvert 1 - \tilde h_{\theta \, 11}(\omega)\rvert^2} + \lambda_0\\
-{f_\theta^N}_{12}(\omega) = ({f_\theta^N}_{11}(\omega) - \lambda_0)\tilde h_{\theta \, 21}(\omega)\\
+{f_\theta^N}_{12}(\omega) = ({f_\theta^N}_{11}(\omega) - \lambda_0)\tilde h_{\theta \, 21}(-\omega)\\
 {f_\theta^N}_{22}(\omega) = \frac{\lvert {f_\theta^N}_{12}(\omega)\rvert^2}{{f_\theta^N}_{11}(\omega) - \lambda_0} + \lim_{\omega' \to +\infty}{f_\theta^N}_{22}(\omega')\,.
 \end{dcases}\]
 where $m_1^H = {\mu_1}/{(1 - \alpha_{11})}$, $m_2^H =  \mu_2 + \mu_1 \alpha_{21} / ( 1 - \alpha_{11} )$ and $\lim_{\omega' \to +\infty}{f_\theta^N}_{22}(\omega') = m_2^H + \lambda_0$.
@@ -1390,7 +1390,7 @@ ${f_\theta^N}_{12}(0) = {f_{\theta'}^N}_{12}(0)$
 and ${f_\theta^N}_{11}(0) = {f_{\theta'}^N}_{11}(0)$,
 it results that: \[\lambda_0 = \lambda_0'\,.\]
 
-Now, for all $\omega \in \RR$, since ${f_\theta^N}_{12}(\omega) = {f_{\theta'}^N}_{12}(\omega)$, it comes $({f_\theta^N}_{11}(\omega) - \lambda_0)\tilde h_{\theta \, 21}(\omega) = ({f_{\theta'}^N}_{11}(\omega) - \lambda_0')\tilde h_{\theta', 21}(\omega)$, then $\tilde h_{\theta \, 21}(\omega) = \tilde h_{\theta', 21}(\omega)$.
+Now, for all $\omega \in \RR$, since ${f_\theta^N}_{12}(\omega) = {f_{\theta'}^N}_{12}(\omega)$, it comes $({f_\theta^N}_{11}(\omega) - \lambda_0)\tilde h_{\theta \, 21}(-\omega) = ({f_{\theta'}^N}_{11}(\omega) - \lambda_0')\tilde h_{\theta', 21}(-\omega)$, then $\tilde h_{\theta \, 21}(\omega) = \tilde h_{\theta', 21}(\omega)$.
 By Equation~\eqref{eq:chap4_fourier_exponential}, it results that: 
 \[
 \frac{\alpha_{21} \beta_2}{\beta_2 + 2 \pi \iu \omega} = \frac{\alpha_{21}' \beta_2'}{\beta_2' + 2 \pi \iu \omega}\,.
@@ -1466,7 +1466,7 @@ Without loss of generality, let
 Then, for any admissible parameter $\theta = (\mu, \alpha, \beta, \lambda_0)$ and all $\omega\in\RR$:
 \[\begin{dcases}
 {f_\theta^N}_{11}(\omega) = \dfrac{\mu_1}{1-\alpha_{11}} \dfrac{\beta_1^2 \alpha_{11}(2-\alpha_{11})}{\beta_1^2(1-\alpha_{11})^2 + 4 \pi^2\omega^2} + \dfrac{\mu_1}{1-\alpha_{11}} + \lambda_0\\
-{f_\theta^N}_{12}(\omega) = \left( {f_\theta^N}_{11}(\omega) - \lambda_0 \right) \dfrac{\alpha_{21} \beta_2}{\beta_2^2(1-\alpha_{22})^2 + 4\pi^2\omega^2}\left(\beta_2(1-\alpha_{22}) - 2 \pi \iu \omega\right)\\
+{f_\theta^N}_{12}(\omega) = \left( {f_\theta^N}_{11}(\omega) - \lambda_0 \right) \dfrac{\alpha_{21} \beta_2}{\beta_2^2(1-\alpha_{22})^2 + 4\pi^2\omega^2}\left(\beta_2(1-\alpha_{22}) + 2 \pi \iu \omega\right)\\
 {f_\theta^N}_{22}(\omega) = \left( \dfrac{\mu_1 \alpha_{21}}{(1-\alpha_{22})(1-\alpha_{11})} + \dfrac{\mu_2}{1-\alpha_{22}} \right)\dfrac{\beta_2^2 + 4\pi^2\omega^2}{\beta_2^2(1-\alpha_{22})^2 + 4\pi^2\omega^2} \,+ \\
 \phantom{{f_\theta^N}_{22}(\omega) = } \dfrac{\mu_1 \alpha_{21}^2 \beta_2^2 }{1-\alpha_{11}} \dfrac{\beta_1^2 + 4\pi^2\omega^2}{(\beta_2^2(1-\alpha_{22})^2 + 4\pi^2\omega^2)(\beta_1^2(1-\alpha_{11})^2 + 4\pi^2\omega^2)} + \lambda_0\,,
 \end{dcases}

@@ -1,4 +1,4 @@
-\documentclass[mainlanguage=english,french, spanish, oneside=True, secnumdepth=subsection,
+\documentclass[mainlanguage=english,french, spanish, secnumdepth=subsection,
 localtocs=True, output=screen, fncychap=Bjornstrup, version=final]{yathesis}
 % Set oneside=False for pages for printing blank between chapters
 % version to control what appears under
@@ -35,18 +35,18 @@ giveninits=false, doi=false, isbn=false, url=false]{biblatex}
 
 \makelaboratory
 
-\dedication{A mi madre, mi padre, mi tia, y toda mi gente amada.}
-%\makededications
+\dedication{A ese niño que pasaba las noches haciendo sumas.}
+\makededications
 
 % Épigraphes(s) :
 \frontepigraph[spanish]{La vida sería mucho más agradable si uno pudiera llevarse a dónde quiera que fuera los sabores y los olores de la casa materna.}{Laura Esquivel}
 \frontepigraph[english]{What I need is the dandelion in the spring. The bright yellow that means rebirth instead of destruction. The promise that life can go on, no matter how bad our losses. That it can be good again.}{Suzanne Collins}
 \frontepigraph[french]{Ce que je ferai ici aura au moins le mérite de ne ressembler à personne, parce que ce sera l'impression de ce que j'aurai ressenti, moi tout seul.}{Claude Monet}
 % Production de la page de d'épigraphe(s) :
-%\makefrontepigraphs
+\makefrontepigraphs
 
-%\include{chapters/agradecimientos}
-%\include{chapters/remerciements}
+\include{chapters/agradecimientos}
+\include{chapters/remerciements}
 
 \input{abstract}
 

@@ -1774,9 +1774,9 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Preprint at \url{https://arxiv.org/abs/2201.05009}}
+      \field{note}{To appear in \textit{Annals of Applied Statistics}}
       \field{title}{Estimating Product Cannibalisation in Wholesale using Multivariate Hawkes Processes with Inhibition}
-      \field{year}{2023}
+      \field{year}{2024}
     \endentry
     \entry{Donnet2020}{article}{}
       \name{author}{3}{}{%
